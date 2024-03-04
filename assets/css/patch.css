@@ -68,12 +68,14 @@ p .fa, p .fab, p .fad, p .fal, p .far, p .fas {
 
 .bs-docs-section p {
 	text-indent: 0em;
+	line-height: 1.5;
+	margin: .5em 0;
 	text-align: justify;
 }
 
 .bs-docs-section p, .bs-docs-section div, .bs-docs-section ol,
 	.bs-docs-section ul {
-	font-size: 12pt
+	font-size: 12pt;
 }
 
 .bs-docs-section table {

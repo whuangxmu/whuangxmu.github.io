@@ -85,6 +85,8 @@
 							class="fa fa-chalkboard-teacher"></i> 教学 </a></li>
 					<li id="nav-status"><a href="#research"><i
 							class="fa fa-tasks"></i> 研究 </a></li>
+					<li id="nav-status"><a href="#release"><i
+							class="fa fa-bullhorn"></i> 公告 </a></li>
 					<li id="nav-ranklist"><a href="#about"><i
 							class="fa fa-trophy"></i> 简介 </a></li>
 				</ul>
@@ -102,7 +104,7 @@
 
 		<p class="lead">业精于勤，荒于嬉</p>
 		<p class="lead">
-			<a href="#teaching" class="btn btn-outline-inverse btn-lg">授课</a>
+			<a href="teaching/" class="btn btn-outline-inverse btn-lg">授课</a>
 			<a href="#research" class="btn btn-outline-inverse btn-lg">研究</a>
 		</p>
 		<p class="version">更新日期: 2024-03-03</p>
@@ -276,25 +278,25 @@
 							</thead>
 							<tbody id="course-list">
 								<tr>
-									<td class="text-justify"><a href="computer-network-internet.html">计算机网络</a></td>
+									<td class="text-justify"><a href="/teaching/cni/index.html">计算机网络</a></td>
 									<td class="text-justify">2023-2024学年第2学期</td>
 									<td class="text-justify">软件工程专业二年级</td>
 									<td class="text-justify text-success">正在授课</td>
 								</tr>
 								<tr>
-									<td class="text-justify"><a href="computer-network-internet.html">计算机网络</a></td>
+									<td class="text-justify"><a href="/teaching/cni/">计算机网络</a></td>
 									<td class="text-justify">2023-2024学年第1学期</td>
 									<td class="text-justify">数字媒体技术专业三年级</td>
 									<td class="text-justify text-info">已经结课</td>
 								</tr>
 								<tr>
-									<td class="text-justify"><a href="c-language-program-design.html">C 语言程序设计</a></td>
+									<td class="text-justify"><a href="/teaching/cpd/">C 语言程序设计</a></td>
 									<td class="text-justify">2023-2024学年第1学期</td>
 									<td class="text-justify">计算机大类一年级</td>
 									<td class="text-justify text-info">已经结课</td>
 								</tr>
 								<tr>
-									<td class="text-justify"><a href="engineering-mathematics.html">工程数学</a></td>
+									<td class="text-justify"><a href="/teaching/aem/">工程数学</a></td>
 									<td class="text-justify">2022-2023学年第2学期</td>
 									<td class="text-justify">电子信息专业研究生一年级</td>
 									<td class="text-justify text-danger">暂停开设</td>
@@ -336,6 +338,181 @@
 								</tr>
 							</tbody>
 						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+<!--
+.myoj2.bg-light-blue {
+	background-color: #f0f7ff;
+}
+
+.myoj2.bg-light-silver {
+	background-color: #f5f5f5;
+}
+
+.myoj2 .header {
+	font-size: 40px;
+	line-height: 64px;
+	color: #000;
+	letter-spacing: -1px;
+	margin: 0 0 10px
+}
+
+.myoj2 .description {
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 32px;
+	color: #3c3c3c;
+	margin: 0 0 30px
+}
+
+.myoj2 .introduction {
+	text-align: justify;
+}
+
+.myoj2-message .introduction .icon {
+	font-size: 32px;
+	line-height: 48px;
+	margin: 0.5em 0;
+	padding-right: 10px;
+	text-align: right;
+}
+
+.myoj2-message .introduction .title {
+	font-size: 32px;
+	line-height: 48px;
+	margin: 0.5em 0;
+}
+
+.myoj2 {
+	width: 100%;
+	text-align: center;
+	padding: 78px 0 81px;
+}
+
+.myoj2-summary {
+	background-color: #f5f5f5;
+}
+
+.myoj2 h3 {
+	font-size: 28px;
+	line-height: 1.5;
+}
+
+.myoj2-summary ul {
+	text-align: center;
+	margin: 24px 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: 0 0;
+	list-style: none;
+}
+
+.myoj2-summary ul li {
+	display: inline-block;
+	margin: 24px 0;
+	padding: 0 30px;
+	vertical-align: top;
+	text-align: left;
+}
+
+@media ( min-width : 992px) {
+	.myoj2-summary ul li {
+		border-left-width: 2px;
+		border-left-style: solid;
+	}
+	.myoj2-summary ul li:first-child {
+		border-left: 0;
+	}
+}
+
+.myoj2-summary ul li div {
+	font-size: 32px;
+	line-height: 48px;
+}
+
+.myoj2-summary ul li div.number {
+	font-size: 48px;
+	line-height: 50px;
+	font-weight: 300;
+}
+
+.myoj2-summary ul li div.number span.plus {
+	top: -.5em;
+	font-size: 75%;
+	position: relative;
+}
+
+.myoj2-summary ul li div.title {
+	color: #333333;
+	text-align: right;
+}
+
+@media ( min-width : 768px) {
+	.myoj2-features .feature {
+		margin-bottom: 0px;
+	}
+}
+
+.myoj2-features .feature {
+	margin-bottom: 100px;
+	padding: 10px;
+}
+
+.myoj2-features .feature .icon {
+	background-color: #1359a633;
+	border-radius: 40px;
+	height: 80px;
+	width: 80px;
+	color: #1359a6;
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+.myoj2-features .feature .icon div {
+	font-size: 36px;
+	line-height: 70px;
+}
+
+.myoj2-features .feature h4 {
+	font-size: 30px;
+	line-height: 1.5;
+}
+
+.myoj2-features .feature p {
+	font-size: 20px;
+	text-align: justify;
+	line-height: 1.5;
+	font-weight: 300;
+}
+-->
+</style>
+	<section class="myoj2 myoj2-features" id="release">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="header wow fadeIn animated" data-wow-delay=".2s"
+						style="visibility: visible; animation-delay: 0.2s;">公告</h2>
+					<div class="description wow fadeIn animated" data-wow-delay=".1s"
+						style="visibility: visible; animation-delay: 0.1s;">
+						<div class="list-group text-justify">
+  <a href="JavaScript:return false;" class="list-group-item">
+    <div class="row"><div class="col-xs-9 col-md-8">计算机网络项目一组队结束。</div>
+    <div class="col-xs-3 col-md-4 text-right"><span class="code small text-muted">2024-03-02 16:00</span></div></div>
+  </a>  <a href="JavaScript:return false;" class="list-group-item">
+    <div class="row"><div class="col-xs-9 col-md-8">新学期开始了。</div>
+    <div class="col-xs-3 col-md-4 text-right"><span class="code small text-muted">2024-02-26 18:00</span></div></div>
+  </a>
+  <a href="JavaScript:return false;" class="list-group-item">
+   <div class="row"><div class="col-xs-9 col-md-8">2023-2024学年第一学期期末成绩已经公布。</div>
+    <div class="col-xs-3 col-md-4 text-right"><span class="code small text-muted">2024-01-16 16:00</span></div></div>
+ </a>
+</div>
 					</div>
 				</div>
 			</div>
