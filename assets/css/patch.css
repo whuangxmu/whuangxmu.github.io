@@ -75,11 +75,11 @@ p .fa, p .fab, p .fad, p .fal, p .far, p .fas {
 
 .bs-docs-section p, .bs-docs-section div, .bs-docs-section ol,
 	.bs-docs-section ul {
-	font-size: 12pt;
+	font-size: 14pt;
 }
 
 .bs-docs-section table {
-	font-size: 10pt
+	font-size: 12pt
 }
 
 .bs-docs-section h1.page-header {
