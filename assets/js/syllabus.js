@@ -97,24 +97,30 @@ function Syllabus() {
 	    return classDates;  
 	}  
 
-	obj.buildTable = function(classDates) {  
-	    let table = `<table class="table table-bordered table-striped table-hover"><thead><tr>`;
-    	var sameOrder = (classDates[0].content[0].lecture === undefined);
-    	if (sameOrder)
-    		table += `<th width="15%">类型</th><th width="10%">章次</th><th width="45%">主要内容</th><th width="30%">日期</th>`;
-    	else
-    		table += `<th width="10%">类型</th><th width="10%">课件序号</th><th width="45%">主要内容</th><th width="10%">课本章次</th><th width="25%">日期</th>`;
-	    table += `</tr></thead><tbody>`;	  
+	obj.buildTable = function(classDates) {   
 	  
 	    let currentRow = null;  
 	    let currentType = null;  
-	    let currentDate = null;  
-	    let rowspanCount = 0;  
-	  
+	    let currentDate = null;
+		let isNew = true;
+		let table = "";
+		var sameOrder = false;
+		
 	    classDates.forEach(date => {
 	    	//console.log(date.content +","+date.content == undefined);
 	    	if (date.content == undefined || !Array.isArray(date.content) || date.content.length == 0)
 	    		return;
+
+	    	if (isNew) {
+	    	    table += `<table class="table table-bordered table-striped table-hover"><thead><tr>`;
+	        	sameOrder = (date.content[0].lecture === undefined);
+	        	if (sameOrder)
+	        		table += `<th width="15%">类型</th><th width="10%">章次</th><th width="45%">主要内容</th><th width="30%">日期</th>`;
+	        	else
+	        		table += `<th width="10%">类型</th><th width="10%">课件序号</th><th width="45%">主要内容</th><th width="10%">课本章次</th><th width="25%">日期</th>`;
+	    	    table += `</tr></thead><tbody>`;
+	    	    isNew = false;
+	    	}
 	    	
 	        let year = date.date.getFullYear();  
 	        let month = String(date.date.getMonth() + 1).padStart(2, '0'); // 月份从0开始，所以要+1  
