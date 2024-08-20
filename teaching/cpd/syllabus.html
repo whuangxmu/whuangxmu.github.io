@@ -131,8 +131,16 @@
 				</div>
 			</div>
 			<div class="bs-docs-section">
-				<h1 id="basic" class="page-header">基本信息</h1>
-				<div class="form-horizontal"></div>
+				<h1 id="calendar" class="page-header">校历</h1>
+				<div class="row">
+					<div class="col-md-12">
+						<div id="calendar-table"></div>
+					</div>
+				</div>
+			</div>
+			<div class="bs-docs-section">
+				<h1 id="arrangement" class="page-header">课程安排表</h1>
+				<div class="form-horizontal" id="syllabus-table"></div>
 			</div>
 		</div>
 
@@ -140,7 +148,9 @@
 			<nav
 				class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
 				<ul class="nav bs-docs-sidenav">
-					<li class=""><a href="#basic">基本信息</a></li>
+					<li class=""><a href="#timeline">时间线</a></li>
+					<li class=""><a href="#calendar">校历</a></li>
+					<li class=""><a href="#arrangement">课程安排表</a></li>
 					<a class="back-to-top" href="#top"> 返回顶部 </a>
 					<a class="back-to-top" href="./"> 返回上一级 </a>
 				</ul>
@@ -220,93 +230,9 @@
 </body>
 </html>
 
+<script type="text/javascript" src="/assets/js/timestep.js"></script>
+<script type="text/javascript" src="/assets/js/syllabus.js"></script>
 <script type="text/javascript">
-<!--
-function TimeStep() {
-	var obj = new Object;
-	obj.prepare = function() {
-		var h="<ul>";
-		for (var i=0; i<obj.nodes.length; i++)
-		{
-			h+="<li id=\"item"+(i+1)+"\">";
-			h+="<p class=\"item item"+(i+1)+"\" title=\""+obj.nodes[i].tip+"\">";
-			h+="<span class=\"notestep\">"+obj.nodes[i].title+"</span>";
-			h+="</p></li>";
-		}
-		h+="</ul>";
-		h+="<div class=\"clearfix\"></div>";
-		$(".time-step-wrap").html(h);
-		var item_width = Math.floor($(".time-step-wrap").width() / 7 - 10);
-		var line_width = item_width - 60;
-		$(".time-step-wrap li").width(item_width);
-//		alert(item_width);
-
-		h="<style>";
-		h+=".time-step-wrap li + li p.item:before,.time-step-wrap li + li p.item.pass:before,.time-step-wrap li + li p.item.now:before,";
-		h+=".time-step-wrap li:not(:last-of-type) p.item:after,.time-step-wrap li:not(:last-of-type) p.item.now:after,.time-step-wrap li:not(:last-of-type) p.item.pass:after {";
-		h+=" width: " + line_width + "px; }";
-		h+=".time-step-wrap li + li p.item:before,.time-step-wrap li + li p.item.pass:before,.time-step-wrap li + li p.item.now:before {";
-		h+=" left: " + (-line_width-5) + "px;";
-		h+="}";
-		h+=".time-step-wrap li:not(:last-of-type) p.item:after,.time-step-wrap li:not(:last-of-type) p.item.now:after,.time-step-wrap li:not(:last-of-type) p.item.pass:after {";
-		h+=" left: " + (line_width+15) + "px;";
-		h+="}";
-		h+="</style>";
-		
-		$(".time-step-wrap").append(h);
-	};
-	obj.run = function() {
-		// time-step---start
-	    let nowTime = new Date();
-	    let endTime = obj.nodes[obj.nodes.length - 1].time;
-	    let howmuchTime = (endTime - nowTime) / 1000;
-	    let Time = Math.floor(howmuchTime);
-
-	    //現在到結束時間的倒數日數
-	    let Now2Final = Time[0];
-
-	    let arrDayLeftFromNow = [];
-	    for (let i = 0; i < obj.nodes.length; i++) {
-	        let DayLeftFromNowForPush = Math.floor((obj.nodes[i].time - nowTime) / 1000);
-	        arrDayLeftFromNow.push(DayLeftFromNowForPush);
-	    }
-	    let arrWidth = [];
-	    for (let i = 0; i < arrDayLeftFromNow.length - 1; i++) {
-	        let widthForPush = (Math.abs(arrDayLeftFromNow[i]) / (arrDayLeftFromNow[i + 1] - arrDayLeftFromNow[i])) * 45;
-// 	        console.log(i+","+arrDayLeftFromNow[i]+"/"+(arrDayLeftFromNow[i + 1] - arrDayLeftFromNow[i])+"="+widthForPush);
-	        arrWidth.push(widthForPush);
-	    }
-
-	    // 判斷now
-	    for (let i = 0; i < obj.nodes.length; i++) {
-	        if (arrDayLeftFromNow[i] <= 0) {
-	            $('#item' + (i + 1) + '').addClass('checkA');
-	        }
-	        if (arrDayLeftFromNow[i] < 0) {
-	            $('.item' + (i + 1) + '').addClass('pass');
-	        } else {
-	            $('.item' + (i + 1) + '').removeClass('pass');
-	        }
-	        if (arrDayLeftFromNow[i] > 0) {
-	            $('#item' + (i + 1) + '').addClass('checkB');
-	        }
-	    }
-	    $('.checkA:last').addClass('checkForNow');
-	    $('.checkForNow p').addClass('now');
-	    let addHTML = $('.now').html();
-	    $('.now').html('' + addHTML + '<div class="nowcircle"></div>');
-
-	    // 進度百分比
-	    $('.checkB:first p').addClass('checkForStepLine');
-	    for (let i = 0; i < obj.nodes.length; i++) {
-	        let hasclassCheck = $('.item' + (i + 1) + '').hasClass('now');
-	        if (hasclassCheck) {
-	            $('.time-step-wrap li+li p.checkForStepLine').before('<div class="addline" style="position:absolute; left: -45px; top: 40px;display:inline; width:' + Math.floor(arrWidth[i]) + 'px; height:3px; background-color:#e21d38;z-index: 100;"></div>');
-	        }
-	    }
-	}
-	return obj;
-}
 var t = new TimeStep();
 var nodes = [
 	{"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
@@ -320,5 +246,69 @@ t.nodes = nodes;
 t.prepare();
 t.run();
 // time-step---end
+
+const courses = [
+	{"type":1,"chapter":1,"title":"课程简介","classlast":1},
+	{"type":1,"chapter":"","title":"软件工程简介","classlast":1},
+	{"type":1,"chapter":2,"title":"C语言简介（1）","classlast":2},
+	{"type":1,"chapter":2,"title":"C语言简介（2）","classlast":2},
+	{"type":1,"chapter":2,"title":"C语言简介（3）","classlast":2},
+	{"type":1,"chapter":3,"title":"数据类型","classlast":2},
+	{"type":1,"chapter":4,"title":"字符串和格式化输入输出","classlast":2},
+	{"type":1,"chapter":5,"title":"操作符、表达式和语句","classlast":2},
+	{"type":1,"chapter":6,"title":"C控制语句：循环","classlast":2},
+	{"type":1,"chapter":7,"title":"C控制语句：分支和跳转","classlast":2},
+	{"type":1,"chapter":10,"title":"数组和指针（1）","classlast":2},
+	{"type":1,"chapter":11,"title":"字符串、字符串函数和排序（1）","classlast":2},
+	{"type":1,"chapter":"EM","title":"期中考试（教学组统一安排）","classlast":2},
+	{"type":1,"chapter":8,"title":"字符输入输出和输入验证","classlast":1},
+	{"type":1,"chapter":9,"title":"函数（1）","classlast":1},
+	{"type":1,"chapter":9,"title":"函数（2）","classlast":2},
+	{"type":1,"chapter":9,"title":"数组和指针（2）","classlast":2},
+	{"type":1,"chapter":9,"title":"数组和指针（3）","classlast":2},
+	{"type":1,"chapter":"A2","title":"代码阅读","classlast":2},
+	{"type":1,"chapter":11,"title":"字符串、字符串函数和排序（2）","classlast":2},
+	{"type":1,"chapter":12,"title":"存储类、链接和内存管理","classlast":2},
+	{"type":1,"chapter":13,"title":"文件输入输出","classlast":2},
+	{"type":1,"chapter":14,"title":"结构体和其它数据格式（1）","classlast":2},
+	{"type":1,"chapter":14,"title":"结构体和其它数据格式（2）","classlast":2},
+	{"type":1,"chapter":14,"title":"结构体和其它数据格式（3）","classlast":2},
+	{"type":1,"chapter":15,"title":"位操作","classlast":2},
+	{"type":1,"chapter":16,"title":"C预处理器和C库","classlast":2},
+	{"type":1,"chapter":17,"title":"高级数据表示（1）","classlast":2},
+	{"type":1,"chapter":17,"title":"高级数据表示（2）","classlast":2},
+	{"type":1,"chapter":"R1","title":"期末复习","classlast":2},
+	{"type":1,"chapter":"","title":"期末笔试（学院统一安排）","classlast":2},
+	{"type":2,"chapter":"A1","title":"计算机基础","classlast":2},
+	{"type":2,"chapter":"","title":"在线判题系统的基本用法","classlast":1},
+	{"type":2,"chapter":1,"title":"开发环境，编译和运行","classlast":1},
+	{"type":2,"chapter":2,"title":"程序设计与实现","classlast":2},
+	{"type":2,"chapter":3,"title":"调试","classlast":2},
+	{"type":2,"chapter":4,"title":"测试","classlast":2},
+	{"type":2,"chapter":5,"title":"错误查找","classlast":2},
+	{"type":2,"chapter":"","title":"2048游戏（1. 需求分析）","classlast":2},
+	{"type":2,"chapter":6,"title":"静态检查","classlast":2},
+	{"type":2,"chapter":"","title":"2048游戏（2. 设计实现）","classlast":2},
+	{"type":2,"chapter":"","title":"2048游戏（3. 整体评论）","classlast":2},
+	{"type":2,"chapter":"","title":"（机动）","classlast":2},
+	{"type":2,"chapter":"","title":"（机动）","classlast":2},
+	{"type":2,"chapter":"","title":"（机动）","classlast":2},
+	{"type":2,"chapter":"EE","title":"期末上机考试","classlast":2}
+];
+
+const firstDay = new Date(2024,8,1); // 本学期第一周周日  
+const firstStartDay = new Date(2024,8,15); // 本学期第一周周日  
+const lastSaturday = new Date(2024,11,28); // 本学期最后一周周六
+
+const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）  
+const labDays = [3]; // 实验课在周三上  
+const holidays = [[new Date(2024,8,15), new Date(2024,8,16), new Date(2024,8,17), new Date(2024,9,1), new Date(2024,9,2), new Date(2024,9,3), new Date(2024,9,4), new Date(2024,9,5), new Date(2024,9,6), new Date(2024,9,7) ],
+					[null,new Date(2024,8,14),null,null,null,null, new Date(2024,8,29),null,null, new Date(2024,9,12)]];
+
+var s = new Syllabus();
+classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 1);
+classDates = s.scheduleCourses(classDates, courses);
+$("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday)); 
+$("#syllabus-table").html(s.buildTable(classDates));  
 //-->
 </script>

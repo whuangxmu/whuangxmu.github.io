@@ -11,7 +11,7 @@
 <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
 <meta name="theme-color" content="#1359a6">
 
-<title>计算机网络 - 黄老师</title>
+<title></title>
 
 <!-- Bootstrap core Stylesheet -->
 <link type="text/css" rel="stylesheet"
@@ -59,7 +59,7 @@
 	<!-- Page Preloader End -->
 
 	<!-- Nav Bar Begin -->
-	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
+	<a id="skippy" class="sr-only sr-only-focusable" href="#title">
 		<div class="container">
 			<span class="skiplink-text">Skip to main content</span>
 		</div>
@@ -109,7 +109,7 @@
 	<!-- Nav Bar End -->
 
 	<!-- Docs page layout -->
-	<div class="bs-docs-header" id="content" tabindex="-1">
+	<div class="bs-docs-header" id="title" tabindex="-1">
 		<div class="container">
 			<h1>教学进度</h1>
 			<p>简要介绍教学日程安排。</p>
@@ -131,8 +131,16 @@
 				</div>
 			</div>
 			<div class="bs-docs-section">
-				<h1 id="basic" class="page-header">基本信息</h1>
-				<div class="form-horizontal"></div>
+				<h1 id="calendar" class="page-header">校历</h1>
+				<div class="row">
+					<div class="col-md-12">
+						<div id="calendar-table"></div>
+					</div>
+				</div>
+			</div>
+			<div class="bs-docs-section">
+				<h1 id="arrangement" class="page-header">课程安排表</h1>
+				<div class="form-horizontal" id="syllabus-table"></div>
 			</div>
 		</div>
 
@@ -140,7 +148,9 @@
 			<nav
 				class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
 				<ul class="nav bs-docs-sidenav">
-					<li class=""><a href="#basic">基本信息</a></li>
+					<li class=""><a href="#timeline">时间线</a></li>
+					<li class=""><a href="#calendar">校历</a></li>
+					<li class=""><a href="#arrangement">课程安排表</a></li>
 					<a class="back-to-top" href="#top"> 返回顶部 </a>
 					<a class="back-to-top" href="./"> 返回上一级 </a>
 				</ul>
@@ -220,98 +230,15 @@
 </body>
 </html>
 
+<script type="text/javascript" src="/assets/js/timestep.js"></script>
+<script type="text/javascript" src="/assets/js/syllabus.js"></script>
 <script type="text/javascript">
-<!--
-function TimeStep() {
-	var obj = new Object;
-	obj.prepare = function() {
-		var h="<ul>";
-		for (var i=0; i<obj.nodes.length; i++)
-		{
-			h+="<li id=\"item"+(i+1)+"\">";
-			h+="<p class=\"item item"+(i+1)+"\" title=\""+obj.nodes[i].tip+"\">";
-			h+="<span class=\"notestep\">"+obj.nodes[i].title+"</span>";
-			h+="</p></li>";
-		}
-		h+="</ul>";
-		h+="<div class=\"clearfix\"></div>";
-		$(".time-step-wrap").html(h);
-		var item_width = Math.floor($(".time-step-wrap").width() / 7 - 10);
-		var line_width = item_width - 60;
-		$(".time-step-wrap li").width(item_width);
-//		alert(item_width);
-
-		h="<style>";
-		h+=".time-step-wrap li + li p.item:before,.time-step-wrap li + li p.item.pass:before,.time-step-wrap li + li p.item.now:before,";
-		h+=".time-step-wrap li:not(:last-of-type) p.item:after,.time-step-wrap li:not(:last-of-type) p.item.now:after,.time-step-wrap li:not(:last-of-type) p.item.pass:after {";
-		h+=" width: " + line_width + "px; }";
-		h+=".time-step-wrap li + li p.item:before,.time-step-wrap li + li p.item.pass:before,.time-step-wrap li + li p.item.now:before {";
-		h+=" left: " + (-line_width-5) + "px;";
-		h+="}";
-		h+=".time-step-wrap li:not(:last-of-type) p.item:after,.time-step-wrap li:not(:last-of-type) p.item.now:after,.time-step-wrap li:not(:last-of-type) p.item.pass:after {";
-		h+=" left: " + (line_width+15) + "px;";
-		h+="}";
-		h+="</style>";
-		
-		$(".time-step-wrap").append(h);
-	};
-	obj.run = function() {
-		// time-step---start
-	    let nowTime = new Date();
-	    let endTime = obj.nodes[obj.nodes.length - 1].time;
-	    let howmuchTime = (endTime - nowTime) / 1000;
-	    let Time = Math.floor(howmuchTime);
-
-	    //現在到結束時間的倒數日數
-	    let Now2Final = Time[0];
-
-	    let arrDayLeftFromNow = [];
-	    for (let i = 0; i < obj.nodes.length; i++) {
-	        let DayLeftFromNowForPush = Math.floor((obj.nodes[i].time - nowTime) / 1000);
-	        arrDayLeftFromNow.push(DayLeftFromNowForPush);
-	    }
-	    let arrWidth = [];
-	    for (let i = 0; i < arrDayLeftFromNow.length - 1; i++) {
-	        let widthForPush = (Math.abs(arrDayLeftFromNow[i]) / (arrDayLeftFromNow[i + 1] - arrDayLeftFromNow[i])) * 45;
-// 	        console.log(i+","+arrDayLeftFromNow[i]+"/"+(arrDayLeftFromNow[i + 1] - arrDayLeftFromNow[i])+"="+widthForPush);
-	        arrWidth.push(widthForPush);
-	    }
-
-	    // 判斷now
-	    for (let i = 0; i < obj.nodes.length; i++) {
-	        if (arrDayLeftFromNow[i] <= 0) {
-	            $('#item' + (i + 1) + '').addClass('checkA');
-	        }
-	        if (arrDayLeftFromNow[i] < 0) {
-	            $('.item' + (i + 1) + '').addClass('pass');
-	        } else {
-	            $('.item' + (i + 1) + '').removeClass('pass');
-	        }
-	        if (arrDayLeftFromNow[i] > 0) {
-	            $('#item' + (i + 1) + '').addClass('checkB');
-	        }
-	    }
-	    $('.checkA:last').addClass('checkForNow');
-	    $('.checkForNow p').addClass('now');
-	    let addHTML = $('.now').html();
-	    $('.now').html('' + addHTML + '<div class="nowcircle"></div>');
-
-	    // 進度百分比
-	    $('.checkB:first p').addClass('checkForStepLine');
-	    for (let i = 0; i < obj.nodes.length; i++) {
-	        let hasclassCheck = $('.item' + (i + 1) + '').hasClass('now');
-	        if (hasclassCheck) {
-	            $('.time-step-wrap li+li p.checkForStepLine').before('<div class="addline" style="position:absolute; left: -45px; top: 38px;display:inline; width:' + Math.floor(arrWidth[i]) + 'px; height:3px; background-color:#e21d38;z-index: 100;"></div>');
-	        }
-	    }
-	}
-	return obj;
-}
 var t = new TimeStep();
 var nodes = [
 	{"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
 	{"title": "开始上课", "tip": "2024年9月4日 开始上课", "time": new Date(2024, 9 - 1, 4, 8, 0)},
 	{"title": "期中考核", "tip": "第9周 期中考核", "time": new Date(2024, 10 - 1, 30, 18, 0)},
+	{"title": "上机考试", "tip": "2024年最后一次实验课 期末上机考试", "time": new Date(2024, 12 - 1, 25, 18, 0)},
 	{"title": "期末笔试", "tip": "2025年1月考试周 期末笔试（时间待定）", "time": new Date(2025, 1 - 1, 10, 16, 0)},
 	{"title": "成绩录入", "tip": "2025年1月18日后 改卷公告成绩", "time": new Date(2025, 1 - 1, 18, 8, 0)},
 	{"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
@@ -319,5 +246,68 @@ t.nodes = nodes;
 t.prepare();
 t.run();
 // time-step---end
-//-->
+
+const courses = [
+	{"type":1,"lecture":0,"title":"课程介绍","chapter":"","classlast":1},
+	{"type":1,"lecture":1,"title":"传输介质","chapter":7,"classlast":1},
+	{"type":1,"lecture":2,"title":"局域通信","chapter":9,"classlast":2},
+	{"type":1,"lecture":3,"title":"远程通信","chapter":"10, 11","classlast":2},
+	{"type":2,"lecture":1,"title":"利用可见光传输信息","chapter":"","classlast":2},
+	{"type":1,"lecture":4,"title":"差错控制","chapter":8,"classlast":1},
+	{"type":1,"lecture":5,"title":"以太网","chapter":13,"classlast":1},
+	{"type":1,"lecture":6,"title":"网络布线","chapter":15,"classlast":.5},
+	{"type":1,"lecture":6,"title":"局域网扩展技术","chapter":17,"classlast":1},
+	{"type":1,"lecture":6,"title":"无线网络","chapter":16,"classlast":.5},
+	{"type":2,"lecture":2,"title":"利用可见光传输帧","chapter":"","classlast":2},
+	{"type":1,"lecture":7,"title":"远程数字连接技术","chapter":12,"classlast":1},
+	{"type":1,"lecture":7,"title":"网络技术的过去未来","chapter":28,"classlast":1},
+	{"type":1,"lecture":8,"title":"IP互联网协议地址","chapter":"20, 21","classlast":1},
+	{"type":1,"lecture":8,"title":"IP数据报转发","chapter":22,"classlast":1},
+	{"type":1,"lecture":9,"title":"支撑协议","chapter":23,"classlast":1.5},
+	{"type":1,"lecture":"华1","title":"IPv6协议基础","chapter":24,"classlast":.5},
+	{"type":2,"lecture":3,"title":"PCAP侦听和分析","chapter":"","classlast":2},
+	{"type":1,"lecture":"华2","title":"IPv6编址方案","chapter":"","classlast":2},
+	{"type":1,"lecture":"华4","title":"IPv6路由","chapter":"","classlast":2},
+	{"type":1,"lecture":"华5","title":"IPv6机制","chapter":"","classlast":2},
+	{"type":2,"lecture":4,"title":"路由器基本配置","chapter":"","classlast":1},
+	{"type":2,"lecture":"华3","title":"IPv6基本操作","chapter":"","classlast":1},
+	{"type":1,"lecture":"华6","title":"ICMPv6","chapter":"","classlast":2},
+	{"type":1,"lecture":"华8","title":"IPv6+简介","chapter":"","classlast":2},
+	{"type":1,"lecture":"华9","title":"IPv6+关键技术","chapter":"","classlast":2},
+	{"type":1,"lecture":"华11","title":"IPv6/IPv6+应用","chapter":"","classlast":2},
+	{"type":1,"lecture":"华12","title":"IPv6/IPv6+趋势","chapter":"","classlast":2},
+	{"type":2,"lecture":5,"title":"许可认证软件","chapter":"","classlast":2},
+	{"type":1,"lecture":12,"title":"UDP","chapter":25,"classlast":1},
+	{"type":1,"lecture":12,"title":"TCP（1）","chapter":"26, 谢5","classlast":1},
+	{"type":1,"lecture":12,"title":"TCP（2）","chapter":"26, 谢5","classlast":2},
+	{"type":2,"lecture":"华7","title":"IPv6路由配置","chapter":"","classlast":1},
+	{"type":2,"lecture":6,"title":"应用层协议服务配置","chapter":"","classlast":1},
+	{"type":1,"lecture":13,"title":"Internet路由","chapter":27,"classlast":2},
+	{"type":1,"lecture":14,"title":"客户端与服务器端","chapter":"","classlast":2},
+	{"type":1,"lecture":15,"title":"域名系统","chapter":3,"classlast":2},
+	{"type":2,"lecture":"华10","title":"IPv6+配置","chapter":"","classlast":1},
+	{"type":2,"lecture":7,"title":"代理服务器软件","chapter":"","classlast":1},
+	{"type":1,"lecture":16,"title":"电子邮件协议","chapter":3,"classlast":2},
+	{"type":1,"lecture":17,"title":"FTP协议","chapter":4,"classlast":2},
+	{"type":1,"lecture":18,"title":"Web服务","chapter":33,"classlast":1},
+	//{"type":1,"lecture":"","title":"（机动）","chapter":"","classlast":2},
+	{"type":2,"lecture":"","title":"（机动）","chapter":"","classlast":2},
+	{"type":1,"lecture":"R1","title":"期末复习","chapter":"","classlast":1},
+	{"type":1,"lecture":4,"title":"答疑","chapter":"","classlast":2},
+];
+
+const firstDay = new Date(2024,8,1); // 本学期第一周周日  
+const firstStartDay = new Date(2024,8,4); // 本学期第一周周日  
+const lastSaturday = new Date(2024,11,28); // 本学期最后一周周六
+
+const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）  
+const labDays = [3]; // 实验课在周三上  
+const holidays = [[new Date(2024,8,15), new Date(2024,8,16), new Date(2024,8,17), new Date(2024,9,1), new Date(2024,9,2), new Date(2024,9,3), new Date(2024,9,4), new Date(2024,9,5), new Date(2024,9,6), new Date(2024,9,7) ],
+					[null,new Date(2024,8,14),null,null,null,null, new Date(2024,8,29),null,null, new Date(2024,9,12)]];
+
+var s = new Syllabus();
+classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 2);
+classDates = s.scheduleCourses(classDates, courses);
+$("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday)); 
+$("#syllabus-table").html(s.buildTable(classDates));  
 </script>
