@@ -2,313 +2,438 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<!-- Meta, title, CSS, favicons, etc. -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Wei HUANG's Gitee Page">
-<meta name="keywords" content="Wei HUANG">
-<meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
-<meta name="theme-color" content="#1359a6">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
 
-<title></title>
+    <title></title>
 
-<!-- Bootstrap core Stylesheet -->
-<link type="text/css" rel="stylesheet"
-	href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
-<link type="text/css" rel="stylesheet"
-	href="//cdn.bootcdn.net/ajax/libs/animate.css/3.7.0/animate.min.css">
-<link type="text/css" rel="stylesheet"
-	href="/assets/css/docs.navy.min.css">
-<link type="text/css" rel="stylesheet"
-	href="/assets/css/patch.css?v=20211010">
-<link type="text/css" rel="stylesheet"
-	href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css">
+    <!-- Bootstrap core Stylesheet -->
+    <link type="text/css" rel="stylesheet"
+          href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet"
+          href="//cdn.bootcdn.net/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/docs.navy.min.css">
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/patch.css?v=20211010">
+    <link type="text/css" rel="stylesheet"
+          href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css">
 
-<!-- Documentation extras -->
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-<script type="text/javascript" src="/OJ/js.html?f=ie8-responsive-file-warning.js"></script>
-<![endif]-->
+    <!-- Documentation extras -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="/OJ/js.html?f=ie8-responsive-file-warning.js"></script>
+    <![endif]-->
 
-<script type="text/javascript"
-	src="//cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript">
-	var mode_async_json = false;
-	var myoj2_app_name = "黄老师";
-</script>
-<script type="text/javascript"
-	src="/assets/js/ie-emulation-modes-warning.min.js"></script>
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+    </script>
+    <script type="text/javascript"
+            src="/assets/js/ie-emulation-modes-warning.min.js"></script>
 </head>
 
 <body>
-	<!-- Page Preloader Begin -->
-	<div id="page-preloader">
-		<noscript>
-			<h1 class="text-danger">Error: Your browser does not support
-				JavaScript, or you have not enabled it in your browser settings.</h1>
-		</noscript>
-		<div class="spinner">
-			<div class="dot1"></div>
-			<div class="dot2"></div>
-		</div>
-	</div>
-	<!-- Page Preloader End -->
+    <!-- Page Preloader Begin -->
+    <div id="page-preloader">
+        <noscript>
+            <h1 class="text-danger">
+                Error: Your browser does not support
+                JavaScript, or you have not enabled it in your browser settings.
+            </h1>
+        </noscript>
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+    <!-- Page Preloader End -->
+    <!-- Nav Bar Begin -->
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+        <div class="container">
+            <span class="skiplink-text">Skip to main content</span>
+        </div>
+    </a>
 
-	<!-- Nav Bar Begin -->
-	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
-		<div class="container">
-			<span class="skiplink-text">Skip to main content</span>
-		</div>
-	</a>
+    <!-- Docs master nav -->
+    <!-- Docs master nav -->
+    <header class="navbar navbar-default cbp-af-header navbar-static-top bs-docs-nav"
+            id="top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button"
+                        data-toggle="collapse" data-target="#bs-navbar"
+                        aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"></a>
+            </div>
+            <nav id="bs-navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" id="navbar">
+                    <li id="nav-problemset" class="dropdown">
+                        <a href="#"
+                           class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-chalkboard-teacher"></i> 教学 <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li id="nav-contestset"><a href="/teaching/cni/">计算机网络</a></li>
+                            <li id="nav-contestset">
+                                <a href="/teaching/cpd/">
+                                    C
+                                    语言程序设计
+                                </a>
+                            </li>
+                            <li id="nav-contestset"><a href="/teaching/aem/">工程数学</a></li>
+                        </ul>
+                    </li>
+                    <li id="nav-status">
+                        <a href="#research.html">
+                            <i class="fa fa-tasks"></i> 研究
+                        </a>
+                    </li>
+                    <li id="nav-status">
+                        <a href="/release/">
+                            <i class="fa fa-bullhorn"></i> 公告
+                        </a>
+                    </li>
+                    <li id="nav-ranklist">
+                        <a href="/about.html">
+                            <i class="fa fa-trophy"></i> 简介
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--/ nav-collapse -->
+        </div>
+    </header>
+    <!-- Nav Bar End -->
+    <!-- Docs page layout -->
+    <div class="bs-docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>教学大纲</h1>
+            <p>简要介绍教学大纲。</p>
+        </div>
+    </div>
 
-	<!-- Docs master nav -->
-	<!-- Docs master nav -->
-	<header
-		class="navbar navbar-default cbp-af-header navbar-static-top bs-docs-nav"
-		id="top" role="banner">
-		<div class="container">
-			<div class="navbar-header">
-				<button class="navbar-toggle collapsed" type="button"
-					data-toggle="collapse" data-target="#bs-navbar"
-					aria-controls="bs-navbar" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span><span class="icon-bar"></span><span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/"></a>
-			</div>
-			<nav id="bs-navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav" id="navbar">
-					<li id="nav-problemset" class="dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false"> <i
-							class="fa fa-chalkboard-teacher"></i> 教学 <span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li id="nav-contestset"><a href="/teaching/cni/">计算机网络</a></li>
-							<li id="nav-contestset"><a href="/teaching/cpd/">C
-									语言程序设计</a></li>
-							<li id="nav-contestset"><a href="/teaching/aem/">工程数学</a></li>
-						</ul></li>
-					<li id="nav-status"><a href="#research.html"><i
-							class="fa fa-tasks"></i> 研究 </a></li>
-					<li id="nav-status"><a href="/release/"><i
-							class="fa fa-bullhorn"></i> 公告 </a></li>
-					<li id="nav-ranklist"><a href="/about.html"><i
-							class="fa fa-trophy"></i> 简介 </a></li>
+    <div class="container bs-docs-container">
+        <div class="col-md-9" role="main">
+            <div class="bs-docs-section">
+                <h1 id="basic" class="page-header">基本信息</h1>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">课程名称</label>
+                        <div class="col-sm-4">
+                            <div class="form-control-static">C 语言程序设计</div>
+                        </div>
+                        <label class="col-sm-2 control-label">课程代码</label>
+                        <div class="col-sm-4">
+                            <div class="form-control-static">130130010008</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">英文名称</label>
+                        <div class="col-sm-4">
+                            <div class="form-control-static">C Programming Design</div>
+                        </div>
+                        <label class="col-sm-2 control-label">授课教师</label>
+                        <div class="col-sm-4">
+                            <div class="form-control-static">
+                                <a href="/about.html">黄炜 博士，副教授</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">适用专业</label>
+                        <div class="col-sm-4">
+                            <div class="form-control-static">计算机专业大类</div>
+                        </div>
+                        <label class="col-sm-2 control-label">课程类型</label>
+                        <div class="col-sm-4">
+                            <div class="form-control-static">学科通修课程, 理论课</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">学时安排</label>
+                        <div class="col-sm-10">
+                            <div class="form-control-static">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>学期</th>
+                                            <th>总学时</th>
+                                            <th>理论教学学时</th>
+                                            <th>实验教学学时</th>
+                                            <th>实践教学学时</th>
+                                        </tr>
+                                        <tr class="bg-success text-success">
+                                            <td class="text-justify">第1学期</td>
+                                            <td class="text-right">84</td>
+                                            <td class="text-right">56</td>
+                                            <td class="text-right">28</td>
+                                            <td class="text-right">0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">先修课程</label>
+                        <div class="col-sm-10">
+                            <div class="form-control-static">
+                                无
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="introduction" class="page-header">课程简介</h1>
+                <p>本课程主要介绍C语言及其使用。通过本课程的学习，学生将掌握基本的C语言程序设计技巧。课程主要涵盖的内容包括数据类型、算术运算符、逻辑运算符、C标准库、分支和循环语句、函数、数组、指针、结构体、联合体、文件、以及若干基本数据结构的定义和操作。</p>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="objective" class="page-header">培养目标</h1>
+                <p>本课程总体目标是使学生掌握一门高级程序设计语言，学会利用C语言解决一般应用问题，并为后续的专业课程奠定程序设计基础。具体目标是：（1）至少熟练掌握一种现代的主流C语言的集成开发环境，如CodeBlocks，在该集成环境下，能够编写C语言程序，并具有基本的纠错和调试程序的能力；（2）掌握结构化程序设计的方法，养成良好的程序设计风格；（3）掌握程序设计中简单的数据结构和算法并能阅读简单的程序；（4）掌握基本的分析问题和利用计算机求解问题的能力，具备初步的高级语言程序设计能力。</p>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="method" class="page-header">教学方法</h1>
+                <p>（1）课堂教学；（2）上机实验。</p>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="maincontent" class="page-header">主要内容及学时安排</h1>
+                <div class="form-horizontal">
+                    <table class="table table-hover table-striped">
+                        <colgroup>
+                            <col style="width: 10%">
+                            <col style="width: 15%">
+                            <col style="width: 65%">
+                            <col style="width: 10%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>节次</th>
+                                <th>标题</th>
+                                <th>内容</th>
+                                <th>学时</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>第1章</td>
+                                <td>程序设计和C语言</td>
+                                <td>计算机程序和计算机语言，C语言的发展及其特点；最简单的C语言程序；C语言开发流程（编辑、编译、连接、运行、调试）；CodeBlocks开发步骤。</td>
+                                <td class="text-right">2</td>
+                            </tr>
+                            <tr>
+                                <td>第2章</td>
+                                <td>计算机中的数</td>
+                                <td>位、字节和二进制相关概念；二进制、八进制、十六进制、十进制的相互转换；有符号数和无符号数；原码及补码相互转换；ASCII码。</td>
+                                <td class="text-right">2</td>
+                            </tr>
+                            <tr>
+                                <td>第3章</td>
+                                <td>顺序程序设计</td>
+                                <td>顺序程序设计举例；数据的表现形式及其运算；C语句；数据的输入输出。</td>
+                                <td class="text-right">4</td>
+                            </tr>
+                            <tr>
+                                <td>第4章</td>
+                                <td>选择结构程序设计</td>
+                                <td>选择结构和条件判断；if语句；关系运算符和关系表达式；逻辑运算符和逻辑表达式；条件运算符和条件表达式；选择结构的嵌套；switch语句；程序举例。</td>
+                                <td class="text-right">4</td>
+                            </tr>
+                            <tr>
+                                <td>第5章</td>
+                                <td>循环结构程序设计</td>
+                                <td>while语句；do…while语句；for语句；循环嵌套；几种循环的比较；break语句；continue语句；程序举例。</td>
+                                <td class="text-right">8</td>
+                            </tr>
+                            <tr>
+                                <td>第6章</td>
+                                <td>利用数组处理批量数据</td>
+                                <td>一维数组；二维数组；字符数组。</td>
+                                <td class="text-right">8</td>
+                            </tr>
+                            <tr>
+                                <td>第7章</td>
+                                <td>利用函数实现模块化程序设计</td>
+                                <td>怎样定义函数；调用函数；函数声明和函数原型；函数嵌套；递归；数组作为函数参数；局部变量和全局变量；变量的存储方式和生存期；变量的声明和定义；内部函数和外部函数。</td>
+                                <td class="text-right">8</td>
+                            </tr>
+                            <tr>
+                                <td>第8章</td>
+                                <td>善于利用指针</td>
+                                <td>指针变量；指针与数组；指针与字符串；动态分配内存与回收。</td>
+                                <td class="text-right">6</td>
+                            </tr>
+                            <tr>
+                                <td>第9章</td>
+                                <td>用户自己建立数据类型</td>
+                                <td>结构体变量；结构体数组；结构体指针；用指针处理链表；共用体；枚举类型；typedef。</td>
+                                <td class="text-right">8</td>
+                            </tr>
+                            <tr>
+                                <td>第10章</td>
+                                <td>对文件的输入输出</td>
+                                <td>C文件基本知识；打开关闭文件；顺序读写文件；随机读写文件；文件读写的出错检测。</td>
+                                <td class="text-right">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="evaluation" class="page-header">考核方式</h1>
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">考核方式</label>
+                            <div class="col-sm-10">
+                                <div class="form-control-static">闭卷、笔试</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="textbook" class="page-header">主要教材</h1>
+                <p>本课程的主要教材为：</p>
+                <ol>
+                    <li>
+                        <a href="https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA?pwd=2icf#list/path=%2Fcourse%2FC%20Programming%20Design%2Ftextbook">
+                            <span class="fa fa-book" aria-hidden="true"></span> (美) Stephen Prata [著]. C Primer Plus （第六版）（英文版）（上下册）. 人民邮电出版社，2016年3月. (ISBN:
+                            9787115413512)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA?pwd=2icf#list/path=%2Fcourse%2FC%20Programming%20Design%2Ftextbook">
+                            <span class="fa fa-book" aria-hidden="true"></span> (美) Stephen Prata [著], 姜佑 [译]. C Primer Plus （第六版）（中文版）. 人民邮电出版社，2019年11月. (ISBN:
+                            9787115521637)
+                        </a>
+                    </li>
+                    <li>
+                        <span>
+                            <span class="fa fa-book" aria-hidden="true"></span>
+                            谭浩强. C程序设计（第五版）. 清华大学出版社，2016. (ISBN: 9787302481447)
+                        </span>
+                    </li>
+                </ol>
+                <p>
+                    课程还参考了网络资源、C语言标准文档等。
+                </p>
+                <p>
+                    其中，华为“智能基座”的部分，主要依据华为技术有限公司提供的《程序设计》资料包中C语言部分。
+                </p>
+                <p>
+                    本课程的实验课教材为自编教材<a href="https://gitee.com/whuangxmu/courses/blob/master/C-Programming-Design/handbook/c_experement_handbook.pdf">《C语言程序设计实验手册》</a>。
+                </p>
+                <p>
+                    课程的其它参考教材，请参见<a href="resources.html">
+                        <i class="fa fa-link"></i>
+                        参考资料
+                    </a> 。
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3" role="complementary">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
+                <ul class="nav bs-docs-sidenav">
+                    <li><a href="#basic">基本信息</a></li>
+                    <li><a href="#introduction">课程简介</a></li>
+                    <li><a href="#objective">培养目标</a></li>
+                    <li><a href="#method">教学方法</a></li>
+                    <li><a href="#maincontent">内容安排</a></li>
+                    <li><a href="#evaluation">考核方式</a></li>
+                    <li><a href="#textbook">课程教材</a></li>
+                </ul>
+                <a class="back-to-top" href="#top"> 返回顶部 </a><a class="back-to-top"
+                                                                href="./"> 返回上一级 </a>
+            </nav>
+        </div>
+    </div>
+    <!-- Footer ================================================== -->
+    <footer class="bs-docs-footer" role="contentinfo">
+        <div class="container">
+            <div class="row footer-top text-justify">
+                <div class="col-sm-6 col-lg-6">
+                    <h4>厦门大学黄老师</h4>
+                    <p>
+                        @2014-2024 <a href="about.html">黄炜</a> 保留其自行研发部分的所有权利。
+                    </p>
+                </div>
+                <div class="col-sm-6  col-lg-5 col-lg-offset-1 hidden-print">
+                    <div class="row about">
+                        <div class="col-xs-4">
+                            <h4>
+                                <i class="fa fa-question-circle"></i> 获取帮助
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li><a href="changelog.html">更新日志</a></li>
+                                <li><a href="mailto:whuang@xmu.edu.cn">联系我</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-4">
+                            <h4>
+                                <i class="fa fa-language"></i> 语言
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li><a href="/index.html">简体中文</a></li>
+                                <li><a href="/index_zht.html">正體中文</a></li>
+                                <li><a href="/index_en.html">English</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-4">
+                            <h4>
+                                <i class="fa fa-external-link"></i> 链接
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li><a href="https://www.xmu.edu.cn/" target="_blank">厦门大学</a></li>
+                                <li>
+                                    <a href="https://informatics.xmu.edu.cn/"
+                                       target="_blank">厦门大学信息学院</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-				</ul>
-			</nav>
-			<!--/ nav-collapse -->
-		</div>
-	</header>
-	<!-- Nav Bar End -->
+    <!-- Bootstrap core JavaScript ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/pace/1.2.3/pace.min.js"></script>
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/classie/1.0.1/classie.min.js"></script>
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/animated-header/0.0.1/js/cbpAnimatedHeader.min.js"></script>
+    <script type="text/javascript"
+            src="//cdn.bootcdn.net/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
+    <script src="/static/polyfill/polyfill.min.js?features=es6"></script>
 
-	<!-- Docs page layout -->
-	<div class="bs-docs-header" id="content" tabindex="-1">
-		<div class="container">
-			<h1>教学进度</h1>
-			<p>简要介绍教学日程安排。</p>
-		</div>
-	</div>
-
-	<div class="container bs-docs-container">
-
-		<link rel="stylesheet" href="/assets/css/time-step.css">
-		<!-- time-step---end -->
-		<div class="col-md-9" role="main">
-			<!-- time-step---start -->
-			<div class="bs-docs-section">
-				<h1 id="timeline" class="page-header">时间线</h1>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="time-step-wrap"></div>
-					</div>
-				</div>
-			</div>
-			<div class="bs-docs-section">
-				<h1 id="calendar" class="page-header">校历</h1>
-				<div class="row">
-					<div class="col-md-12">
-						<div id="calendar-table"></div>
-					</div>
-				</div>
-			</div>
-			<div class="bs-docs-section">
-				<h1 id="arrangement" class="page-header">课程安排表</h1>
-				<div class="form-horizontal" id="syllabus-table"></div>
-			</div>
-		</div>
-
-		<div class="col-md-3" role="complementary">
-			<nav
-				class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
-				<ul class="nav bs-docs-sidenav">
-					<li class=""><a href="#timeline">时间线</a></li>
-					<li class=""><a href="#calendar">校历</a></li>
-					<li class=""><a href="#arrangement">课程安排表</a></li>
-				</ul>
-				<a class="back-to-top" href="#top"> 返回顶部 </a>
-				<a class="back-to-top" href="./"> 返回上一级 </a>
-			</nav>
-		</div>
-	</div>
-	<!-- Footer ================================================== -->
-	<footer class="bs-docs-footer" role="contentinfo">
-		<div class="container">
-			<div class="row footer-top text-justify">
-				<div class="col-sm-6 col-lg-6">
-					<h4>厦门大学黄老师</h4>
-					<p>
-						@2014-2024 <a href="about.html">黄炜</a> 保留其自行研发部分的所有权利。
-					</p>
-				</div>
-				<div class="col-sm-6  col-lg-5 col-lg-offset-1 hidden-print">
-					<div class="row about">
-						<div class="col-xs-4">
-							<h4>
-								<i class="fa fa-question-circle"></i> 获取帮助
-							</h4>
-							<ul class="list-unstyled">
-								<li><a href="changelog.html">更新日志</a></li>
-								<li><a href="mailto:whuang@xmu.edu.cn">联系我</a></li>
-							</ul>
-						</div>
-						<div class="col-xs-4">
-							<h4>
-								<i class="fa fa-language"></i> 语言
-							</h4>
-							<ul class="list-unstyled">
-								<li><a href="/index.html">简体中文</a></li>
-								<li><a href="/index_zht.html">正體中文</a></li>
-								<li><a href="/index_en.html">English</a></li>
-							</ul>
-						</div>
-						<div class="col-xs-4">
-							<h4>
-								<i class="fa fa-external-link"></i> 链接
-							</h4>
-							<ul class="list-unstyled">
-								<li><a href="https://www.xmu.edu.cn/" target="_blank">厦门大学</a></li>
-								<li><a href="https://informatics.xmu.edu.cn/"
-									target="_blank">厦门大学信息学院</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Bootstrap core JavaScript ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/pace/1.2.3/pace.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/classie/1.0.1/classie.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/animated-header/0.0.1/js/cbpAnimatedHeader.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
-	<script src="/static/polyfill/polyfill.min.js?features=es6"></script>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script type="text/javascript" src="/assets/js/docs.min.js"></script>
-	<script type="text/javascript" src="/assets/js/footer.min.js"></script>
-	<script type="text/javascript"
-		src="/assets/js/ie10-viewport-bug-workaround.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script type="text/javascript" src="/assets/js/docs.min.js"></script>
+    <script type="text/javascript" src="/assets/js/footer.min.js"></script>
+    <script type="text/javascript"
+            src="/assets/js/ie10-viewport-bug-workaround.min.js"></script>
 </body>
 </html>
-
-<script type="text/javascript" src="/assets/js/timestep.js"></script>
-<script type="text/javascript" src="/assets/js/syllabus.js"></script>
-<script type="text/javascript">
-var t = new TimeStep();
-var nodes = [
-	{"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
-	{"title": "开始上课", "tip": "2024年9月18日 开始上课", "time": new Date(2024, 9 - 1, 18, 8, 0)},
-	{"title": "期中考核", "tip": "第9周 期中考核", "time": new Date(2024, 10 - 1, 30, 18, 0)},
-	{"title": "上机考试", "tip": "2024年最后一次实验课 期末上机考试", "time": new Date(2024, 12 - 1, 25, 18, 0)},
-	{"title": "期末笔试", "tip": "2025年1月考试周 期末笔试（时间待定）", "time": new Date(2025, 1 - 1, 10, 16, 0)},
-	{"title": "成绩录入", "tip": "2025年1月18日后 改卷公告成绩", "time": new Date(2025, 1 - 1, 18, 8, 0)},
-	{"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
-t.nodes = nodes;
-t.prepare();
-t.run();
-// time-step---end
-
-const courses = [
-	{"type":1,"chapter":1,"title":"课程简介","classlast":1},
-	{"type":1,"chapter":"","title":"软件工程简介","classlast":1},
-	{"type":1,"chapter":2,"title":"C语言简介（1）","classlast":2},
-	{"type":1,"chapter":2,"title":"C语言简介（2）","classlast":2},
-	{"type":1,"chapter":2,"title":"C语言简介（3）","classlast":2},
-	{"type":1,"chapter":3,"title":"数据类型","classlast":2},
-	{"type":1,"chapter":4,"title":"字符串和格式化输入输出","classlast":2},
-	{"type":1,"chapter":5,"title":"操作符、表达式和语句","classlast":2},
-	{"type":1,"chapter":6,"title":"C控制语句：循环","classlast":2},
-	{"type":1,"chapter":7,"title":"C控制语句：分支和跳转","classlast":2},
-	{"type":1,"chapter":10,"title":"数组和指针（1）","classlast":2},
-	{"type":1,"chapter":11,"title":"字符串、字符串函数和排序（1）","classlast":2},
-	{"type":1,"chapter":"EM","title":"期中考试（教学组统一安排）","classlast":2},
-	{"type":1,"chapter":8,"title":"字符输入输出和输入验证","classlast":1},
-	{"type":1,"chapter":9,"title":"函数（1）","classlast":1},
-	{"type":1,"chapter":9,"title":"函数（2）","classlast":2},
-	{"type":1,"chapter":9,"title":"数组和指针（2）","classlast":2},
-	{"type":1,"chapter":9,"title":"数组和指针（3）","classlast":2},
-	{"type":1,"chapter":"A2","title":"代码阅读","classlast":2},
-	{"type":1,"chapter":11,"title":"字符串、字符串函数和排序（2）","classlast":2},
-	{"type":1,"chapter":12,"title":"存储类、链接和内存管理","classlast":2},
-	{"type":1,"chapter":13,"title":"文件输入输出","classlast":2},
-	{"type":1,"chapter":14,"title":"结构体和其它数据格式（1）","classlast":2},
-	{"type":1,"chapter":14,"title":"结构体和其它数据格式（2）","classlast":2},
-	{"type":1,"chapter":14,"title":"结构体和其它数据格式（3）","classlast":2},
-	{"type":1,"chapter":15,"title":"位操作","classlast":2},
-	{"type":1,"chapter":16,"title":"C预处理器和C库","classlast":2},
-	{"type":1,"chapter":17,"title":"高级数据表示（1）","classlast":2},
-	{"type":1,"chapter":17,"title":"高级数据表示（2）","classlast":2},
-	{"type":1,"chapter":"R1","title":"期末复习","classlast":2},
-	{"type":1,"chapter":"","title":"期末笔试（学院统一安排）","classlast":2},
-	{"type":2,"chapter":"A1","title":"计算机基础","classlast":2},
-	{"type":2,"chapter":"","title":"在线判题系统的基本用法","classlast":1},
-	{"type":2,"chapter":1,"title":"开发环境，编译和运行","classlast":1},
-	{"type":2,"chapter":2,"title":"程序设计与实现","classlast":2},
-	{"type":2,"chapter":3,"title":"调试","classlast":2},
-	{"type":2,"chapter":4,"title":"测试","classlast":2},
-	{"type":2,"chapter":5,"title":"错误查找","classlast":2},
-	{"type":2,"chapter":"","title":"2048游戏（1. 需求分析）","classlast":2},
-	{"type":2,"chapter":6,"title":"静态检查","classlast":2},
-	{"type":2,"chapter":"","title":"2048游戏（2. 设计实现）","classlast":2},
-	{"type":2,"chapter":"","title":"2048游戏（3. 整体评论）","classlast":2},
-	{"type":2,"chapter":"","title":"（机动）","classlast":2},
-	{"type":2,"chapter":"","title":"（机动）","classlast":2},
-	{"type":2,"chapter":"","title":"（机动）","classlast":2},
-	{"type":2,"chapter":"EE","title":"期末上机考试","classlast":2}
-];
-
-const firstDay = new Date(2024,8,1); // 本学期第一周周日  
-const firstStartDay = new Date(2024,8,15); // 本学期第一周周日  
-const lastSaturday = new Date(2024,11,28); // 本学期最后一周周六
-
-const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）  
-const labDays = [3]; // 实验课在周三上  
-const holidays = [[new Date(2024,8,15), new Date(2024,8,16), new Date(2024,8,17), new Date(2024,9,1), new Date(2024,9,2), new Date(2024,9,3), new Date(2024,9,4), new Date(2024,9,5), new Date(2024,9,6), new Date(2024,9,7) ],
-					[null,new Date(2024,8,14),null,null,null,null, new Date(2024,8,29),null,null, new Date(2024,9,12)]];
-
-var s = new Syllabus();
-classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 1);
-classDates = s.scheduleCourses(classDates, courses);
-$("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday)); 
-$("#syllabus-table").html(s.buildTable(classDates));  
-//-->
-</script>
