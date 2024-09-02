@@ -1,0 +1,313 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Wei HUANG's Gitee Page">
+<meta name="keywords" content="Wei HUANG">
+<meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+<meta name="theme-color" content="#1359a6">
+
+<title></title>
+
+<!-- Bootstrap core Stylesheet -->
+<link type="text/css" rel="stylesheet"
+	href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet"
+	href="//cdn.bootcdn.net/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link type="text/css" rel="stylesheet"
+	href="/assets/css/docs.navy.min.css">
+<link type="text/css" rel="stylesheet"
+	href="/assets/css/patch.css?v=20211010">
+<link type="text/css" rel="stylesheet"
+	href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css">
+
+<!-- Documentation extras -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<script type="text/javascript" src="/OJ/js.html?f=ie8-responsive-file-warning.js"></script>
+<![endif]-->
+
+<script type="text/javascript"
+	src="//cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	var mode_async_json = false;
+	var myoj2_app_name = "黄老师";
+</script>
+<script type="text/javascript"
+	src="/assets/js/ie-emulation-modes-warning.min.js"></script>
+</head>
+
+<body>
+	<!-- Page Preloader Begin -->
+	<div id="page-preloader">
+		<noscript>
+			<h1 class="text-danger">Error: Your browser does not support
+				JavaScript, or you have not enabled it in your browser settings.</h1>
+		</noscript>
+		<div class="spinner">
+			<div class="dot1"></div>
+			<div class="dot2"></div>
+		</div>
+	</div>
+	<!-- Page Preloader End -->
+
+	<!-- Nav Bar Begin -->
+	<a id="skippy" class="sr-only sr-only-focusable" href="#title">
+		<div class="container">
+			<span class="skiplink-text">Skip to main content</span>
+		</div>
+	</a>
+
+	<!-- Docs master nav -->
+	<!-- Docs master nav -->
+	<header
+		class="navbar navbar-default cbp-af-header navbar-static-top bs-docs-nav"
+		id="top" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle collapsed" type="button"
+					data-toggle="collapse" data-target="#bs-navbar"
+					aria-controls="bs-navbar" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span><span class="icon-bar"></span><span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/"></a>
+			</div>
+			<nav id="bs-navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav" id="navbar">
+					<li id="nav-problemset" class="dropdown"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-haspopup="true" aria-expanded="false"> <i
+							class="fa fa-chalkboard-teacher"></i> 教学 <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li id="nav-contestset"><a href="/teaching/cni/">计算机网络</a></li>
+							<li id="nav-contestset"><a href="/teaching/cpd/">C
+									语言程序设计</a></li>
+							<li id="nav-contestset"><a href="/teaching/aem/">工程数学</a></li>
+						</ul></li>
+					<li id="nav-status"><a href="#research.html"><i
+							class="fa fa-tasks"></i> 研究 </a></li>
+					<li id="nav-status"><a href="/release/"><i
+							class="fa fa-bullhorn"></i> 公告 </a></li>
+					<li id="nav-ranklist"><a href="/about.html"><i
+							class="fa fa-trophy"></i> 简介 </a></li>
+
+				</ul>
+			</nav>
+			<!--/ nav-collapse -->
+		</div>
+	</header>
+	<!-- Nav Bar End -->
+
+	<!-- Docs page layout -->
+	<div class="bs-docs-header" id="title" tabindex="-1">
+		<div class="container">
+			<h1>教学进度</h1>
+			<p>简要介绍教学日程安排。</p>
+		</div>
+	</div>
+
+	<div class="container bs-docs-container">
+
+		<link rel="stylesheet" href="/assets/css/time-step.css">
+		<!-- time-step---end -->
+		<div class="col-md-9" role="main">
+			<!-- time-step---start -->
+			<div class="bs-docs-section">
+				<h1 id="timeline" class="page-header">时间线</h1>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="time-step-wrap"></div>
+					</div>
+				</div>
+			</div>
+			<div class="bs-docs-section">
+				<h1 id="calendar" class="page-header">校历</h1>
+				<div class="row">
+					<div class="col-md-12">
+						<div id="calendar-table"></div>
+					</div>
+				</div>
+			</div>
+			<div class="bs-docs-section">
+				<h1 id="arrangement" class="page-header">课程安排表</h1>
+				<div class="form-horizontal" id="syllabus-table"></div>
+			</div>
+		</div>
+
+		<div class="col-md-3" role="complementary">
+			<nav
+				class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
+				<ul class="nav bs-docs-sidenav">
+					<li class=""><a href="#timeline">时间线</a></li>
+					<li class=""><a href="#calendar">校历</a></li>
+					<li class=""><a href="#arrangement">课程安排表</a></li>
+					<a class="back-to-top" href="#top"> 返回顶部 </a>
+					<a class="back-to-top" href="./"> 返回上一级 </a>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- Footer ================================================== -->
+	<footer class="bs-docs-footer" role="contentinfo">
+		<div class="container">
+			<div class="row footer-top text-justify">
+				<div class="col-sm-6 col-lg-6">
+					<h4>厦门大学黄老师</h4>
+					<p>
+						@2014-2024 <a href="about.html">黄炜</a> 保留其自行研发部分的所有权利。
+					</p>
+				</div>
+				<div class="col-sm-6  col-lg-5 col-lg-offset-1 hidden-print">
+					<div class="row about">
+						<div class="col-xs-4">
+							<h4>
+								<i class="fa fa-question-circle"></i> 获取帮助
+							</h4>
+							<ul class="list-unstyled">
+								<li><a href="changelog.html">更新日志</a></li>
+								<li><a href="mailto:whuang@xmu.edu.cn">联系我</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-4">
+							<h4>
+								<i class="fa fa-language"></i> 语言
+							</h4>
+							<ul class="list-unstyled">
+								<li><a href="/index.html">简体中文</a></li>
+								<li><a href="/index_zht.html">正體中文</a></li>
+								<li><a href="/index_en.html">English</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-4">
+							<h4>
+								<i class="fa fa-external-link"></i> 链接
+							</h4>
+							<ul class="list-unstyled">
+								<li><a href="https://www.xmu.edu.cn/" target="_blank">厦门大学</a></li>
+								<li><a href="https://informatics.xmu.edu.cn/"
+									target="_blank">厦门大学信息学院</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Bootstrap core JavaScript ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript"
+		src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.bootcdn.net/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.bootcdn.net/ajax/libs/pace/1.2.3/pace.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.bootcdn.net/ajax/libs/classie/1.0.1/classie.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.bootcdn.net/ajax/libs/animated-header/0.0.1/js/cbpAnimatedHeader.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.bootcdn.net/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
+	<script src="/static/polyfill/polyfill.min.js?features=es6"></script>
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script type="text/javascript" src="/assets/js/docs.min.js"></script>
+	<script type="text/javascript" src="/assets/js/footer.min.js"></script>
+	<script type="text/javascript"
+		src="/assets/js/ie10-viewport-bug-workaround.min.js"></script>
+</body>
+</html>
+
+<script type="text/javascript" src="/assets/js/timestep.js"></script>
+<script type="text/javascript" src="/assets/js/syllabus.js"></script>
+<script type="text/javascript">
+var t = new TimeStep();
+var nodes = [
+	{"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
+	{"title": "开始上课", "tip": "2024年9月4日 开始上课", "time": new Date(2024, 9 - 1, 4, 8, 0)},
+	{"title": "期中考核", "tip": "第9周 期中考核", "time": new Date(2024, 10 - 1, 30, 18, 0)},
+	{"title": "上机考试", "tip": "2024年最后一次实验课 期末上机考试", "time": new Date(2024, 12 - 1, 25, 18, 0)},
+	{"title": "期末笔试", "tip": "2025年1月考试周 期末笔试（时间待定）", "time": new Date(2025, 1 - 1, 10, 16, 0)},
+	{"title": "成绩录入", "tip": "2025年1月18日后 改卷公告成绩", "time": new Date(2025, 1 - 1, 18, 8, 0)},
+	{"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
+t.nodes = nodes;
+t.prepare();
+t.run();
+// time-step---end
+
+const courses = [
+	{"type":1,"lecture":0,"title":"课程介绍","chapter":"","classlast":1},
+	{"type":1,"lecture":1,"title":"传输介质","chapter":7,"classlast":1},
+	{"type":1,"lecture":2,"title":"局域通信","chapter":9,"classlast":2},
+	{"type":1,"lecture":3,"title":"远程通信","chapter":"10, 11","classlast":2},
+	{"type":2,"lecture":1,"title":"利用可见光传输信息","chapter":"","classlast":2},
+	{"type":1,"lecture":4,"title":"差错控制","chapter":8,"classlast":1},
+	{"type":1,"lecture":5,"title":"以太网","chapter":13,"classlast":1},
+	{"type":1,"lecture":6,"title":"网络布线","chapter":15,"classlast":.5},
+	{"type":1,"lecture":6,"title":"局域网扩展技术","chapter":17,"classlast":1},
+	{"type":1,"lecture":6,"title":"无线网络","chapter":16,"classlast":.5},
+	{"type":2,"lecture":2,"title":"利用可见光传输帧","chapter":"","classlast":2},
+	{"type":1,"lecture":7,"title":"远程数字连接技术","chapter":12,"classlast":1},
+	{"type":1,"lecture":7,"title":"网络技术的过去未来","chapter":28,"classlast":1},
+	{"type":1,"lecture":8,"title":"IP互联网协议地址","chapter":"20, 21","classlast":1},
+	{"type":1,"lecture":8,"title":"IP数据报转发","chapter":22,"classlast":1},
+	{"type":1,"lecture":9,"title":"支撑协议","chapter":23,"classlast":1.5},
+	{"type":1,"lecture":"华1","title":"IPv6协议基础","chapter":24,"classlast":.5},
+	{"type":2,"lecture":3,"title":"PCAP侦听和分析","chapter":"","classlast":2},
+	{"type":1,"lecture":"华2","title":"IPv6编址方案","chapter":"","classlast":2},
+	{"type":1,"lecture":"华4","title":"IPv6路由","chapter":"","classlast":2},
+	{"type":1,"lecture":"华5","title":"IPv6机制","chapter":"","classlast":2},
+	{"type":2,"lecture":4,"title":"路由器基本配置","chapter":"","classlast":1},
+	{"type":2,"lecture":"华3","title":"IPv6基本操作","chapter":"","classlast":1},
+	{"type":1,"lecture":"华6","title":"ICMPv6","chapter":"","classlast":2},
+	{"type":1,"lecture":"华8","title":"IPv6+简介","chapter":"","classlast":2},
+	{"type":1,"lecture":"华9","title":"IPv6+关键技术","chapter":"","classlast":2},
+	{"type":1,"lecture":"华11","title":"IPv6/IPv6+应用","chapter":"","classlast":2},
+	{"type":1,"lecture":"华12","title":"IPv6/IPv6+趋势","chapter":"","classlast":2},
+	{"type":2,"lecture":5,"title":"许可认证软件","chapter":"","classlast":2},
+	{"type":1,"lecture":12,"title":"UDP","chapter":25,"classlast":1},
+	{"type":1,"lecture":12,"title":"TCP（1）","chapter":"26, 谢5","classlast":1},
+	{"type":1,"lecture":12,"title":"TCP（2）","chapter":"26, 谢5","classlast":2},
+	{"type":2,"lecture":"华7","title":"IPv6路由配置","chapter":"","classlast":1},
+	{"type":2,"lecture":6,"title":"应用层协议服务配置","chapter":"","classlast":1},
+	{"type":1,"lecture":13,"title":"Internet路由","chapter":27,"classlast":2},
+	{"type":1,"lecture":14,"title":"客户端与服务器端","chapter":"","classlast":2},
+	{"type":1,"lecture":15,"title":"域名系统","chapter":3,"classlast":2},
+	{"type":2,"lecture":"华10","title":"IPv6+配置","chapter":"","classlast":1},
+	{"type":2,"lecture":7,"title":"代理服务器软件","chapter":"","classlast":1},
+	{"type":1,"lecture":16,"title":"电子邮件协议","chapter":3,"classlast":2},
+	{"type":1,"lecture":17,"title":"FTP协议","chapter":4,"classlast":2},
+	{"type":1,"lecture":18,"title":"Web服务","chapter":33,"classlast":1},
+	//{"type":1,"lecture":"","title":"（机动）","chapter":"","classlast":2},
+	{"type":2,"lecture":"","title":"（机动）","chapter":"","classlast":2},
+	{"type":1,"lecture":"R1","title":"期末复习","chapter":"","classlast":1},
+	{"type":1,"lecture":4,"title":"答疑","chapter":"","classlast":2},
+];
+
+const firstDay = new Date(2024,8,1); // 本学期第一周周日  
+const firstStartDay = new Date(2024,8,4); // 本学期第一周周日  
+const lastSaturday = new Date(2024,11,28); // 本学期最后一周周六
+
+const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）  
+const labDays = [5]; // 实验课在周三上  
+const holidays = [[new Date(2024,8,15), new Date(2024,8,16), new Date(2024,8,17), new Date(2024,9,1), new Date(2024,9,2), new Date(2024,9,3), new Date(2024,9,4), new Date(2024,9,5), new Date(2024,9,6), new Date(2024,9,7) ],
+					[null,new Date(2024,8,14),null,null,null,null, new Date(2024,8,29),null,null, new Date(2024,9,12)]];
+
+var s = new Syllabus();
+classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 2);
+classDates = s.scheduleCourses(classDates, courses);
+$("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday)); 
+$("#syllabus-table").html(s.buildTable(classDates));  
+</script>
