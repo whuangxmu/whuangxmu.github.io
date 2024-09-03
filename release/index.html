@@ -67,7 +67,6 @@
     </a>
 
     <!-- Docs master nav -->
-    <!-- Docs master nav -->
     <header class="navbar navbar-default cbp-af-header navbar-static-top bs-docs-nav"
             id="top" role="banner">
         <div class="container">
@@ -81,34 +80,22 @@
             </div>
             <nav id="bs-navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav" id="navbar">
-                    <li id="nav-problemset" class="dropdown">
-                        <a href="#"
-                           class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-chalkboard-teacher"></i> 教学 <span class="caret"></span>
+                    <li id="nav-teaching">
+                        <a href="/teaching/">
+                            <i class="fa fa-chalkboard-teacher"></i> 教学
                         </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li id="nav-contestset"><a href="/teaching/cni/">计算机网络</a></li>
-                            <li id="nav-contestset">
-                                <a href="/teaching/cpd/">
-                                    C
-                                    语言程序设计
-                                </a>
-                            </li>
-                            <li id="nav-contestset"><a href="/teaching/aem/">工程数学</a></li>
-                        </ul>
                     </li>
-                    <li id="nav-status">
+                    <li id="nav-research">
                         <a href="#research.html">
                             <i class="fa fa-tasks"></i> 研究
                         </a>
                     </li>
-                    <li id="nav-status">
+                    <li id="nav-release" class="active">
                         <a href="/release/">
                             <i class="fa fa-bullhorn"></i> 公告
                         </a>
                     </li>
-                    <li id="nav-ranklist">
+                    <li id="nav-about">
                         <a href="/about.html">
                             <i class="fa fa-trophy"></i> 简介
                         </a>
@@ -122,34 +109,140 @@
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content" tabindex="-1">
         <div class="container">
-            <h1>实验教学</h1>
-            <p>简要介绍实验教学相关信息。</p>
+            <h1>公告</h1>
+            <p>发布教学和科研相关信息。</p>
         </div>
     </div>
+    <style type="text/css">
+        .section-title {
+            display: block;
+            color: rgb(37, 37, 37);
+            font-size: 40px;
+            max-width: 320px;
+            font-weight: 500;
+            text-align: center;
+            margin: 10px auto;
+            word-break: break-word;
+        }
 
-    <div class="container bs-docs-container">
-        <div class="col-md-9" role="main">
-            <div class="bs-docs-section">
-                <h1 id="overview" class="page-header">简介</h1>
-                <p>本学期授课周共15周，5次实验课，计划完成10项实验，其内容为：</p>
-                <p>（1）	利用可见光传输信息；</p>
-                <p>（2）	利用可见光传输帧；</p>
-                <p>（3）	PCAP侦听并分析以太网帧、IP协议报文和FTP数据；</p>
-                <p>（4）	CISCO IOS路由器基本配置；</p>
-                <p>（5）	Socket API许可认证软件；</p>
-                <p>（6）	应用层协议服务配置；</p>
-                <p>（7）	代理服务器软件。</p>
-                <p>（8）	IPv6基本操作。</p>
-                <p>（9）	IPv6路由配置。</p>
-                <p>（10）	IPv6+配置。</p>
-                <p>其中，上述各项实验具体内容详见《计算机网络课程实验手册》。希望每位同学提早准备，熟悉实验步骤，切实参与动手实践，鼓励热烈讨论。</p>
+        .css-1agztys {
+            border: 1px solid rgb(214, 214, 214);
+            border-radius: 26px;
+            background-color: rgb(250, 250, 250);
+            background-size: cover;
+            object-fit: fill;
+            object-position: center center;
+            overflow: hidden;
+            margin: 16px 0px 0px;
+            position: relative;
+            padding: 34px 24px 36px;
+        }
+
+        .course-title {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 24px;
+            text-align: left;
+            margin: 0px 0px 16px;
+            color: rgb(37, 37, 37);
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .course-description {
+            display: block;
+            color: rgb(37, 37, 37);
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 22px;
+            margin: 0px 0px 30px;
+            width: 100%;
+            text-align: left;
+        }
+
+            .course-description:last-child {
+                margin: 0px 0px 0px;
+            }
+
+        @media ( min-width : 768px) {
+            .css-1agztys {
+                padding: 48px 64px 65px;
+                margin-top: 0px;
+            }
+
+            .course-title {
+                font-size: 32px;
+                line-height: 42px;
+                margin: 0px 0px 12px;
+            }
+
+            .course-description {
+                font-size: 18px;
+                margin: 0px 0px 70px;
+                line-height: 30px;
+                text-align: justify;
+                line-height: 30px;
+            }
+        }
+        .description {
+            margin-top: 1em;
+            font-size: 14pt;
+        }
+    </style>
+    <!-- Docs page layout -->
+    <section class="dvl-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-title">主要信息</div>
+                    <div class="description wow fadeIn animated" data-wow-delay=".1s"
+                         style="visibility: visible; animation-delay: 0.1s;">
+                        <div class="list-group text-justify">
+                            <a href="JavaScript:return false;" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-9 col-md-8">2023-2024学年第二学期期末成绩已经公布。</div>
+                                    <div class="col-xs-3 col-md-4 text-right">
+                                        <span class="code small text-muted">2024-06-20 16:00</span>
+                                    </div>
+                                </div>
+                            </a> <a href="JavaScript:return false;" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-9 col-md-8">计算机网络项目一组队结束。</div>
+                                    <div class="col-xs-3 col-md-4 text-right">
+                                        <span class="code small text-muted">2024-03-02 16:00</span>
+                                    </div>
+                                </div>
+                            </a> <a href="JavaScript:return false;" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-9 col-md-8">新学期开始了。</div>
+                                    <div class="col-xs-3 col-md-4 text-right">
+                                        <span class="code small text-muted">2024-02-26 18:00</span>
+                                    </div>
+                                </div>
+                            </a><a href="JavaScript:return false;" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-9 col-md-8">自本学期起，工程数学课程停止开课。</div>
+                                    <div class="col-xs-3 col-md-4 text-right">
+                                        <span class="code small text-muted">2024-02-26 18:00</span>
+                                    </div>
+                                </div>
+                            </a> <a href="JavaScript:return false;" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-9 col-md-8">2023-2024学年第一学期期末成绩已经公布。</div>
+                                    <div class="col-xs-3 col-md-4 text-right">
+                                        <span class="code small text-muted">2024-01-16 16:00</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-3" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
-            </nav>
-        </div>
-    </div>
+    </section>
     <!-- Footer ================================================== -->
     <footer class="bs-docs-footer" role="contentinfo">
         <div class="container">
