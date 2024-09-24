@@ -113,6 +113,7 @@
                             <i class="fa fa-trophy"></i> 简介
                         </a>
                     </li>
+
                 </ul>
             </nav>
             <!--/ nav-collapse -->
@@ -122,31 +123,61 @@
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content" tabindex="-1">
         <div class="container">
-            <h1>实验教学</h1>
-            <p>简要介绍实验教学相关信息。</p>
+            <h1>上机考试要求</h1>
+            <p>简要介绍期末上机考试所需要掌握的知识点。</p>
         </div>
     </div>
 
     <div class="container bs-docs-container">
+
+        <!-- time-step---end -->
         <div class="col-md-9" role="main">
+            <!-- time-step---start -->
             <div class="bs-docs-section">
-                <h1 id="overview" class="page-header">简介</h1>
-                <p>本学期授课周共17周，8次实验课，计划完成10项实验，其内容为：</p>
-                <p>（1）	利用可见光传输信息；</p>
-                <p>（2）	利用可见光传输帧；</p>
-                <p>（3）	PCAP侦听并分析以太网帧、IP协议报文和FTP数据；</p>
-                <p>（4）	CISCO IOS路由器基本配置；</p>
-                <p>（5）	Socket API许可认证软件；</p>
-                <p>（6）	应用层协议服务配置；</p>
-                <p>（7）	代理服务器软件。</p>
-                <p>（8）	IPv6基本操作。</p>
-                <p>（9）	IPv6路由配置。</p>
-                <p>（10）	IPv6+配置。</p>
-                <p>其中，上述各项实验具体内容详见《计算机网络课程实验手册》。希望每位同学提早准备，熟悉实验步骤，切实参与动手实践，鼓励热烈讨论。</p>
+                <h1 id="basic" class="page-header">基本要求</h1>
+                <ol>
+                    <li>熟悉 DevC++ 集成开发环境。</li>
+                    <li>掌握结构化程序设计的方法，具有良好的程序设计风格。</li>
+                    <li>掌握程序设计中简单的数据结构和算法并能阅读简单的程序。</li>
+                    <li>在 DevC++ 集成环境下，能够编写简单的 C 程序，并具有基本的纠错和调试程序的能力。</li>
+                </ol>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="ouline" class="page-header">考试内容</h1>
+                <p>期末上机考试在OJ系统上的“竞赛”区进行。试卷一共4题，包含10组测试数据。每组测试数据10分，则每题100分，共400分。</p>
+                <p>学生仔细阅读试题，编写程序，满足题目要求。</p>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="ouline" class="page-header">评分标准</h1>
+                <p>OJ系统编译学生提交的程序，按对应题目，导入每一组测试数据的输入部分，比对程序的输出与答案的输出是否每个字符都一致。如果一致，则该组数据正确，得分10分，否则不得分。</p>
+                <p>考试结束时，以学生每道题的最后一次作答为准。记录每题最后一次作答判题时，各组数据的得分之和，为该题得分。各题得分之和为考试的总得分之和。学生的任何一道题不需要得到满分，即可计入总分。</p>
+                <p>特别注意：假设学生B题做题全对，但因审题失误，在结束考试前1秒钟，将A题的题目提交为B题得到全错，则B题更新为0分。</p>
             </div>
         </div>
         <div class="col-md-3" role="complementary">
             <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
+                <ul class="nav bs-docs-sidenav">
+                    <li class=""><a href="#basic">基本信息</a></li>
+                    <li class="">
+                        <a href="#ouline">考试内容</a>
+                        <ul class="nav bs-docs-sidenav">
+                            <li><a href="#01">一、C 语言程序的结构</a></li>
+                            <li><a href="#02">二、数据类型及其运算</a></li>
+                            <li><a href="#03">三、基本语句</a></li>
+                            <li><a href="#04">四、选择结构程序设计</a></li>
+                            <li><a href="#05">五、循环结构程序设计</a></li>
+                            <li><a href="#06">六、数组的定义和引用</a></li>
+                            <li><a href="#07">七、函数</a></li>
+                            <li><a href="#08">八、编译预处理</a></li>
+                            <li><a href="#09">九、指针</a></li>
+                            <li><a href="#10">十、结构体与共同体</a></li>
+                            <li><a href="#11">十一、位运算</a></li>
+                            <li><a href="#12">十二、文件操作</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="back-to-top" href="#top"> 返回顶部 </a>
+                <a class="back-to-top" href="./"> 返回上一级 </a>
             </nav>
         </div>
     </div>
