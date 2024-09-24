@@ -122,44 +122,79 @@
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content" tabindex="-1">
         <div class="container">
-            <h1>课后习题</h1>
-            <p>简要介绍课后习题的相关信息。</p>
+            <h1>OJ 作业答题步骤</h1>
+            <p>简要介绍OJ 作业作答的常规步骤。</p>
         </div>
     </div>
 
     <div class="container bs-docs-container">
         <div class="col-md-9" role="main">
             <div class="bs-docs-section">
-                <h1 id="overview" class="page-header">概述</h1>
-                <p>本课程作业分为以下2个部分：课程组布置的部分为必须完成，本班建议的部分供学有余力的同学选做。</p>
+                <h1 id="req-ana" class="page-header">审题</h1>
+                <p>阅读题目，通过题目背景，了解题目大意，知晓输入和输出的意义。</p>
             </div>
             <div class="bs-docs-section">
-                <h1 id="course-group" class="page-header">课程组布置</h1>
-                <p>课程组在每周实验课开始前布置作业。作业布置于课程组搭设的在线测评系统（另行通知），每周约4题。</p>
-                <p>该部分作业评分后，计入 <a href="assessment.html#assignment">期末考核的“作业”部分</a> 。</p>
-                <p><a href="oj-steps.html">单击此处查看程序题的答题步骤。</a></p>
+                <h1 id="def-domain" class="page-header">确定定义域</h1>
+                <p>
+                    确定定义域，设计程序。思考输入到输出的运算路径和规律，制定合理的算法方案，制定合理的测试方案。
+                </p>
+                <p>
+                    如果定义域容量较少（如在 200 以内），建议每个数据点都测试一遍，通过工具或者眼睛观察，找出结果异常的数据点。
+                </p>
+                <p>
+                    如果定义域容量较大，无法每个数据点都测试一遍，则需要抽样测试。
+                </p>
+                <p>
+                    如果容易划分测试类，可以通过对程序算法的了解，将测试数据划分为若干类，每一类随机抽取少量（如 2 个）代表性的数据，参与测试。
+                </p>
+                <p>
+                    如果不容易划分测试类，即没有显然的划分依据，则通过随机数简单随机抽样，找出一些数据参与测试。
+                </p>
+                <p>
+                    如果不能彻底划分测试类，参考以上方法，对能划分测试类的部分选取代表性的数据，其他部分采取简单随机抽样。
+                </p>
+                <p>
+                    有多重划分方案的，可以交叉多次测试。不必苛求划分时边界清晰，覆盖所有可能的情况。一般划分或者抽样而精简后的测试数据在数百为宜。
+                </p>
             </div>
             <div class="bs-docs-section">
-                <h1 id="inner-class" class="page-header">本班建议</h1>
-                <p>本班在学期开始前布置作业，供学有余力的同学自行完成。</p>
-                <p>该部分作业不讲评、不评分。</p>
-                <h2 id="before2021" class="page-header">理论作业</h2>
-                <p>PDF版本的作业（适用于2021级及以前），请见 <a href="https://gitee.com/whuangxmu/courses/blob/master/C-Programming-Design/handbook/c_problem_set.pdf">Gitee</a> 。</p>
-                <h2 id="oj" class="page-header">编程作业</h2>
-                <p>本班要求学生高度自律。强烈建议同学们在学有余力的情况下，提前学习以下课程：</p>
-                <p>（1）	数据结构；</p>
-                <p>（2）	算法。</p>
-                <p>强烈建议有志于以计算机为业的同学，在知名OJ系统按先易后难的顺序作答，保持每天一定的题量。包括：</p>
-                <div class="list-group">
-                    <a href="https://www.luogu.com.cn" class="list-group-item" target="_blank">洛谷 OJ</a>
-                    <a href="https://www.loj.ac" class="list-group-item" target="_blank">LibreOJ</a>
-                    <a href="https://www.leetcode.com" class="list-group-item" target="_blank">LeetCode</a>
-                </div>
+                <h1 id="inmplement" class="page-header">实现程序</h1>
+                <p>
+                    根据前项思考得到输入到输出的运算路径和规律，用具体编程语言实现程序。在实现过程中，注重程序的框架，对具体变量赋值和比较上的细节问题，不浪费 过多的时间精力。先选择一个方案，再等待后续测试时确定参数。
+                </p>
+                <p>
+                    对复杂的题目，如对程序的运行时间和内存有限制，还需要同时书写一个答案保证正确但可能超过运行时间和内存限制的程序，用于在测试数据上得到正确的答案供修复主程序时参考。
+                </p>
             </div>
             <div class="bs-docs-section">
-                <h1 id="grade" class="page-header">评分</h1>
-                <p>本课程仅对课程教学组布置的作业进行评分。</p>
-                <p>作业项的得分为各次作业成绩的均值。默认从系统导出答题记录，按每次作业占比相同，每次作业内部各题占比相同，计算平均成绩。即：每份作业成绩记为：答对题目数量除以题目总量。以本课程最后一节课下课前为有效，不接受补交。</p>
+                <h1 id="test" class="page-header">测试</h1>
+                <p>
+                    先准备输入数据，再准备对应的参考输出数据。
+                </p>
+                <p>
+                    如果题目较为简单，或者输出结果有规律，可以不生成参考输出数据，而是对用户输出进行观察比较，找出异常情况。
+                </p>
+                <p>
+                    如果题目较为复杂，将输入数据输入到保证结果正确的程序，得到参考输出数据。
+                </p>
+                <p>
+                    在测试结果中，找到错误项，追溯到具体某项输入数据时出错，重点测试该数据。
+                </p>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="debug" class="page-header">调试</h1>
+                <p>
+                    通过重定向输入流，固定输入数据。按二分法单步或断电调试，或者按日志调试法输出中间结果。调试的同时在草稿纸演算，相互比较，找到程序的漏洞。调试要不断重启，不是一次性能调试通过。
+                </p>
+            </div>
+            <div class="bs-docs-section">
+                <h1 id="code-check" class="page-header">代码检查</h1>
+                <p>
+                    对调试通过的程序，要继续做测试，直到所有测试数据对同一版本的代码都通过验证。
+                </p>
+                <p>
+                    调试通过以后，提交程序。提交时应使用全选和复制粘贴的方式保证提价的代码和测试的代码是同一版本。提交前应再三检查是否去除了特定宏定义，中间结果输出的语句，以及输入输出重定向等。
+                </p>
             </div>
         </div>
         <div class="col-md-3" role="complementary">
