@@ -68,56 +68,98 @@
 
     <!-- Docs master nav -->
     <!-- Docs master nav -->
-    <header class="navbar navbar-default cbp-af-header navbar-static-top bs-docs-nav"
-            id="top" role="banner">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu Example</title>
+        <!-- 引入Bootstrap和jQuery -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <header class="navbar navbar-default navbar-static-top bs-docs-nav" id="top" role="banner">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle collapsed" type="button"
-                        data-toggle="collapse" data-target="#bs-navbar"
-                        aria-controls="bs-navbar" aria-expanded="false">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/"></a>
             </div>
             <nav id="bs-navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav" id="navbar">
-                    <li id="nav-problemset" class="dropdown">
-                        <a href="#"
-                           class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-chalkboard-teacher"></i> 教学 <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li id="nav-contestset"><a href="/teaching/cni/">计算机网络</a></li>
-                            <li id="nav-contestset">
-                                <a href="/teaching/cpd/">
-                                    C
-                                    语言程序设计
-                                </a>
-                            </li>
-                            <li id="nav-contestset"><a href="/teaching/aem/">工程数学</a></li>
-                        </ul>
-                    </li>
-                    <li id="nav-status">
-                        <a href="#research.html">
-                            <i class="fa fa-tasks"></i> 研究
-                        </a>
-                    </li>
-                    <li id="nav-status">
-                        <a href="/release/">
-                            <i class="fa fa-bullhorn"></i> 公告
-                        </a>
-                    </li>
-                    <li id="nav-ranklist">
-                        <a href="/about.html">
-                            <i class="fa fa-trophy"></i> 简介
-                        </a>
-                    </li>
-                </ul>
+                <ul class="nav navbar-nav" id="navbar"></ul>
             </nav>
-            <!--/ nav-collapse -->
         </div>
     </header>
+
+    <script>
+        $(document).ready(function() {
+            // 菜单配置数据
+            var menuConfig = [
+                {
+                    id: 'nav-problemset',
+                    text: '教学',
+                    icon: 'fa fa-chalkboard-teacher',
+                    dropdown: [
+                        { link: '/teaching/cni/', text: '计算机网络' },
+                        { link: '/teaching/cpd/', text: 'C语言程序设计' },
+                        { link: '/teaching/aem/', text: '工程数学' }
+                    ]
+                },
+                {
+                    id: 'nav-status-research',
+                    link: '#research.html',
+                    text: '研究',
+                    icon: 'fa fa-tasks'
+                },
+                {
+                    id: 'nav-status-announcement',
+                    link: '/release/',
+                    text: '公告',
+                    icon: 'fa fa-bullhorn'
+                },
+                {
+                    id: 'nav-ranklist',
+                    link: '/about.html',
+                    text: '简介',
+                    icon: 'fa fa-trophy'
+                }
+            ];
+
+            // 动态生成菜单HTML
+            var $navbar = $('#navbar');
+            menuConfig.forEach(function(item) {
+                var $li;
+
+                if (item.dropdown) {
+                    // 下拉菜单项
+                    $li = $('<li>').addClass('dropdown').attr('id', item.id);
+                    var $a = $('<a>').addClass('dropdown-toggle').attr({
+                        href: '#',
+                        'data-toggle': 'dropdown',
+                        role: 'button',
+                        'aria-haspopup': 'true',
+                        'aria-expanded': 'false'
+                    }).html('<i class="' + item.icon + '"></i> ' + item.text + ' <span class="caret"></span>');
+
+                    var $dropdownMenu = $('<ul>').addClass('dropdown-menu').role('menu');
+                    item.dropdown.forEach(function(subItem) {
+                        $('<li>').append($('<a>').attr('href', subItem.link).text(subItem.text)).appendTo($dropdownMenu);
+                    });
+
+                    $a.appendTo($li);
+                    $dropdownMenu.appendTo($li);
+                } else {
+                    // 普通菜单项
+                    $li = $('<li>').attr('id', item.id);
+                    $('<a>').attr('href', item.link).html('<i class="' + item.icon + '"></i> ' + item.text).appendTo($li);
+                }
+
+                $li.appendTo($navbar);
+            });
+        });
+    </script>
     <!-- Nav Bar End -->
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content" tabindex="-1">
