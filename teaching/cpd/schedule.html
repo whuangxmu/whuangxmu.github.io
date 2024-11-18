@@ -1,315 +1,187 @@
 <!-- Wei HUANG's Gitee Page -->
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-CN">
 <head>
-<!-- Meta, title, CSS, favicons, etc. -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Wei HUANG's Gitee Page">
-<meta name="keywords" content="Wei HUANG">
-<meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
-<meta name="theme-color" content="#1359a6">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
 
-<title></title>
-
-<!-- Bootstrap core Stylesheet -->
-<link type="text/css" rel="stylesheet"
-	href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
-<link type="text/css" rel="stylesheet"
-	href="//cdn.bootcdn.net/ajax/libs/animate.css/3.7.0/animate.min.css">
-<link type="text/css" rel="stylesheet"
-	href="/assets/css/docs.navy.min.css">
-<link type="text/css" rel="stylesheet"
-	href="/assets/css/patch.css?v=20211010">
-<link type="text/css" rel="stylesheet"
-	href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css">
-
-<!-- Documentation extras -->
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-<script type="text/javascript" src="/OJ/js.html?f=ie8-responsive-file-warning.js"></script>
-<![endif]-->
-
-<script type="text/javascript"
-	src="//cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript">
-	var mode_async_json = false;
-	var myoj2_app_name = "黄老师";
-</script>
-<script type="text/javascript"
-	src="/assets/js/ie-emulation-modes-warning.min.js"></script>
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "教学进度";
+        var page_docs_header_desc = "简要介绍教学日程安排。";
+    </script>
 </head>
-
 <body>
-	<!-- Page Preloader Begin -->
-	<div id="page-preloader">
-		<noscript>
-			<h1 class="text-danger">Error: Your browser does not support
-				JavaScript, or you have not enabled it in your browser settings.</h1>
-		</noscript>
-		<div class="spinner">
-			<div class="dot1"></div>
-			<div class="dot2"></div>
-		</div>
-	</div>
-	<!-- Page Preloader End -->
-
-	<!-- Nav Bar Begin -->
-	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
-		<div class="container">
-			<span class="skiplink-text">Skip to main content</span>
-		</div>
-	</a>
-
-	<!-- Docs master nav -->
-	<!-- Docs master nav -->
-	<header
-		class="navbar navbar-default cbp-af-header navbar-static-top bs-docs-nav"
-		id="top" role="banner">
-		<div class="container">
-			<div class="navbar-header">
-				<button class="navbar-toggle collapsed" type="button"
-					data-toggle="collapse" data-target="#bs-navbar"
-					aria-controls="bs-navbar" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span><span class="icon-bar"></span><span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/"></a>
-			</div>
-			<nav id="bs-navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav" id="navbar">
-					<li id="nav-problemset" class="dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false"> <i
-							class="fa fa-chalkboard-teacher"></i> 教学 <span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li id="nav-contestset"><a href="/teaching/cni/">计算机网络</a></li>
-							<li id="nav-contestset"><a href="/teaching/cpd/">C
-									语言程序设计</a></li>
-							<li id="nav-contestset"><a href="/teaching/aem/">工程数学</a></li>
-						</ul></li>
-					<li id="nav-status"><a href="#research.html"><i
-							class="fa fa-tasks"></i> 研究 </a></li>
-					<li id="nav-status"><a href="/release/"><i
-							class="fa fa-bullhorn"></i> 公告 </a></li>
-					<li id="nav-ranklist"><a href="/about.html"><i
-							class="fa fa-trophy"></i> 简介 </a></li>
-
-				</ul>
-			</nav>
-			<!--/ nav-collapse -->
-		</div>
-	</header>
-	<!-- Nav Bar End -->
-
-	<!-- Docs page layout -->
-	<div class="bs-docs-header" id="content" tabindex="-1">
-		<div class="container">
-			<h1>教学进度</h1>
-			<p>简要介绍教学日程安排。</p>
-		</div>
-	</div>
-
-	<div class="container bs-docs-container">
-
-		<link rel="stylesheet" href="/assets/css/time-step.css">
-		<!-- time-step---end -->
-		<div class="col-md-9" role="main">
-			<!-- time-step---start -->
-			<div class="bs-docs-section">
-				<h1 id="timeline" class="page-header">时间线</h1>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="time-step-wrap"></div>
-					</div>
-				</div>
-			</div>
-			<div class="bs-docs-section">
-				<h1 id="calendar" class="page-header">校历</h1>
-				<div class="row">
-					<div class="col-md-12">
-						<div id="calendar-table"></div>
-					</div>
-				</div>
-			</div>
-			<div class="bs-docs-section">
-				<h1 id="arrangement" class="page-header">课程安排表</h1>
-				<div class="form-horizontal" id="syllabus-table"></div>
-			</div>
-		</div>
-
-		<div class="col-md-3" role="complementary">
-			<nav
-				class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
-				<ul class="nav bs-docs-sidenav">
-					<li class=""><a href="#timeline">时间线</a></li>
-					<li class=""><a href="#calendar">校历</a></li>
-					<li class=""><a href="#arrangement">课程安排表</a></li>
-				</ul>
-				<a class="back-to-top" href="#top"> 返回顶部 </a>
-				<a class="back-to-top" href="./"> 返回上一级 </a>
-			</nav>
-		</div>
-	</div>
-	<!-- Footer ================================================== -->
-	<footer class="bs-docs-footer" role="contentinfo">
-		<div class="container">
-			<div class="row footer-top text-justify">
-				<div class="col-sm-6 col-lg-6">
-					<h4>厦门大学黄老师</h4>
-					<p>
-						@2014-2024 <a href="about.html">黄炜</a> 保留其自行研发部分的所有权利。
-					</p>
-				</div>
-				<div class="col-sm-6  col-lg-5 col-lg-offset-1 hidden-print">
-					<div class="row about">
-						<div class="col-xs-4">
-							<h4>
-								<i class="fa fa-question-circle"></i> 获取帮助
-							</h4>
-							<ul class="list-unstyled">
-								<li><a href="changelog.html">更新日志</a></li>
-								<li><a href="mailto:whuang@xmu.edu.cn">联系我</a></li>
-							</ul>
-						</div>
-						<div class="col-xs-4">
-							<h4>
-								<i class="fa fa-language"></i> 语言
-							</h4>
-							<ul class="list-unstyled">
-								<li><a href="/index.html">简体中文</a></li>
-								<li><a href="/index_zht.html">正體中文</a></li>
-								<li><a href="/index_en.html">English</a></li>
-							</ul>
-						</div>
-						<div class="col-xs-4">
-							<h4>
-								<i class="fa fa-external-link"></i> 链接
-							</h4>
-							<ul class="list-unstyled">
-								<li><a href="https://www.xmu.edu.cn/" target="_blank">厦门大学</a></li>
-								<li><a href="https://informatics.xmu.edu.cn/"
-									target="_blank">厦门大学信息学院</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Bootstrap core JavaScript ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/pace/1.2.3/pace.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/classie/1.0.1/classie.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/animated-header/0.0.1/js/cbpAnimatedHeader.min.js"></script>
-	<script type="text/javascript"
-		src="//cdn.bootcdn.net/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
-	<script src="/static/polyfill/polyfill.min.js?features=es6"></script>
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script type="text/javascript" src="/assets/js/docs.min.js"></script>
-	<script type="text/javascript" src="/assets/js/footer.min.js?v=20240903"></script>
-	<script type="text/javascript"
-		src="/assets/js/ie10-viewport-bug-workaround.min.js"></script>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
 </body>
 </html>
+
+<script type="text/html" id="main">
+    <link rel="stylesheet" href="/assets/css/time-step.css">
+    <div class="bs-docs-section">
+        <h1 id="timeline" class="page-header">时间线</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="time-step-wrap"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="calendar" class="page-header">校历</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="calendar-table"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="arrangement" class="page-header">课程安排表</h1>
+        <div class="form-horizontal" id="syllabus-table"></div>
+    </div>
+    </div>
+
+    <div class="col-md-3" role="complementary">
+        <nav
+                class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
+            <ul class="nav bs-docs-sidenav">
+                <li class=""><a href="#timeline">时间线</a></li>
+                <li class=""><a href="#calendar">校历</a></li>
+                <li class=""><a href="#arrangement">课程安排表</a></li>
+            </ul>
+            <a class="back-to-top" href="#top"> 返回顶部 </a>
+            <a class="back-to-top" href="./"> 返回上一级 </a>
+        </nav>
+    </div>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '#research.html',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
 
 <script type="text/javascript" src="/assets/js/timestep.js"></script>
 <script type="text/javascript" src="/assets/js/syllabus.js?v=20240924"></script>
 <script type="text/javascript">
-var t = new TimeStep();
-var nodes = [
-	{"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
-	{"title": "上半学期", "tip": "2024年9月18日 开始上课", "time": new Date(2024, 9 - 1, 18, 8, 0)},
-	{"title": "期中考核", "tip": "第10周 期中考核", "time": new Date(2024, 11 - 1, 8, 14, 20)},
-	{"title": "下半学期", "tip": "下半学期", "time": new Date(2024, 11 - 1, 8, 16, 20)},
-	{"title": "上机考试", "tip": "2024年最后一次实验课 期末上机考试", "time": new Date(2024, 12 - 1, 25, 18, 0)},
-	{"title": "期末笔试", "tip": "2025年1月考试周 期末笔试（时间待定）", "time": new Date(2025, 1 - 1, 10, 16, 0)},
+    var t = new TimeStep();
+    var nodes = [
+        {"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
+        {"title": "上半学期", "tip": "2024年9月18日 开始上课", "time": new Date(2024, 9 - 1, 18, 8, 0)},
+        {"title": "期中考核", "tip": "第10周 期中考核", "time": new Date(2024, 11 - 1, 8, 14, 20)},
+        {"title": "下半学期", "tip": "下半学期", "time": new Date(2024, 11 - 1, 8, 16, 20)},
+        {"title": "上机考试", "tip": "2024年最后一次实验课 期末上机考试", "time": new Date(2024, 12 - 1, 25, 18, 0)},
+        {"title": "期末笔试", "tip": "2025年1月考试周 期末笔试（时间待定）", "time": new Date(2025, 1 - 1, 10, 16, 0)},
 //	{"title": "成绩录入", "tip": "2025年1月18日后 改卷公告成绩", "time": new Date(2025, 1 - 1, 18, 8, 0)},
-	{"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
-t.nodes = nodes;
-t.prepare();
-t.run();
-// time-step---end
+        {"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
+    t.nodes = nodes;
+    t.prepare();
+    t.run();
+    // time-step---end
 
-const courses = [
-	{"type":1,"chapter":1,"title":"课程简介","classlast":1},
-	{"type":1,"chapter":"","title":"软件工程简介","classlast":1},
-	{"type":1,"chapter":2,"title":"C语言简介（1）","classlast":2},
-	{"type":1,"chapter":2,"title":"C语言简介（2）","classlast":2},
-	{"type":1,"chapter":2,"title":"C语言简介（3）","classlast":2},
-	{"type":1,"chapter":3,"title":"数据类型","classlast":2},
-	{"type":1,"chapter":4,"title":"字符串和格式化输入输出","classlast":2},
-	{"type":1,"chapter":5,"title":"操作符、表达式和语句","classlast":2},
-	{"type":1,"chapter":6,"title":"C控制语句：循环","classlast":2},
-	{"type":1,"chapter":7,"title":"C控制语句：分支和跳转","classlast":2},
-	{"type":1,"chapter":10,"title":"数组和指针（1）","classlast":2},
-	{"type":1,"chapter":11,"title":"字符串、字符串函数和排序（1）","classlast":2},
-	{"type":1,"chapter":11,"title":"字符串、字符串函数和排序（2）","classlast":2},
-	{"type":1,"chapter":"M1","title":"期中试卷样卷讲评","classlast":2},
-	{"type":1,"chapter":8,"title":"字符输入输出和输入验证","classlast":2},
-	{"type":1,"chapter":"EM","title":"期中考试（教学组统一安排）","classlast":2},
-	{"type":1,"chapter":9,"title":"函数（1）","classlast":2},
-	{"type":1,"chapter":9,"title":"函数（2）","classlast":2},
-	{"type":1,"chapter":10,"title":"数组和指针（2）","classlast":2},
-	{"type":1,"chapter":10,"title":"数组和指针（3）","classlast":2},
-	{"type":1,"chapter":"A2","title":"代码阅读","classlast":2},
-	{"type":1,"chapter":12,"title":"存储类、链接和内存管理","classlast":2},
-	{"type":1,"chapter":13,"title":"文件输入输出","classlast":2},
-	{"type":1,"chapter":14,"title":"结构体和其它数据格式（1）","classlast":2},
-	{"type":1,"chapter":14,"title":"结构体和其它数据格式（2）","classlast":2},
-	{"type":1,"chapter":15,"title":"位操作","classlast":2},
-	{"type":1,"chapter":16,"title":"C预处理器和C库","classlast":2},
-	{"type":1,"chapter":17,"title":"高级数据表示（1）","classlast":2},
-	{"type":1,"chapter":17,"title":"高级数据表示（2）","classlast":2},
-	{"type":1,"chapter":"R1","title":"期末复习","classlast":2},
-	{"type":1,"chapter":"","title":"期末笔试（学院统一安排）","classlast":2},
-	{"type":2,"chapter":"A1","title":"计算机基础","classlast":2},
-	{"type":2,"chapter":"","title":"在线判题系统的基本用法","classlast":1},
-	{"type":2,"chapter":1,"title":"开发环境，编译和运行","classlast":1},
-	{"type":2,"chapter":2,"title":"程序设计与实现","classlast":2},
-	{"type":2,"chapter":3,"title":"调试","classlast":2},
-	{"type":2,"chapter":4,"title":"测试","classlast":2},
-	{"type":2,"chapter":5,"title":"错误查找","classlast":2},
-	{"type":2,"chapter":"","title":"2048游戏（1. 需求分析）","classlast":2},
-	{"type":2,"chapter":6,"title":"静态检查","classlast":2},
-	{"type":2,"chapter":"","title":"2048游戏（2. 设计实现）","classlast":2},
-	{"type":2,"chapter":"","title":"2048游戏（3. 整体评论）","classlast":2},
-	{"type":2,"chapter":"","title":"（机动）","classlast":2},
-	{"type":2,"chapter":"","title":"（机动）","classlast":2},
-	{"type":2,"chapter":"","title":"（机动）","classlast":2},
-	{"type":2,"chapter":"EE","title":"期末上机考试","classlast":2}
-];
+    const courses = [
+        {"type": 1, "chapter": 1, "title": "课程简介", "classlast": 1},
+        {"type": 1, "chapter": "", "title": "软件工程简介", "classlast": 1},
+        {"type": 1, "chapter": 2, "title": "C语言简介（1）", "classlast": 2},
+        {"type": 1, "chapter": 2, "title": "C语言简介（2）", "classlast": 2},
+        {"type": 1, "chapter": 2, "title": "C语言简介（3）", "classlast": 2},
+        {"type": 1, "chapter": 3, "title": "数据类型", "classlast": 2},
+        {"type": 1, "chapter": 4, "title": "字符串和格式化输入输出", "classlast": 2},
+        {"type": 1, "chapter": 5, "title": "操作符、表达式和语句", "classlast": 2},
+        {"type": 1, "chapter": 6, "title": "C控制语句：循环", "classlast": 2},
+        {"type": 1, "chapter": 7, "title": "C控制语句：分支和跳转", "classlast": 2},
+        {"type": 1, "chapter": 10, "title": "数组和指针（1）", "classlast": 2},
+        {"type": 1, "chapter": 11, "title": "字符串、字符串函数和排序（1）", "classlast": 2},
+        {"type": 1, "chapter": 11, "title": "字符串、字符串函数和排序（2）", "classlast": 2},
+        {"type": 1, "chapter": "M1", "title": "期中试卷样卷讲评", "classlast": 2},
+        {"type": 1, "chapter": 8, "title": "字符输入输出和输入验证", "classlast": 2},
+        {"type": 1, "chapter": "EM", "title": "期中考试（教学组统一安排）", "classlast": 2},
+        {"type": 1, "chapter": 9, "title": "函数（1）", "classlast": 2},
+        {"type": 1, "chapter": 9, "title": "函数（2）", "classlast": 2},
+        {"type": 1, "chapter": 10, "title": "数组和指针（2）", "classlast": 2},
+        {"type": 1, "chapter": 10, "title": "数组和指针（3）", "classlast": 2},
+        {"type": 1, "chapter": "A2", "title": "代码阅读", "classlast": 2},
+        {"type": 1, "chapter": 12, "title": "存储类、链接和内存管理", "classlast": 2},
+        {"type": 1, "chapter": 13, "title": "文件输入输出", "classlast": 2},
+        {"type": 1, "chapter": 14, "title": "结构体和其它数据格式（1）", "classlast": 2},
+        {"type": 1, "chapter": 14, "title": "结构体和其它数据格式（2）", "classlast": 2},
+        {"type": 1, "chapter": 15, "title": "位操作", "classlast": 2},
+        {"type": 1, "chapter": 16, "title": "C预处理器和C库", "classlast": 2},
+        {"type": 1, "chapter": 17, "title": "高级数据表示（1）", "classlast": 2},
+        {"type": 1, "chapter": 17, "title": "高级数据表示（2）", "classlast": 2},
+        {"type": 1, "chapter": "R1", "title": "期末复习", "classlast": 2},
+        {"type": 1, "chapter": "", "title": "期末笔试（学院统一安排）", "classlast": 2},
+        {"type": 2, "chapter": "A1", "title": "计算机基础", "classlast": 2},
+        {"type": 2, "chapter": "", "title": "在线判题系统的基本用法", "classlast": 1},
+        {"type": 2, "chapter": 1, "title": "开发环境，编译和运行", "classlast": 1},
+        {"type": 2, "chapter": 2, "title": "程序设计与实现", "classlast": 2},
+        {"type": 2, "chapter": 3, "title": "调试", "classlast": 2},
+        {"type": 2, "chapter": 4, "title": "测试", "classlast": 2},
+        {"type": 2, "chapter": 5, "title": "错误查找", "classlast": 2},
+        {"type": 2, "chapter": "", "title": "2048游戏（1. 需求分析）", "classlast": 2},
+        {"type": 2, "chapter": 6, "title": "静态检查", "classlast": 2},
+        {"type": 2, "chapter": "", "title": "2048游戏（2. 设计实现）", "classlast": 2},
+        {"type": 2, "chapter": "", "title": "2048游戏（3. 整体评论）", "classlast": 2},
+        {"type": 2, "chapter": "", "title": "（机动）", "classlast": 2},
+        {"type": 2, "chapter": "", "title": "（机动）", "classlast": 2},
+        {"type": 2, "chapter": "", "title": "（机动）", "classlast": 2},
+        {"type": 2, "chapter": "EE", "title": "期末上机考试", "classlast": 2}
+    ];
 
-const firstDay = new Date(2024,8,1); // 本学期第一周周日  
-const firstStartDay = new Date(2024,8,15); // 本学期第一周周日  
-const lastSaturday = new Date(2024,11,28); // 本学期最后一周周六
+    const firstDay = new Date(2024, 8, 1); // 本学期第一周周日
+    const firstStartDay = new Date(2024, 8, 15); // 本学期第一周周日
+    const lastSaturday = new Date(2024, 11, 28); // 本学期最后一周周六
 
-const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）  
-const labDays = [3]; // 实验课在周三上  
-const holidays = [[new Date(2024,8,15), new Date(2024,8,16), new Date(2024,8,17), new Date(2024,9,1), new Date(2024,9,2), new Date(2024,9,3), new Date(2024,9,4), new Date(2024,9,5), new Date(2024,9,6), new Date(2024,9,7) ],
-					[null,new Date(2024,8,14),null,null,null,null, new Date(2024,8,29),null,null, new Date(2024,9,12)]];
+    const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）
+    const labDays = [3]; // 实验课在周三上
+    const holidays = [[new Date(2024, 8, 15), new Date(2024, 8, 16), new Date(2024, 8, 17), new Date(2024, 9, 1), new Date(2024, 9, 2), new Date(2024, 9, 3), new Date(2024, 9, 4), new Date(2024, 9, 5), new Date(2024, 9, 6), new Date(2024, 9, 7)],
+        [null, new Date(2024, 8, 14), null, null, null, null, new Date(2024, 8, 29), null, null, new Date(2024, 9, 12)]];
 
-var s = new Syllabus();
-classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 1);
-classDates = s.scheduleCourses(classDates, courses);
-$("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday)); 
-$("#syllabus-table").html(s.buildTable(classDates));  
-//-->
+    var s = new Syllabus();
+    classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 1);
+    classDates = s.scheduleCourses(classDates, courses);
+    $("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday));
+    $("#syllabus-table").html(s.buildTable(classDates));
+    //-->
 </script>

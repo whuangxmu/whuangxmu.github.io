@@ -1,6 +1,6 @@
 <!-- Wei HUANG's Gitee Page -->
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-CN">
 <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -11,268 +11,126 @@
     <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
     <meta name="theme-color" content="#1359a6">
 
-    <title></title>
-
-    <!-- Bootstrap core Stylesheet -->
-    <link type="text/css" rel="stylesheet"
-          href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet"
-          href="//cdn.bootcdn.net/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <link type="text/css" rel="stylesheet"
-          href="/assets/css/docs.navy.min.css">
-    <link type="text/css" rel="stylesheet"
-          href="/assets/css/patch.css?v=20211010">
-    <link type="text/css" rel="stylesheet"
-          href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css">
-
-    <!-- Documentation extras -->
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script type="text/javascript" src="/OJ/js.html?f=ie8-responsive-file-warning.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
         var mode_async_json = false;
         var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "OJ 作业答题步骤";
+        var page_docs_header_desc = "简要介绍OJ 作业作答的常规步骤。";
     </script>
-    <script type="text/javascript"
-            src="/assets/js/ie-emulation-modes-warning.min.js"></script>
 </head>
-
 <body>
-    <!-- Page Preloader Begin -->
-    <div id="page-preloader">
-        <noscript>
-            <h1 class="text-danger">
-                Error: Your browser does not support
-                JavaScript, or you have not enabled it in your browser settings.
-            </h1>
-        </noscript>
-        <div class="spinner">
-            <div class="dot1"></div>
-            <div class="dot2"></div>
-        </div>
-    </div>
-    <!-- Page Preloader End -->
-    <!-- Nav Bar Begin -->
-    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
-        <div class="container">
-            <span class="skiplink-text">Skip to main content</span>
-        </div>
-    </a>
-
-    <!-- Docs master nav -->
-    <!-- Docs master nav -->
-    <header class="navbar navbar-default cbp-af-header navbar-static-top bs-docs-nav"
-            id="top" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle collapsed" type="button"
-                        data-toggle="collapse" data-target="#bs-navbar"
-                        aria-controls="bs-navbar" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"></a>
-            </div>
-            <nav id="bs-navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav" id="navbar">
-                    <li id="nav-problemset" class="dropdown">
-                        <a href="#"
-                           class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-chalkboard-teacher"></i> 教学 <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li id="nav-contestset"><a href="/teaching/cni/">计算机网络</a></li>
-                            <li id="nav-contestset">
-                                <a href="/teaching/cpd/">
-                                    C
-                                    语言程序设计
-                                </a>
-                            </li>
-                            <li id="nav-contestset"><a href="/teaching/aem/">工程数学</a></li>
-                        </ul>
-                    </li>
-                    <li id="nav-status">
-                        <a href="#research.html">
-                            <i class="fa fa-tasks"></i> 研究
-                        </a>
-                    </li>
-                    <li id="nav-status">
-                        <a href="/release/">
-                            <i class="fa fa-bullhorn"></i> 公告
-                        </a>
-                    </li>
-                    <li id="nav-ranklist">
-                        <a href="/about.html">
-                            <i class="fa fa-trophy"></i> 简介
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!--/ nav-collapse -->
-        </div>
-    </header>
-    <!-- Nav Bar End -->
-    <!-- Docs page layout -->
-    <div class="bs-docs-header" id="content" tabindex="-1">
-        <div class="container">
-            <h1>OJ 作业答题步骤</h1>
-            <p>简要介绍OJ 作业作答的常规步骤。</p>
-        </div>
-    </div>
-
-    <div class="container bs-docs-container">
-        <div class="col-md-9" role="main">
-            <div class="bs-docs-section">
-                <h1 id="req-ana" class="page-header">审题</h1>
-                <p>阅读题目，通过题目背景，了解题目大意，知晓输入和输出的意义。</p>
-            </div>
-            <div class="bs-docs-section">
-                <h1 id="def-domain" class="page-header">确定定义域</h1>
-                <p>
-                    确定定义域，设计程序。思考输入到输出的运算路径和规律，制定合理的算法方案，制定合理的测试方案。
-                </p>
-                <p>
-                    如果定义域容量较少（如在 200 以内），建议每个数据点都测试一遍，通过工具或者眼睛观察，找出结果异常的数据点。
-                </p>
-                <p>
-                    如果定义域容量较大，无法每个数据点都测试一遍，则需要抽样测试。
-                </p>
-                <p>
-                    如果容易划分测试类，可以通过对程序算法的了解，将测试数据划分为若干类，每一类随机抽取少量（如 2 个）代表性的数据，参与测试。
-                </p>
-                <p>
-                    如果不容易划分测试类，即没有显然的划分依据，则通过随机数简单随机抽样，找出一些数据参与测试。
-                </p>
-                <p>
-                    如果不能彻底划分测试类，参考以上方法，对能划分测试类的部分选取代表性的数据，其他部分采取简单随机抽样。
-                </p>
-                <p>
-                    有多重划分方案的，可以交叉多次测试。不必苛求划分时边界清晰，覆盖所有可能的情况。一般划分或者抽样而精简后的测试数据在数百为宜。
-                </p>
-            </div>
-            <div class="bs-docs-section">
-                <h1 id="inmplement" class="page-header">实现程序</h1>
-                <p>
-                    根据前项思考得到输入到输出的运算路径和规律，用具体编程语言实现程序。在实现过程中，注重程序的框架，对具体变量赋值和比较上的细节问题，不浪费 过多的时间精力。先选择一个方案，再等待后续测试时确定参数。
-                </p>
-                <p>
-                    对复杂的题目，如对程序的运行时间和内存有限制，还需要同时书写一个答案保证正确但可能超过运行时间和内存限制的程序，用于在测试数据上得到正确的答案供修复主程序时参考。
-                </p>
-            </div>
-            <div class="bs-docs-section">
-                <h1 id="test" class="page-header">测试</h1>
-                <p>
-                    先准备输入数据，再准备对应的参考输出数据。
-                </p>
-                <p>
-                    如果题目较为简单，或者输出结果有规律，可以不生成参考输出数据，而是对用户输出进行观察比较，找出异常情况。
-                </p>
-                <p>
-                    如果题目较为复杂，将输入数据输入到保证结果正确的程序，得到参考输出数据。
-                </p>
-                <p>
-                    在测试结果中，找到错误项，追溯到具体某项输入数据时出错，重点测试该数据。
-                </p>
-            </div>
-            <div class="bs-docs-section">
-                <h1 id="debug" class="page-header">调试</h1>
-                <p>
-                    通过重定向输入流，固定输入数据。按二分法单步或断电调试，或者按日志调试法输出中间结果。调试的同时在草稿纸演算，相互比较，找到程序的漏洞。调试要不断重启，不是一次性能调试通过。
-                </p>
-            </div>
-            <div class="bs-docs-section">
-                <h1 id="code-check" class="page-header">代码检查</h1>
-                <p>
-                    对调试通过的程序，要继续做测试，直到所有测试数据对同一版本的代码都通过验证。
-                </p>
-                <p>
-                    调试通过以后，提交程序。提交时应使用全选和复制粘贴的方式保证提价的代码和测试的代码是同一版本。提交前应再三检查是否去除了特定宏定义，中间结果输出的语句，以及输入输出重定向等。
-                </p>
-            </div>
-        </div>
-        <div class="col-md-3" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
-            </nav>
-        </div>
-    </div>
-    <!-- Footer ================================================== -->
-    <footer class="bs-docs-footer" role="contentinfo">
-        <div class="container">
-            <div class="row footer-top text-justify">
-                <div class="col-sm-6 col-lg-6">
-                    <h4>厦门大学黄老师</h4>
-                    <p>
-                        @2014-2024 <a href="about.html">黄炜</a> 保留其自行研发部分的所有权利。
-                    </p>
-                </div>
-                <div class="col-sm-6  col-lg-5 col-lg-offset-1 hidden-print">
-                    <div class="row about">
-                        <div class="col-xs-4">
-                            <h4>
-                                <i class="fa fa-question-circle"></i> 获取帮助
-                            </h4>
-                            <ul class="list-unstyled">
-                                <li><a href="changelog.html">更新日志</a></li>
-                                <li><a href="mailto:whuang@xmu.edu.cn">联系我</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-4">
-                            <h4>
-                                <i class="fa fa-language"></i> 语言
-                            </h4>
-                            <ul class="list-unstyled">
-                                <li><a href="/index.html">简体中文</a></li>
-                                <li><a href="/index_zht.html">正體中文</a></li>
-                                <li><a href="/index_en.html">English</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-4">
-                            <h4>
-                                <i class="fa fa-external-link"></i> 链接
-                            </h4>
-                            <ul class="list-unstyled">
-                                <li><a href="https://www.xmu.edu.cn/" target="_blank">厦门大学</a></li>
-                                <li>
-                                    <a href="https://informatics.xmu.edu.cn/"
-                                       target="_blank">厦门大学信息学院</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/pace/1.2.3/pace.min.js"></script>
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/classie/1.0.1/classie.min.js"></script>
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/animated-header/0.0.1/js/cbpAnimatedHeader.min.js"></script>
-    <script type="text/javascript"
-            src="//cdn.bootcdn.net/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
-    <script src="/static/polyfill/polyfill.min.js?features=es6"></script>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script type="text/javascript" src="/assets/js/docs.min.js"></script>
-    <script type="text/javascript" src="/assets/js/footer.min.js?v=20240903"></script>
-    <script type="text/javascript"
-            src="/assets/js/ie10-viewport-bug-workaround.min.js"></script>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
 </body>
 </html>
+
+<script type="text/html" id="main">
+    <div class="bs-docs-section">
+        <h1 id="req-ana" class="page-header">审题</h1>
+        <p>阅读题目，通过题目背景，了解题目大意，知晓输入和输出的意义。</p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="def-domain" class="page-header">确定定义域</h1>
+        <p>
+            确定定义域，设计程序。思考输入到输出的运算路径和规律，制定合理的算法方案，制定合理的测试方案。
+        </p>
+        <p>
+            如果定义域容量较少（如在 200 以内），建议每个数据点都测试一遍，通过工具或者眼睛观察，找出结果异常的数据点。
+        </p>
+        <p>
+            如果定义域容量较大，无法每个数据点都测试一遍，则需要抽样测试。
+        </p>
+        <p>
+            如果容易划分测试类，可以通过对程序算法的了解，将测试数据划分为若干类，每一类随机抽取少量（如 2 个）代表性的数据，参与测试。
+        </p>
+        <p>
+            如果不容易划分测试类，即没有显然的划分依据，则通过随机数简单随机抽样，找出一些数据参与测试。
+        </p>
+        <p>
+            如果不能彻底划分测试类，参考以上方法，对能划分测试类的部分选取代表性的数据，其他部分采取简单随机抽样。
+        </p>
+        <p>
+            有多重划分方案的，可以交叉多次测试。不必苛求划分时边界清晰，覆盖所有可能的情况。一般划分或者抽样而精简后的测试数据在数百为宜。
+        </p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="inmplement" class="page-header">实现程序</h1>
+        <p>
+            根据前项思考得到输入到输出的运算路径和规律，用具体编程语言实现程序。在实现过程中，注重程序的框架，对具体变量赋值和比较上的细节问题，不浪费
+            过多的时间精力。先选择一个方案，再等待后续测试时确定参数。
+        </p>
+        <p>
+            对复杂的题目，如对程序的运行时间和内存有限制，还需要同时书写一个答案保证正确但可能超过运行时间和内存限制的程序，用于在测试数据上得到正确的答案供修复主程序时参考。
+        </p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="test" class="page-header">测试</h1>
+        <p>
+            先准备输入数据，再准备对应的参考输出数据。
+        </p>
+        <p>
+            如果题目较为简单，或者输出结果有规律，可以不生成参考输出数据，而是对用户输出进行观察比较，找出异常情况。
+        </p>
+        <p>
+            如果题目较为复杂，将输入数据输入到保证结果正确的程序，得到参考输出数据。
+        </p>
+        <p>
+            在测试结果中，找到错误项，追溯到具体某项输入数据时出错，重点测试该数据。
+        </p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="debug" class="page-header">调试</h1>
+        <p>
+            通过重定向输入流，固定输入数据。按二分法单步或断电调试，或者按日志调试法输出中间结果。调试的同时在草稿纸演算，相互比较，找到程序的漏洞。调试要不断重启，不是一次性能调试通过。
+        </p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="code-check" class="page-header">代码检查</h1>
+        <p>
+            对调试通过的程序，要继续做测试，直到所有测试数据对同一版本的代码都通过验证。
+        </p>
+        <p>
+            调试通过以后，提交程序。提交时应使用全选和复制粘贴的方式保证提价的代码和测试的代码是同一版本。提交前应再三检查是否去除了特定宏定义，中间结果输出的语句，以及输入输出重定向等。
+        </p>
+    </div>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '#research.html',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
