@@ -148,7 +148,7 @@ function add_footer() {
             <div class="col-sm-6 col-lg-6">
                 <h4>厦门大学黄老师</h4>
                 <p>
-                    @2014-2024 <a href="about.html">黄炜</a> 保留其自行研发部分的所有权利。
+                    @2014-2025 <a href="about.html">黄炜</a> 保留其自行研发部分的所有权利。
                 </p>
             </div>
             <div class="col-sm-6  col-lg-5 col-lg-offset-1 hidden-print">

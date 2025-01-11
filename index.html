@@ -213,10 +213,18 @@
                             </thead>
                             <tbody id="course-list">
                             <tr>
+                                <td class="text-justify">
+                                    <a href="/teaching/cni/index.html">计算机网络</a>
+                                </td>
+                                <td class="text-justify">2024-2024学年第2学期</td>
+                                <td class="text-justify">软件工程专业二年级</td>
+                                <td class="text-justify" id="status-cni-242"></td>
+                            </tr>
+                            <tr>
                                 <td class="text-justify"><a href="/teaching/cni/">计算机网络</a></td>
                                 <td class="text-justify">2024-2025学年第1学期</td>
                                 <td class="text-justify">数字媒体技术专业三年级</td>
-                                <td class="text-justify text-warning" id="status-cni">即将开课</td>
+                                <td class="text-justify" id="status-cni-241"></td>
                             </tr>
                             <tr>
                                 <td class="text-justify">
@@ -227,7 +235,7 @@
                                 </td>
                                 <td class="text-justify">2024-2025学年第1学期</td>
                                 <td class="text-justify">计算机大类一年级</td>
-                                <td class="text-justify text-warning" id="status-cpd">即将开课</td>
+                                <td class="text-justify" id="status-cpd-241"></td>
                             </tr>
                             <tr>
                                 <td class="text-justify">
@@ -267,7 +275,7 @@
                                 <th>状态</th>
                             </tr>
                             </thead>
-                            <tbody id="course-list">
+                            <tbody id="research-list">
                             <tr>
                                 <td class="text-justify">隐写分析中的少样本问题</td>
                                 <td class="text-justify text-success">正常进行</td>
@@ -321,16 +329,16 @@
                             </div>
                         </a><a href="JavaScript:return false;" class="list-group-item">
                             <div class="row">
-                                <div class="col-xs-9 col-md-8">自本学期起，工程数学课程停止开课。</div>
-                                <div class="col-xs-3 col-md-4 text-right">
-                                    <span class="code small text-muted">2024-02-26 18:00</span>
-                                </div>
-                            </div>
-                        </a> <a href="JavaScript:return false;" class="list-group-item">
-                            <div class="row">
                                 <div class="col-xs-9 col-md-8">2023-2024学年第一学期期末成绩已经公布。</div>
                                 <div class="col-xs-3 col-md-4 text-right">
                                     <span class="code small text-muted">2024-01-16 16:00</span>
+                                </div>
+                            </div>
+                        </a><a href="JavaScript:return false;" class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-9 col-md-8">自本学期起，工程数学课程停止开课。</div>
+                                <div class="col-xs-3 col-md-4 text-right">
+                                    <span class="code small text-muted">2023-02-26 18:00</span>
                                 </div>
                             </div>
                         </a>
@@ -397,18 +405,33 @@
         margin-top: 0;
         border-top: 0;
     }
+
     -->
 </style>
 
 <script type="text/javascript">
+    function setCourseStatus(startDate, endDate, id) {
+        const now = new Date();
+        if (now >= startDate) {
+            if (now <= endDate) {
+                $(id).text('正在开课').addClass('text-success');
+            } else {
+                $(id).text('已经结课').addClass('text-info');
+            }
+        } else {
+            $(id).text('即将开课').addClass('text-warning');
+        }
+    }
+
     function updateDisplay() {
         const now = new Date();
-        const startDate = new Date(2024, 8, 1); // 月份从0开始计数，所以8代表9月
-        const endDate = new Date(2025, 0, 10); // 0代表1月
-        if (now >= startDate && now <= endDate) {
-            $("#status-cni").text('正在开课').addClass('text-success').removeClass('text-warning');
-            $("#status-cpd").text('正在开课').addClass('text-success').removeClass('text-warning');
-        }
+        var startDate = new Date(2024, 8, 1); // 月份从0开始计数，所以8代表9月
+        var endDate = new Date(2025, 0, 10); // 0代表1月
+        setCourseStatus(startDate, endDate, '#status-cni-241');
+        setCourseStatus(startDate, endDate, '#status-cpd-241');
+        var startDate = new Date(2025, 1, 10);
+        var endDate = new Date(2025, 5, 20);
+        setCourseStatus(startDate, endDate, '#status-cni-242');
     }
 
     // 调用函数更新显示
