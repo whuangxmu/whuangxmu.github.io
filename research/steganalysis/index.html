@@ -1,6 +1,6 @@
 <!-- Wei HUANG's Gitee Page -->
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-CN">
 <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -15,8 +15,9 @@
     <script type="text/javascript">
         var mode_async_json = false;
         var myoj2_app_name = "黄老师";
-        var page_docs_header_title = "公告";
-        var page_docs_header_desc = "发布教学和科研相关信息。";
+        var page_style = "home";
+        var page_docs_header_title = "隐写分析";
+        var page_docs_header_desc = "隐写分析是对隐写术的攻击，目的是检测秘密信息的存在以便破坏隐秘通信‌。";
     </script>
 </head>
 <body>
@@ -29,61 +30,57 @@
 
 <script type="text/html" id="main">
     <style type="text/css">
-        .section-title {
-            display: block;
-            color: rgb(37, 37, 37);
-            font-size: 40px;
-            max-width: 320px;
-            font-weight: 500;
-            text-align: center;
-            margin: 10px auto;
-            word-break: break-word;
+        .thumbnail {
+            padding: 1em 1.5em
+        }
+
+        .thumbnail > .title {
+            font-size: 24pt
+        }
+
+        a.thumbnail:hover {
+            text-decoration: none;
         }
     </style>
-    <section class="dvl-services">
+    <section class="myoj2 myoj2-features" id="release">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="section-title">主要信息</div>
+                    <h2 class="header wow fadeIn animated" data-wow-delay=".2s"
+                        style="visibility: visible; animation-delay: 0.2s;">
+                        研究主题
+                    </h2>
                     <div class="description wow fadeIn animated" data-wow-delay=".1s"
                          style="visibility: visible; animation-delay: 0.1s;">
                         <div class="list-group text-justify">
                             <a href="JavaScript:return false;" class="list-group-item">
                                 <div class="row">
-                                    <div class="col-xs-9 col-md-8">2023-2024学年第二学期期末成绩已经公布。</div>
+                                    <div class="col-xs-9 col-md-8">图像隐写分析中的少样本问题</div>
                                     <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-06-20 16:00</span>
-                                    </div>
-                                </div>
-                            </a> <a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">计算机网络项目一组队结束。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-03-02 16:00</span>
-                                    </div>
-                                </div>
-                            </a> <a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">新学期开始了。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-02-26 18:00</span>
+                                        <span class="code small text-muted">2023 -- 今</span>
                                     </div>
                                 </div>
                             </a><a href="JavaScript:return false;" class="list-group-item">
                                 <div class="row">
-                                    <div class="col-xs-9 col-md-8">自本学期起，工程数学课程停止开课。</div>
+                                    <div class="col-xs-9 col-md-8">深度学习图像隐写分析</div>
                                     <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-02-26 18:00</span>
+                                        <span class="code small text-muted">2022 -- 今</span>
                                     </div>
                                 </div>
                             </a> <a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">2023-2024学年第一学期期末成绩已经公布。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-01-16 16:00</span>
-                                    </div>
+                            <div class="row">
+                                <div class="col-xs-9 col-md-8">传统图像隐写分析</div>
+                                <div class="col-xs-3 col-md-4 text-right">
+                                    <span class="code small text-muted">2009 -- 2022</span>
                                 </div>
-                            </a>
+                            </div><a href="JavaScript:return false;" class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-9 col-md-8">音频图像隐写分析</div>
+                                <div class="col-xs-3 col-md-4 text-right">
+                                    <span class="code small text-muted">2009 -- 2010</span>
+                                </div>
+                            </div>
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +102,12 @@
             id: 'nav-status-research',
             link: '/research/',
             text: '研究',
-            icon: 'fa fa-tasks'
+            icon: 'fa fa-tasks',
+            dropdown: [
+                {link: '/research/steganalysis/', text: '隐写分析'},
+                {link: '/research/scancode/', text: '扫码通信'},
+                {link: '#/research/ipv6p/', text: 'IPv6+'}
+            ]
         },
         {
             id: 'nav-release',

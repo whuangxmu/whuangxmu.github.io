@@ -1,0 +1,173 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_style = "home";
+        var page_docs_header_title = "研究信息";
+        var page_docs_header_desc = "简要介绍研究主题。";
+    </script>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <!-- Docs page layout -->
+    <style type="text/css">
+        .section-title {
+            display: block;
+            color: rgb(37, 37, 37);
+            font-size: 40px;
+            max-width: 320px;
+            font-weight: 500;
+            text-align: center;
+            margin: 10px auto;
+            word-break: break-word;
+        }
+
+        .course-panel {
+            border: 1px solid rgb(214, 214, 214);
+            border-radius: 26px;
+            background-color: rgb(250, 250, 250);
+            background-size: cover;
+            object-fit: fill;
+            object-position: center center;
+            overflow: hidden;
+            margin: 16px 0px 0px;
+            position: relative;
+            padding: 34px 24px 36px;
+        }
+
+        .course-title {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 24px;
+            text-align: left;
+            margin: 0px 0px 16px;
+            color: rgb(37, 37, 37);
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .course-description {
+            display: block;
+            color: rgb(37, 37, 37);
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 22px;
+            margin: 0px 0px 30px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .course-description:last-child {
+            margin: 0px 0px 0px;
+        }
+
+        @media ( min-width: 768px) {
+            .course-panel {
+                padding: 48px 64px 65px;
+                margin-top: 0px;
+            }
+
+            .course-title {
+                font-size: 32px;
+                line-height: 42px;
+                margin: 0px 0px 12px;
+            }
+
+            .course-description {
+                font-size: 18px;
+                margin: 0px 0px 70px;
+                line-height: 30px;
+                text-align: justify;
+                line-height: 30px;
+            }
+        }
+    </style>
+    <!-- Docs page layout -->
+    <main class="myoj2-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-title">主要研究主题列表</div>
+                    <div class="course-panel">
+                        <div class="course-title">
+                            <a href="steganalysis/">隐写分析</a>
+                        </div>
+                        <div class="course-description">
+                            隐写分析是对隐写术的攻击，目的是检测秘密信息的存在以便破坏隐秘通信‌。
+                        </div>
+                        <div class="course-title">
+                            <a href="cni/">扫码通信</a>
+                        </div>
+                        <div class="course-description">扫码通信是一种通过扫描图像点阵码或者水印码实现通信的技术。
+                        </div>
+                        <div class="course-title">
+                            <span class="text-muted">IPv6</span>
+                        </div>
+                        <div class="course-description">
+                            IPv6是互联网协议第六版，是互联网的下一代协议，旨在取代现行的IPv4协议。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+
+<script type="text/javascript" src="/assets/js/ui.js"></script>
