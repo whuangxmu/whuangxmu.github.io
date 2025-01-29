@@ -9,37 +9,49 @@ function Syllabus() {
     });
 
     obj.scheduleCourses = function (classDates, courses) {
-        let currentDateIndex = 0;
-        let currentDateCapacity = 0;
+            var field="";
+            var x =0;
+            // 遍历课程
+            courses.forEach(course => {
+                let currentDateIndex = 0;
+                let currentDateCapacity = 0;
+                // 如果当前日期的容量不足以容纳当前课程，则拆分成多个部分，跨多个日期
+                var part = 1;
+                if (course.type===1)
+                    field="tclasslast";
+                else if (course.type===2)
+                    field="eclasslast";
+                while (course.classlast > 0 && currentDateIndex < classDates.length) {
+                    if ((course.type===1 && classDates[currentDateIndex].tclasslast === 0)||(course.type===2 && classDates[currentDateIndex].eclasslast === 0)){
+                        currentDateIndex++;
+                        continue;
+                    }
+                    // console.log(classDates[currentDateIndex].date+": T: "+classDates[currentDateIndex].tclasslast+"; E: "+classDates[currentDateIndex].eclasslast);
+                    const remainingClass = Math.min(classDates[currentDateIndex][field] - currentDateCapacity, course.classlast);
+                    if (typeof classDates[currentDateIndex].content === 'undefined') {
+                        classDates[currentDateIndex].content = [];
+                    }
+                    course.classlast -= remainingClass;
+                    var part_suffix = "";
+                    if (course.classlast !== 0 || part !== 1) {
+                        part_suffix = " (" + part + ")";
+                    }
+                    classDates[currentDateIndex].content.push({
+                        type: course.type,
+                        title: course.title + part_suffix,
+                        lecture: course.lecture,
+                        chapter: course.chapter,
+                        classlast: remainingClass
+                    });
+                    classDates[currentDateIndex][field] -= remainingClass;
+                    if (classDates[currentDateIndex][field] === 0) {
+                        currentDateIndex++;
+                    }
+                    part++;
+                }
+            });
 
-        // 遍历课程  
-        courses.forEach(course => {
-            // 如果当前日期的容量不足以容纳当前课程，则移至下一个日期
-            currentDateIndex = 0;
-            while (currentDateIndex < classDates.length
-                && !((course.type == 1 && course.classlast <= classDates[currentDateIndex].tclasslast)
-                    || (course.type == 2 && course.classlast <= classDates[currentDateIndex].eclasslast))) {
-                currentDateIndex++;
-            }
-            if (currentDateIndex >= classDates.length)
-                return;
-            // 将课程添加到当前日期的content数组中
-            if (classDates[currentDateIndex].content == undefined) {
-                classDates[currentDateIndex].content = [];
-            }
-            if (course.type == 1) {
-                classDates[currentDateIndex].tclasslast -= course.classlast;
-                classDates[currentDateIndex].content.push(course);
-            }
-            else if (course.type == 2) {
-                classDates[currentDateIndex].eclasslast -= course.classlast;
-                classDates[currentDateIndex].content.push(course);
-            }
-            // 更新当前日期的容量  
-            currentDateCapacity += course.classlast;
-        });
-
-        return classDates;
+            return classDates;
     }
     function getWeekNumber(date, firstSunday) {
         // 确保两个日期都是Date对象  
@@ -99,7 +111,6 @@ function Syllabus() {
     }
 
     obj.buildTable = function (classDates) {
-
         let currentRow = null;
         let currentType = null;
         let currentDate = null;
@@ -116,9 +127,9 @@ function Syllabus() {
                 table += `<table class="table table-bordered table-striped table-hover"><thead><tr>`;
                 sameOrder = (date.content[0].lecture === undefined);
                 if (sameOrder)
-                    table += `<th width="15%">类型</th><th width="10%">章次</th><th width="45%">主要内容</th><th width="30%">日期</th>`;
+                    table += `<th width="15%">类型</th><th width="10%">章次</th><th width="37%">主要内容</th><th width="8%">课时</th><th width="30%">日期</th>`;
                 else
-                    table += `<th width="10%">类型</th><th width="10%">课件序号</th><th width="45%">主要内容</th><th width="10%">课本章次</th><th width="25%">日期</th>`;
+                    table += `<th width="10%">类型</th><th width="10%">课件序号</th><th width="37%">主要内容</th><th width="10%">课本章</th><th width="8%">课时</th><th width="25%">日期</th>`;
                 table += `</tr></thead><tbody>`;
                 isNew = false;
             }
@@ -144,7 +155,7 @@ function Syllabus() {
                 // 拼接成最终的日期字符串  
                 let classDateStr = `${syear}${smonth}${sday} (${sweekday})`;
                 if (currentType !== course.type || currentDate !== date.date) {
-                    let rowspan = date.content.filter(c => c.type === course.type).length;
+                        let rowspan = date.content.filter(c => c.type === course.type).length;
                     table += `<td class="text-center" rowspan="${rowspan}">${course.type === 1 ? '理论课' : '实验课'}</td>`;
                 }
                 if (sameOrder) {
@@ -155,6 +166,7 @@ function Syllabus() {
                     table += `<td class="text-justify">${course.title}</td>`
                     table += `<td class="text-center">${course.chapter || ''}</td>`;
                 }
+                table += `<td class="text-center">${course.classlast}</td>`
                 if (currentDate !== date.date) {
                     table += `<td class="text-center" rowspan="${date.content.length}">${classDateStr}</td>`;
                 }
@@ -227,7 +239,12 @@ function Syllabus() {
 
     //辅助函数：获取某月天数  
     function getWeeksInMonth(year, month, day = 1) {
-        return Math.ceil(((day == 1 ? new Date(year, month, 0).getDate() : day - 1) + new Date(year, month - 1, 1).getDay()) / 7);
+        const startDate = new Date(year, month - 1, day);
+        const endDate = new Date(year, month, 0);
+        const startDayOfWeek = startDate.getDay();
+        const endDayOfMonth = endDate.getDate();
+        const daysRemaining = endDayOfMonth - day + 1;
+        return Math.ceil((startDayOfWeek + daysRemaining) / 7);
     }
 
     return obj;

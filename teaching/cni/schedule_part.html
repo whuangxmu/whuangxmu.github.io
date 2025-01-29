@@ -34,8 +34,7 @@
         <div class="col-sm-12">
             <div class="bs-callout bs-callout-info" id="callout-popover-data">
                 <h4>课程分班说明</h4>
-                <p>本页面展示的是“卓越工程师计划”班级的授课安排。<a
-                        href="schedule_part.html">单击此处查看普通班1班和2班的授课安排。</a></p>
+                <p>本页面展示的是普通班级1班和2班的授课安排。<a href="schedule.html">单击此处查看“卓越工程师计划”班的授课安排。</a></p>
             </div>
         </div>
     </div>
@@ -101,14 +100,15 @@
 <script type="text/javascript" src="/assets/js/syllabus.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        const t = new TimeStep();
-        t.nodes = [
+        var t = new TimeStep();
+        var nodes = [
             {"title": "选课", "tip": "2025年2月1日 选课上课", "time": new Date(2025, 2 - 1, 1, 8, 0)},
             {"title": "开始上课", "tip": "2025年2月17日 开始上课", "time": new Date(2025, 2 - 1, 17, 8, 0)},
             {"title": "期中考", "tip": "第9周 期中考", "time": new Date(2025, 4 - 1, 14, 18, 0)},
             {"title": "下半学期", "tip": "第10周后 下半学期", "time": new Date(2025, 4 - 1, 14, 18, 0)},
             {"title": "期末笔试", "tip": "考试周 期末笔试", "time": new Date(2025, 6 - 1, 20, 10, 0)},
             {"title": "课程结束", "tip": "2025年6月27日 课程结束", "time": new Date(2025, 6 - 1, 27, 20, 0)}];
+        t.nodes = nodes;
         t.prepare();
         t.run();
     });
@@ -166,8 +166,8 @@
     const firstStartDay = new Date(2025, 1, 16); // 本学期第一周周日
     const lastSaturday = new Date(2025, 5, 14); // 本学期最后一周周六
 
-    const theoryDays = [1, 4]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）
-    const labDays = [4]; // 实验课在周三上
+    const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）
+    const labDays = [5]; // 实验课在周三上
     const holidays = [[new Date(2025, 4, 1), new Date(2025, 4, 2), new Date(2025, 4, 3), new Date(2025, 4, 4), new Date(2025, 4, 5), new Date(2025, 5, 2)],
         [null, null, null, null, new Date(2025, 3, 27), null]];
 

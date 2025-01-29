@@ -95,20 +95,25 @@
 <script type="text/javascript" src="/assets/js/timestep.js"></script>
 <script type="text/javascript" src="/assets/js/syllabus.js?v=20240924"></script>
 <script type="text/javascript">
-    var t = new TimeStep();
-    var nodes = [
-        {"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
-        {"title": "上半学期", "tip": "2024年9月18日 开始上课", "time": new Date(2024, 9 - 1, 18, 8, 0)},
-        {"title": "期中考核", "tip": "第10周 期中考核", "time": new Date(2024, 11 - 1, 8, 14, 20)},
-        {"title": "下半学期", "tip": "下半学期", "time": new Date(2024, 11 - 1, 8, 16, 20)},
-        {"title": "上机考试", "tip": "2024年最后一次实验课 期末上机考试", "time": new Date(2024, 12 - 1, 25, 18, 0)},
-        {"title": "期末笔试", "tip": "2025年1月10日 期末笔试", "time": new Date(2025, 1 - 1, 10, 10, 30)},
+    $(document).ready(function () {
+        var t = new TimeStep();
+        var nodes = [
+            {"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
+            {"title": "上半学期", "tip": "2024年9月18日 开始上课", "time": new Date(2024, 9 - 1, 18, 8, 0)},
+            {"title": "期中考核", "tip": "第10周 期中考核", "time": new Date(2024, 11 - 1, 8, 14, 20)},
+            {"title": "下半学期", "tip": "下半学期", "time": new Date(2024, 11 - 1, 8, 16, 20)},
+            {
+                "title": "上机考试",
+                "tip": "2024年最后一次实验课 期末上机考试",
+                "time": new Date(2024, 12 - 1, 25, 18, 0)
+            },
+            {"title": "期末笔试", "tip": "2025年1月10日 期末笔试", "time": new Date(2025, 1 - 1, 10, 10, 30)},
 //	{"title": "成绩录入", "tip": "2025年1月18日后 改卷公告成绩", "time": new Date(2025, 1 - 1, 18, 8, 0)},
-        {"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
-    t.nodes = nodes;
-    t.prepare();
-    t.run();
-    // time-step---end
+            {"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
+        t.nodes = nodes;
+        t.prepare();
+        t.run();
+    });
 
     const courses = [
         {"type": 1, "chapter": 1, "title": "课程简介", "classlast": 1},
