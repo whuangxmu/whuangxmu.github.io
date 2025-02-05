@@ -105,7 +105,8 @@ function Syllabus() {
                 classDates.push({ date, tclasslast: th, eclasslast: lb });
             }
         }
-
+        classDates.sort((a, b) => a.date - b.date);
+        console.log(classDates);
         // 将日期转换为字符串格式返回  
         return classDates;
     }
