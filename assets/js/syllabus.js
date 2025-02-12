@@ -9,50 +9,51 @@ function Syllabus() {
     });
 
     obj.scheduleCourses = function (classDates, courses) {
-            var field="";
-            var x =0;
-            // 遍历课程
-            courses.forEach(course => {
-                let currentDateIndex = 0;
-                let currentDateCapacity = 0;
-                // 如果当前日期的容量不足以容纳当前课程，则拆分成多个部分，跨多个日期
-                var part = 1;
-                if (course.type===1)
-                    field="tclasslast";
-                else if (course.type===2)
-                    field="eclasslast";
-                while (course.classlast > 0 && currentDateIndex < classDates.length) {
-                    if ((course.type===1 && classDates[currentDateIndex].tclasslast === 0)||(course.type===2 && classDates[currentDateIndex].eclasslast === 0)){
-                        currentDateIndex++;
-                        continue;
-                    }
-                    // console.log(classDates[currentDateIndex].date+": T: "+classDates[currentDateIndex].tclasslast+"; E: "+classDates[currentDateIndex].eclasslast);
-                    const remainingClass = Math.min(classDates[currentDateIndex][field] - currentDateCapacity, course.classlast);
-                    if (typeof classDates[currentDateIndex].content === 'undefined') {
-                        classDates[currentDateIndex].content = [];
-                    }
-                    course.classlast -= remainingClass;
-                    var part_suffix = "";
-                    if (course.classlast !== 0 || part !== 1) {
-                        part_suffix = " (" + part + ")";
-                    }
-                    classDates[currentDateIndex].content.push({
-                        type: course.type,
-                        title: course.title + part_suffix,
-                        lecture: course.lecture,
-                        chapter: course.chapter,
-                        classlast: remainingClass
-                    });
-                    classDates[currentDateIndex][field] -= remainingClass;
-                    if (classDates[currentDateIndex][field] === 0) {
-                        currentDateIndex++;
-                    }
-                    part++;
+        var field = "";
+        var x = 0;
+        // 遍历课程
+        courses.forEach(course => {
+            let currentDateIndex = 0;
+            let currentDateCapacity = 0;
+            // 如果当前日期的容量不足以容纳当前课程，则拆分成多个部分，跨多个日期
+            var part = 1;
+            if (course.type === 1)
+                field = "tclasslast";
+            else if (course.type === 2)
+                field = "eclasslast";
+            while (course.classlast > 0 && currentDateIndex < classDates.length) {
+                if ((course.type === 1 && classDates[currentDateIndex].tclasslast === 0) || (course.type === 2 && classDates[currentDateIndex].eclasslast === 0)) {
+                    currentDateIndex++;
+                    continue;
                 }
-            });
+                // console.log(classDates[currentDateIndex].date+": T: "+classDates[currentDateIndex].tclasslast+"; E: "+classDates[currentDateIndex].eclasslast);
+                const remainingClass = Math.min(classDates[currentDateIndex][field] - currentDateCapacity, course.classlast);
+                if (typeof classDates[currentDateIndex].content === 'undefined') {
+                    classDates[currentDateIndex].content = [];
+                }
+                course.classlast -= remainingClass;
+                var part_suffix = "";
+                if (course.classlast !== 0 || part !== 1) {
+                    part_suffix = " (" + part + ")";
+                }
+                classDates[currentDateIndex].content.push({
+                    type: course.type,
+                    title: course.title + part_suffix,
+                    lecture: course.lecture,
+                    chapter: course.chapter,
+                    classlast: remainingClass
+                });
+                classDates[currentDateIndex][field] -= remainingClass;
+                if (classDates[currentDateIndex][field] === 0) {
+                    currentDateIndex++;
+                }
+                part++;
+            }
+        });
 
-            return classDates;
+        return classDates;
     }
+
     function getWeekNumber(date, firstSunday) {
         // 确保两个日期都是Date对象  
         if (!(date instanceof Date) || !(firstSunday instanceof Date)) {
@@ -62,6 +63,7 @@ function Syllabus() {
         const weeksDiff = Math.floor(daysDiff / 7) + 1;
         return weeksDiff;
     }
+
     obj.generateClassDates = function (firstSunday, lastSaturday, theoryDays, labDays, holidays, type) {
         // 生成一个包含指定天数（从start开始，不包括end）的日期数组  
         function generateDates(start, end) {
@@ -83,7 +85,13 @@ function Syllabus() {
         const startDate = new Date(firstSunday);
         const endDate = new Date(lastSaturday);
 
-        // 生成整个学期的日期数组  
+        let weekParity = 0;
+        if (labDays < 0) {
+            weekParity = 1;
+            labDays = -labDays;
+        }
+
+        // 生成整个学期的日期数组
         const allDates = generateDates(startDate, endDate.setDate(endDate.getDate() + 1) && new Date(endDate)); // 包括最后一周的周六  
         // 创建一个空数组来存储最终的上课日期和类型  
         const classDates = [];
@@ -95,19 +103,18 @@ function Syllabus() {
                 holiday.getDate() === date.getDate()));
             // 检查是否是理论课且不是节假日  
             let th = (theoryDays.includes(dayOfWeek) &&
-                (type == 1 || (type == 2 && !(labDays.includes(dayOfWeek) && getWeekNumber(date, firstSunday) % 2 == 0)))) ? 2 : 0;
-            let lb = (labDays.includes(dayOfWeek) &&
-                (type == 1 || (type == 2 && getWeekNumber(date, firstSunday) % 2 == 0))) ? 2 : 0;
+                (type == 1 || (type == 2 && !(labDays == dayOfWeek && getWeekNumber(date, firstSunday) % 2 == weekParity)))) ? 2 : 0;
+            let lb = (labDays == dayOfWeek &&
+                (type == 1 || (type == 2 && getWeekNumber(date, firstSunday) % 2 == weekParity))) ? 2 : 0;
             if (holidayIndex < 0) {
-                classDates.push({ date, tclasslast: th, eclasslast: lb });
+                classDates.push({date, tclasslast: th, eclasslast: lb});
             } else if (holidays[1][holidayIndex]) {
                 date = holidays[1][holidayIndex];
-                classDates.push({ date, tclasslast: th, eclasslast: lb });
+                classDates.push({date, tclasslast: th, eclasslast: lb});
             }
         }
         classDates.sort((a, b) => a.date - b.date);
-        console.log(classDates);
-        // 将日期转换为字符串格式返回  
+        // 将日期转换为字符串格式返回
         return classDates;
     }
 
@@ -142,10 +149,10 @@ function Syllabus() {
                 // 开始新行  
                 table += `<tr id="${year}${month}${day}_${index}">`;
                 // 使用 Intl.DateTimeFormat 分别获取年、月、日和星期几  
-                const yearFormatter = new Intl.DateTimeFormat('zh-CN', { year: 'numeric' });
-                const monthFormatter = new Intl.DateTimeFormat('zh-CN', { month: '2-digit' });
-                const dayFormatter = new Intl.DateTimeFormat('zh-CN', { day: '2-digit' });
-                const weekdayFormatter = new Intl.DateTimeFormat('zh-CN', { weekday: 'long' });
+                const yearFormatter = new Intl.DateTimeFormat('zh-CN', {year: 'numeric'});
+                const monthFormatter = new Intl.DateTimeFormat('zh-CN', {month: '2-digit'});
+                const dayFormatter = new Intl.DateTimeFormat('zh-CN', {day: '2-digit'});
+                const weekdayFormatter = new Intl.DateTimeFormat('zh-CN', {weekday: 'long'});
 
                 // 格式化并拼接字符串  
                 syear = yearFormatter.format(date.date);
@@ -156,7 +163,7 @@ function Syllabus() {
                 // 拼接成最终的日期字符串  
                 let classDateStr = `${syear}${smonth}${sday} (${sweekday})`;
                 if (currentType !== course.type || currentDate !== date.date) {
-                        let rowspan = date.content.filter(c => c.type === course.type).length;
+                    let rowspan = date.content.filter(c => c.type === course.type).length;
                     table += `<td class="text-center" rowspan="${rowspan}">${course.type === 1 ? '理论课' : '实验课'}</td>`;
                 }
                 if (sameOrder) {

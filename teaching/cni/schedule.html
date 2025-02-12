@@ -147,17 +147,17 @@
         {"type": 1, "lecture": 17, "title": "FTP协议", "chapter": 4, "classlast": 2},
         {"type": 1, "lecture": 18, "title": "Web服务", "chapter": 33, "classlast": 2},
         //{"type":1,"lecture":"","title":"（机动）","chapter":"","classlast":2},
-        {"type": 2, "lecture": "", "title": "（机动）", "chapter": "", "classlast": 2},
+        //{"type": 2, "lecture": "", "title": "（机动）", "chapter": "", "classlast": 2},
         {"type": 1, "lecture": "R1", "title": "期末复习", "chapter": "", "classlast": 2},
         {"type": 1, "lecture": 4, "title": "答疑", "chapter": "", "classlast": 2},
     ];
 
     const firstDay = new Date(2025, 1, 16); // 本学期第一周周日
     const firstStartDay = new Date(2025, 1, 16); // 本学期第一周周日
-    const lastSaturday = new Date(2025, 5, 14); // 本学期最后一周周六
+    const lastSaturday = new Date(2025, 5, 7); // 本学期最后一周周六
 
     const theoryDays = [1, 4]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）
-    const labDays = [4]; // 实验课在周三上
+    const labDays = 4; // 实验课在周三上
     const holidays = [[new Date(2025, 4, 1), new Date(2025, 4, 2), new Date(2025, 4, 3), new Date(2025, 4, 4), new Date(2025, 4, 5), new Date(2025, 5, 2)],
         [null, null, null, null, new Date(2025, 3, 27), null]];
 
