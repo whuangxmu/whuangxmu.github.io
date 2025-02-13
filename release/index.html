@@ -45,51 +45,80 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="section-title">主要信息</div>
-                    <div class="description wow fadeIn animated" data-wow-delay=".1s"
-                         style="visibility: visible; animation-delay: 0.1s;">
+                    <div class="description">
                         <div class="list-group text-justify">
-                            <a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">2023-2024学年第二学期期末成绩已经公布。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-06-20 16:00</span>
-                                    </div>
-                                </div>
-                            </a> <a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">计算机网络项目一组队结束。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-03-02 16:00</span>
-                                    </div>
-                                </div>
-                            </a> <a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">新学期开始了。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-02-26 18:00</span>
-                                    </div>
-                                </div>
-                            </a><a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">自本学期起，工程数学课程停止开课。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-02-26 18:00</span>
-                                    </div>
-                                </div>
-                            </a> <a href="JavaScript:return false;" class="list-group-item">
-                                <div class="row">
-                                    <div class="col-xs-9 col-md-8">2023-2024学年第一学期期末成绩已经公布。</div>
-                                    <div class="col-xs-3 col-md-4 text-right">
-                                        <span class="code small text-muted">2024-01-16 16:00</span>
-                                    </div>
-                                </div>
-                            </a>
+                            <!-- 动态生成的内容将插入到这里 -->
                         </div>
+                    </div>
+                    <div class="col-sm-12 text-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <!-- 分页按钮将插入到这里 -->
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var itemsPerPage = 10; // 每页显示的项目数
+        var currentPage = 1;
+        var announcements = [];
+
+        function loadPage(page) {
+            var start = (page - 1) * itemsPerPage;
+            var end = start + itemsPerPage;
+            var $container = $(".dvl-services .container .row .col-sm-12 .description .list-group");
+            $container.empty();
+
+            $.each(announcements.slice(start, end), function (index, announcement) {
+                var $listItem = $("<a>", {href: "JavaScript:return false;", class: "list-group-item"});
+                var $row = $("<div>", {class: "row"});
+                var $col1 = $("<div>", {class: "col-xs-9 col-md-8", text: announcement.title});
+                var $col2 = $("<div>", {class: "col-xs-3 col-md-4 text-right"});
+                var $dateSpan = $("<span>", {class: "code small text-muted", text: announcement.date});
+
+                $col2.append($dateSpan);
+                $row.append($col1).append($col2);
+                $listItem.append($row);
+                $container.append($listItem);
+            });
+        }
+
+        function createPagination(totalItems) {
+            var totalPages = Math.ceil(totalItems / itemsPerPage);
+            var $pagination = $(".pagination");
+            $pagination.empty();
+
+            for (var i = 1; i <= totalPages; i++) {
+                var $pageItem = $("<li>", {class: "page-item" + (i === currentPage ? " active" : "")});
+                var $pageLink = $("<a>", {class: "page-link", href: "#", text: i});
+
+                $pageLink.on("click", (function (page) {
+                    return function (e) {
+                        e.preventDefault();
+                        currentPage = page;
+                        loadPage(page);
+                        createPagination(totalItems);
+                    };
+                })(i));
+
+                $pageItem.append($pageLink);
+                $pagination.append($pageItem);
+            }
+        }
+
+        $.getJSON("list.json", function (data) {
+            announcements = data;
+            loadPage(currentPage);
+            createPagination(announcements.length);
+        });
+    });
 </script>
 
 <script type="text/javascript">
