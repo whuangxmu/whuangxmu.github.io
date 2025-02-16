@@ -1,0 +1,175 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "代码阅读";
+        var page_docs_header_desc = "推荐本课程值得阅读的代码。";
+    </script>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <div class="bs-docs-section">
+        <p>
+            俗语云：熟读唐诗三百首，不会作诗也会吟。在开源世界里有许多优秀的开源项目，我在参考网上帖子的基础上，精选数个优秀的计算机网络的项目。希望将来从事软件工程工作的同学在考后阅读模仿，从而写出较为成熟的代码。</p>
+        <p>
+            一般开源代码发布在各自作者的主页，或者GitHub、SourceForge、Codeproject、Google
+            Code平台等。
+        </p>
+        <p>请在完成课本代码阅读的基础上，阅读学习这些代码。</p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="primary" class="page-header">初级</h1>
+        <h2 id="Webbench" class="page-header">Webbench</h2>
+        <p>
+            Webbench是一个在linux下使用的非常简单的网站压测工具。它使用fork()模拟多个客户端同时访问我们设定的URL，测试网站在压力下工作的性能，最多可以模拟3万个并发连接去测试网站的负载能力。Webbench使用C语言编写,
+            代码实在太简洁，源码加起来不到600行。
+        </p>
+        <p>
+            下载链接：<a href="http://home.tiscali.cz/~cz210552/webbench.html">
+            <span class="fa fa-link" aria-hidden="true"></span>
+            http://home.tiscali.cz/~cz210552/webbench.html
+        </a>
+        </p>
+        <h2 id="Tinyhttpd" class="page-header">Tinyhttpd</h2>
+        <p>
+            tinyhttpd是一个超轻量型Http
+            Server，使用C语言开发，全部代码只有502行(包括注释)，附带一个简单的Client，可以通过阅读这段代码理解一个 Http
+            Server 的本质。
+        </p>
+        <p>
+            下载链接：<a href="http://sourceforge.net/projects/tinyhttpd/">
+            <span class="fa fa-link" aria-hidden="true"></span>
+            http://sourceforge.net/projects/tinyhttpd/
+        </a>
+        </p>
+        <h2 id="Lighttpd" class="page-header">Lighttpd</h2>
+        <p>
+            Lighttpd
+            是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web
+            server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。
+        </p>
+        <p>
+            Lighttpd 是众多OpenSource轻量级的web
+            server中较为优秀的一个。支持FastCGI，CGI，Auth，输出压缩(output
+            compress)，URL重写，Alias等重要功能；而Apache之所以流行，很大程度也是因为功能丰富，在lighttpd上很多功能都有相应的实现了，这点对于apache的用户是非常重要的，因为迁移到lighttpd就必须面对这些问题。
+        </p>
+        <p>
+            下载链接：<a href="http://www.lighttpd.net/">
+            <span class="fa fa-link" aria-hidden="true"></span>
+            http://www.lighttpd.net/
+        </a>
+        </p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="intermediate" class="page-header">中级</h1>
+        <h2 id="tftp" class="page-header">TFTP</h2>
+        <p>
+            TFTP（Trivial File Transfer
+            Protocol）是一个简单的文件传输协议，它允许在网络上通过UDP协议来传输文件。TFTP是一个非常简单的协议，它的设计目的是为了让计算机之间可以方便的传输文件，而不需要复杂的设置。
+        </p>
+        <p>
+            下载链接：<a href="https://github.com/curl/curl/blob/master/lib/tftp.c">
+            <span class="fa fa-link" aria-hidden="true"></span> https://github.com/curl/curl/blob/master/lib/tftp.c
+        </a>
+        </p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="senior" class="page-header">高级</h1>
+        <h2 id="wget" class="page-header">Wget</h2>
+        <p>
+            GNU Wget是一个在网络上进行文件下载的自由工具，支持HTTP、HTTPS和FTP等协议，可以在HTTP代理下工作，支持断点续传，可以递归下载，支持通过HTTP和FTP的链接来下载文件，支持HTTP
+            POST方法，支持cookies，支持通过http和ftp的代理服务器下载。
+        </p>
+        <p>
+            下载链接：<a href="https://www.gnu.org/software/wget/">
+            <span class="fa fa-link" aria-hidden="true"></span> https://www.gnu.org/software/wget/
+        </a>
+        </p>
+        <h2 id="curl" class="page-header">cURL</h2>
+        <p>
+            cURL是一个利用URL语法在命令行下工作的文件传输工具，1997年首次发行。它支持文件的上传和下载，是综合传输工具，但按传统，习惯称cURL为下载工具。cURL支持的协议有FTP、FTPS、HTTP、HTTPS、GOPHER、TELNET、DICT、FILE、LDAP、LDAPS、IMAP、POP3、SMTP、RTMP等。
+        </p>
+        <p>
+            下载链接：<a href="https://curl.se/">
+            <span class="fa fa-link" aria-hidden="true"></span> https://curl.se/
+        </a>
+        </p>
+        <h2 id="Nginx" class="page-header">Nginx</h2>
+        <p>
+            Nginx（发音同engine x）是一款由俄罗斯程序员Igor
+            Sysoev所开发轻量级的网页服务器、反向代理服务器以及电子邮件（IMAP/POP3）代理服务器。起初是供俄国大型的门户网站及搜索引擎Rambler使用。据说某宝也用，你懂的。
+        </p>
+        <p>
+            下载链接：<a href="http://nginx.org/">
+            <span class="fa fa-link" aria-hidden="true"></span> http://nginx.org/
+        </a>
+        </p>
+        <h2 id="Wireshark" class="page-header">Wireshark</h2>
+        <p>
+            Wireshark 是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark
+            的使用目的是为了分析网络，并解决网络上的问题。
+        </p>
+        <p>
+            下载链接：<a href="http://www.wireshark.org/">
+            <span class="fa fa-link" aria-hidden="true"></span> http://www.wireshark.org/
+        </a>
+        </p>
+    </div>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>

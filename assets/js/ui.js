@@ -158,7 +158,7 @@ function add_footer() {
                             <i class="fa fa-question-circle"></i> 获取帮助
                         </h4>
                         <ul class="list-unstyled">
-                            <li><a href="changelog.html">更新日志</a></li>
+                            <li><a href="/changelog.html">更新日志</a></li>
                             <li><a href="mailto:whuang@xmu.edu.cn">联系我</a></li>
                         </ul>
                     </div>
@@ -241,8 +241,7 @@ function add_main() {
         row.appendChild(colMain);
         row.appendChild(colComplementary);
         mainTag.appendChild(row);
-    }else
-    {
+    } else {
         mainTag.innerHTML = scriptContent;
     }
     document.body.appendChild(mainTag);

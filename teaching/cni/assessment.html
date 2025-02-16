@@ -16,7 +16,7 @@
         var mode_async_json = false;
         var myoj2_app_name = "黄老师";
         var page_style = "doc-menu";
-        var page_docs_header_title = "考核标准";
+        var page_docs_header_title = "考核指标";
         var page_docs_header_desc = "简要介绍期末成绩的组成。";
     </script>
 </head>
@@ -43,12 +43,12 @@
             <tbody>
             <tr>
                 <td>1</td>
-                <td>期末考试</td>
+                <td><a href="#final">期末考试</a></td>
                 <td class="text-right">40%</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>期中考核</td>
+                <td><a href="#midterm">期中考核</a></td>
                 <td class="text-right">10%</td>
             </tr>
             <tr>
@@ -58,17 +58,17 @@
             </tr>
             <tr>
                 <td>3.1</td>
-                <td style="padding-left: 2em">理论课作业</td>
+                <td style="padding-left: 2em"><a href="#assignment">理论课作业</a></td>
                 <td class="text-right">15%</td>
             </tr>
             <tr>
                 <td>3.2</td>
-                <td style="padding-left: 2em">实验报告</td>
+                <td style="padding-left: 2em"><a href="#experiment">实验课作业</a></td>
                 <td class="text-right">35%</td>
             </tr>
             <tr>
                 <td>3.3</td>
-                <td style="padding-left: 2em">考勤</td>
+                <td style="padding-left: 2em"><a href="#absenteeism">缺勤</a></td>
                 <td class="text-right">倒扣分</td>
             </tr>
             </tbody>
@@ -90,40 +90,132 @@
     </div>
     <div class="bs-docs-section">
         <h1 id="assignment" class="page-header">理论课作业</h1>
-        <div class="row text-justify">
-            <div class="col-sm-12">
-                <div class="bs-callout bs-callout-info" id="callout-popover-data">
-                    <h4>说明</h4>
-                    <p>理论课作业的评分标准，请在 <a href="assignment.html#grade">课后习题</a> 页面访问。</p>
-                </div>
-            </div>
-        </div>
+        <p><a href="assignment.html#theoretical">理论课作业</a> 在本学期第一节课公布的习题集，由学生课后同步完成。</p>
+        <p>
+            作业的完成时间，以授课当日为第一日，在第七日结束前为限。应注意作业提交时网络信号可能不佳造成缺交，请尽量留出时间，提前交作业。理论课作业，每次作业占总分的
+            5.56% 。</p>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>评分</th>
+                <th>标准</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>100 分</td>
+                <td>正常完成作业，格式和内容基本规范。</td>
+            </tr>
+            <tr>
+                <td>60 分</td>
+                <td>作业质量差，格式和内容不规范，或补交。</td>
+            </tr>
+            <tr>
+                <td>0 分</td>
+                <td>作业质量很差，无法表明学生掌握专业知识，或缺交。</td>
+            </tr>
+        </table>
     </div>
     <div class="bs-docs-section">
         <h1 id="experiment" class="page-header">实验课作业</h1>
-        <h2 id="experiment-dmt" class="page-header">软件工程专业</h2>
+        <h2 id="experiment-report" class="page-header">实验报告</h2>
+        <p>学生查阅实验手册，按要求同步完成实验。</p>
         <p>
-            实验课作业分为两部分：项目替代和正常实验。项目替代指的是实验一和二以项目一成绩替代计分（10分）；实验三至实验十正常计分（25分）。</p>
-        <p>实验课作业在每次实验课结束后2周内，将代码提交到 Gitee 上，并将地址写入实验报告。实验报告以电子版提交到 MOOC
-            的指定位置。</p>
-        <p>
-            实验三至实验十采取“早鸟计划”，即提前完成的学生报名上台演讲和讨论当次实验内容。学生通过在群里上传演示文档的PPT文件时间为序，先到先得，每人以5-10分钟为宜，依次上台演示，直至课程结束。报名早鸟计划、非抄袭并且达到实验目的者，记为优秀（100分）；其它情况，记合格（85分）、基本合格与补交（60分），以及缺交（0分）。</p>
-        <p>项目一的计分办法，另以《计算机网络课程项目手册》规定。</p>
-        <h2 id="experiment-sw" class="page-header">数字媒体技术专业</h2>
-        <p>实验三至实验十正常计分（每个3.5分）。</p>
-        <p>实验课作业在每次实验课结束后2周内，将代码提交到 Gitee 上，并将地址写入实验报告。实验报告以电子版提交到 MOOC
-            的指定位置。</p>
-        <p>
-            实验三至实验十采取“早鸟计划”，即提前完成的学生报名上台演讲和讨论当次实验内容。学生通过在群里上传演示文档的PPT文件时间为序，先到先得，每人以5-10分钟为宜，依次上台演示，直至课程结束。报名早鸟计划、非抄袭并且达到实验目的者，记为优秀（100分）；其它情况，记合格（85分）、基本合格与补交（60分），以及缺交（0分）。</p>
+            作业的完成时间，以授课当日为第一日，在第十四日结束前为限。应注意作业提交时网络信号可能不佳造成缺交，请尽量留出时间，提前交作业。实验作业，包括实验报告和代码（如有），每次实验占总分
+            12.5%。</p>
+        <p id="ebp">
+            除被替代的实验外，均采取“早鸟计划”（Early Bird
+            Plan），即提前完成的学生报名上台演讲和讨论当次实验内容。学生通过在群里上传演示文档的PPT文件时间为序，先到先得，每人以5-10分钟为宜，依次上台演示，直至课程结束。</p>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>评分</th>
+                <th>标准</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>100 分</td>
+                <td>优秀，参加<a href="#ebp">早鸟计划</a>，原创非抄袭，达到实验目的。</td>
+            </tr>
+            <tr>
+                <td>85 分</td>
+                <td>合格，未参加早鸟计划，原创非抄袭，达到实验目的。</td>
+            </tr>
+            <tr>
+                <td>60 分</td>
+                <td>基本合格，以阅读其他学生的代码并书写报告的形式提交，或补交。</td>
+            </tr>
+            <tr>
+                <td>0 分</td>
+                <td>缺交，或抄袭，无法表明学生掌握专业知识。</td>
+            </tr>
+            </tbody>
+        </table>
+        <h2 id="experiment-project" class="page-header">开发项目</h2>
+        <p>课程设置两个开发项目，由软件工程专业卓越班完成。其评分标准，详见 <a href="project.html">探索项目</a> 页面。 </p>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>项目内容</th>
+                <th>被替代实验</th>
+                <th>总分占比</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>项目一　可见光通信</td>
+                <td>实验一和实验二</td>
+                <td>25%</td>
+            </tr>
+            <tr>
+                <td>项目二　简单文件传输</td>
+                <td>实验五和实验七</td>
+                <td>25%</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <div class="bs-docs-section">
-        <h1 id="bsenteeism" class="page-header">缺勤</h1>
+        <h1 id="absenteeism" class="page-header">缺勤</h1>
         <p>考勤以厦门大学智慧教务微信小程序的签到记录为准。</p>
         <p>
-            事先请假或签到失败的学生应及时与老师沟通，并保留聊天记录证据。事后请假的学生应将院系批准的请假单拍照作为证据。请假后，应及时录入指定表单中。请假不倒扣分，但计算总缺勤。因重修、补修选课冲突，确实难以有效改选规避者，凭课程表，该部分冲突课程不倒扣分，不计算总缺勤。</p>
+            事先请假或签到失败的学生应及时与老师沟通，并保留聊天记录证据。事后请假的学生应将院系批准的请假单拍照作为证据。请假后，应及时
+            <a href="https://docs.qq.com/form/page/DQXlaa1dzbWd5U0Zi#/fill" target="_blank">录入指定的腾讯文档表单</a>
+            中。请假不倒扣分，但计算总缺勤。因重修、补修选课冲突，确实难以有效改选规避者，凭课程表，该部分冲突课程不倒扣分，不计算总缺勤。
+        </p>
         <p>
-            不请假并未签到者记为旷课。按每45分钟为1节，旷课每1节扣1分。每节课迟到或早退超过10分钟，视为旷课0.5节，超过23分钟，视为旷课1节。</p>
-        <p>理论课和实验课的总缺勤分别在该类课程1/3及以上者，依我校校规不得参加考试。如果已自行参加考试，成绩记不合格。</p>
+            不请假并未签到者记为旷课。按每45分钟为1节。</p>
+        <p>
+            理论课和实验课的总缺勤（含请假、迟到折算和旷课）分别在该类课程1/3及以上者，依我校校规不得参加考试。如果已自行参加考试，最终总成绩记不合格。</p>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>评分</th>
+                <th>标准</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>不扣分</td>
+                <td>正常出勤</td>
+            </tr>
+            <tr>
+                <td>扣 0.5 分/节</td>
+                <td>每节<sup><a href="#absenteeism-tf1">1</a></sup> 课迟到或早退0-20分钟</td>
+            </tr>
+            <tr>
+                <td>扣 1 分/节</td>
+                <td>每节课迟到或早退超过20分钟</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="2">
+                    <span id="absenteeism-tf1"></span><sup>1</sup> <small> 按每45分钟为1节。</small>
+                </td>
+            </tfoot>
+        </table>
     </div>
 </script>
 
