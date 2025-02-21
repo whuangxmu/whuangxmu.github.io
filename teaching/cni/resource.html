@@ -1,0 +1,399 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "资源列表";
+        var page_docs_header_desc = "列出所有教学相关资源。";
+    </script>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <div class="bs-docs-section"><p>所有教材、课件、作业和课外资料等，在
+        <a href="https://gitee.com/whuangxmu/courses/" target="_blank">Gitee</a>公布。其中，较大的文件在<a
+                href="https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA&pwd=2icf" target="_blank">百度网盘</a>上提供下载。标注为Encrypted的文件，口令另行通知。
+    </p></div>
+    <div class="bs-docs-section">
+        <h1 id="sites" class="page-header">资源列表</h1>
+        <div id="table-resource-list"></div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="course-textbook" class="page-header">课本</h1>
+        <div id="table-textbook"></div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="course-slides" class="page-header">课件</h1>
+        <div id="table-slides"></div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="reference" class="page-header">参考书目</h1>
+        <div id="table-refs"></div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="for-beginners" class="page-header">编程水平不足者</h1>
+        <div id="table-forbegin"></div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
+
+<script type="text/javascript">
+    class TableGenerator {
+        constructor(data, headers, containerId, linkData = null, prefix = '') {
+            this.data = data;
+            this.headers = headers;
+            this.containerId = containerId;
+            this.linkData = linkData;
+            this.prefix = prefix;
+        }
+
+        generateTable() {
+            const table = document.createElement('table');
+            table.className = 'table table-bordered table-hover table-striped';
+
+            // Create table header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            this.headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Create table body
+            const tbody = document.createElement('tbody');
+            this.data.forEach((row, rowIndex) => {
+                const tr = document.createElement('tr');
+                // Add index column
+                const indexTd = document.createElement('td');
+                const span = document.createElement('span');
+                indexTd.className = 'text-center';
+                if (row.id) {
+                    span.id = `${this.prefix}-${row.id}`;
+                }
+                span.textContent = rowIndex + 1;
+                indexTd.appendChild(span);
+                tr.appendChild(indexTd);
+
+                Object.entries(row).forEach(([key, value], index) => {
+                    const td = document.createElement('td');
+                    if (key === 'id') {
+                        return;
+                    } else if (value === null) {
+                        td.textContent = '(无)';
+                    } else if (key === 'address') {
+                        const a = document.createElement('a');
+                        a.href = value;
+                        a.textContent = value;
+                        td.appendChild(a);
+                    } else if (key === 'site' && this.linkData) {
+                        const site = this.linkData.find(item => item.id === value);
+                        const a = document.createElement('a');
+                        a.href = site ? `#res-${site.id}` : '#';
+                        a.textContent = site ? site.name : '(无)';
+                        td.appendChild(a);
+                    } else {
+                        td.textContent = value;
+                    }
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+            table.appendChild(tbody);
+
+            return table;
+        }
+
+        render() {
+            const container = document.getElementById(this.containerId);
+            container.appendChild(this.generateTable());
+        }
+    }
+
+    // JSON data for table-resource-list
+    const resourceListData = [
+        {
+            "id": 1,
+            "name": "个人网站",
+            "address": "https://whuangxmu.github.io/teaching/cni/"
+        },
+        {
+            "id": 2,
+            "name": "Gitee",
+            "address": "https://gitee.com/whuangxmu/courses/tree/master/Computer-Network-and-Internet"
+        },
+        {
+            "id": 3,
+            "name": "Github",
+            "address": "https://github.com/whuangxmu/courses/tree/master/Computer-Network-and-Internet"
+        },
+        {
+            "id": 4,
+            "name": "FTP",
+            "address": "ftp://121.192.180.236/教学课件/林坤辉/算机网络与因特网/"
+        },
+        {
+            "id": 5,
+            "name": "课程中心",
+            "address": "https://lnt.xmu.edu.cn/"
+        },
+        {
+            "id": 6,
+            "name": "百度网盘",
+            "address": "https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA?pwd=2icf#list/path=%2Fcourse%2FComputer%20Network%20and%20Internet"
+        },
+        {
+            "id": 7,
+            "name": "Bilibili",
+            "address": "https://space.bilibili.com/8081870/lists/35240"
+        }
+    ];
+
+    // JSON data for table-container
+    const containerData = {
+        "textbook": [
+            {
+                "name": "课本: Comer, 中译版, 第2版",
+                "site": 4,
+                "path": "/教学课件/林坤辉/计算机网络与因特网/books/theory/计算机网络与因特网 (Comer)/计算机网络与因特网(第二版中译本).pdf"
+            },
+            {
+                "name": "课本: Comer, 英文版, 第6版",
+                "site": 6,
+                "path": "textbook/CNI-Cormer-book-6ed ENU Encrypted.7z"
+            },
+            {
+                "name": "课本: 谢希仁, 第7版",
+                "site": 6,
+                "path": "CNI-Xie-book-7ed Encrypted.7z"
+            },
+            {
+                "name": "实验手册",
+                "site": 5,
+                "path": "课程介绍 > 课程资料 > 计算机网络实验手册"
+            },
+            {
+                "name": "习题集",
+                "site": 5,
+                "path": "课程介绍 > 课程资料 > 计算机网络习题集"
+            },
+            {
+                "name": "项目手册",
+                "site": 1,
+                "path": "实验课 > 探索项目"
+            }
+        ], "slides": [
+            {
+                "name": "卓越班课件",
+                "site": 2,
+                "path": "slides"
+            },
+            {
+                "name": "普通班课件",
+                "site": 4,
+                "path": "课件"
+            },
+            {
+                "name": "实验课工具软件",
+                "site": 6,
+                "path": "tools"
+            },
+            {
+                "name": "Comer 自带配套课件, 第6版",
+                "site": 4,
+                "path": "books/theory/计算机网络与因特网 (Comer)/CNAI_Slides.7z"
+            },
+            {
+                "name": "谢希仁自带配套课件, 第7版",
+                "site": 2,
+                "path": "textbooks/CNI-Xie-slides-7ed.zip"
+            },
+            {
+                "name": "授课视频：卓越班",
+                "site": 7,
+                "path": "https://space.bilibili.com/8081870/lists/35240"
+            }
+        ], "refs": [
+            {
+                "name": "图解系列：网络是怎样连接的",
+                "site": 6,
+                "path": "references > books > 图解系列 > 网络是怎样连接的_Encrypted.7z"
+            },
+            {
+                "name": "图解系列：图解网络硬件",
+                "site": 6,
+                "path": "references > books > 图解系列 > 图解网络硬件_Encrypted.7z"
+            },
+            {
+                "name": "图解系列：图解服务器端网络架构",
+                "site": 6,
+                "path": "references > books > 图解系列 > 图解服务器端网络架构_Encrypted.7z"
+            },
+            {
+                "name": "图解系列：图解 TCP/IP",
+                "site": 6,
+                "path": "references > books > 图解系列 > 图解TCPIP_Encrypted.7z"
+            },
+            {
+                "name": "图解系列：图解 HTTP",
+                "site": 6,
+                "path": "references > books > 图解系列 > 图解HTTP_Encrypted.7z"
+            },
+            {
+                "name": "理论教材：计算机网络, Tanenbaum著",
+                "site": 6,
+                "path": "references > books > 理论教材 > 计算机网络-Tanenbaum Encrypted.7z"
+            },
+            {
+                "name": "理论教材：计算机网络自顶向下方法",
+                "site": 6,
+                "path": "references > books > 理论教材 > 计算机网络自顶向下方法 Encrypted.7z"
+            },
+            {
+                "name": "考试考级：程序员面试宝典 (计算机网络部分)",
+                "site": 6,
+                "path": "references > 考试考级 > 程序员面试宝典(计算机网络部分)_Encrypted.7z"
+            },
+            {
+                "name": "考试考级：网络工程师教程",
+                "site": 6,
+                "path": "references > 考试考级 > 网络工程师教程-第五版_Encrypted.7z"
+            },
+            {
+                "name": "考试考级：网络工程师考试同步辅导",
+                "site": 6,
+                "path": "references > 考试考级 > 网络工程师考试同步辅导(计算机与网络知识篇)_Encrypted.7z"
+            },
+            {
+                "name": "考试考级：王道考研计算机网络(2024年)",
+                "site": 6,
+                "path": "references > 考试考级 > 王道考研计算机网络2024_Encrypted.7z"
+            },
+            {
+                "name": "考试考级：软考网络工程师(2004-2017年)",
+                "site": 6,
+                "path": "references > 考试考级 > 软考网络工程师2004-2017.zip"
+            },
+            {
+                "name": "考试考级：网络规划设计师教程",
+                "site": 6,
+                "path": "references > books > 考试考级 > 网络规划设计师教程_Encrypted.7z"
+            },
+            {
+                "name": "编程实践：网络分析技术揭秘：原理、实践与WinPcap深入解析",
+                "site": 6,
+                "path": "references > books > 编程实践 > 网络分析技术揭秘：原理、实践与WinPcap深入解析_Encrypted.7z"
+            },
+            {
+                "name": "编程实践：Linux网络编程",
+                "site": 6,
+                "path": "references > books > 编程实践 > Linux网络编程_Encrypted.7z"
+            },
+            {
+                "name": "编程实践：Linux网络编程,课件",
+                "site": 6,
+                "path": "references > books > 编程实践 > Linux网络编程（第二版）PPT.rar"
+            },
+            {
+                "name": "编程实践：Linux网络编程,源代码",
+                "site": 6,
+                "path": "references > books > 编程实践 > Linux网络编程(第二版)源代码.rar"
+            },
+            {
+                "name": "网络协议地图",
+                "site": 6,
+                "path": "references > others > 网络协议地图-2016.pdf"
+            },
+            {
+                "name": "好的架构是进化来的，不是设计来的",
+                "site": 6,
+                "path": "references > others > 好的架构是进化来的，不是设计来的_知识库_博客园.pdf"
+            }
+        ], "forbegin": [{
+            "name": "MyOJ2 在线判题系统",
+            "site": 1,
+            "path": "https://myoj2.icu:20102/"
+        },{
+            "name": "洛谷 (有题单, 可看题解)",
+            "site": 1,
+            "path": "https://www.luogu.com.cn/"
+        },{
+            "name": "LibreOJ (可看选手答案)",
+            "site": 1,
+            "path": "https://loj.ac/"
+        },{
+            "name": "授课视频：C语言程序设计",
+            "site": 7,
+            "path": "https://space.bilibili.com/8081870/lists/315601"
+        },{
+            "name": "课件和资料：C语言程序设计",
+            "site": 2,
+            "path": "https://gitee.com/whuangxmu/courses/tree/master/C-Programming-Design"
+        }]
+    };
+
+    // Create TableGenerator instances and render tables
+    document.addEventListener('DOMContentLoaded', () => {
+        (new TableGenerator(resourceListData, ['#', '名称', '地址'], 'table-resource-list', null, 'res')).render();
+        (new TableGenerator(containerData.textbook, ['#', '名称', '站点', '路径'], 'table-textbook', resourceListData, 'textbook')).render();
+        (new TableGenerator(containerData.slides, ['#', '名称', '站点', '路径'], 'table-slides', resourceListData, 'slides')).render();
+        (new TableGenerator(containerData.refs, ['#', '名称', '站点', '路径'], 'table-refs', resourceListData, 'refs')).render();
+        (new TableGenerator(containerData.forbegin, ['#', '名称', '站点', '路径'], 'table-forbegin', resourceListData, 'forbegin')).render();
+    });
+</script>

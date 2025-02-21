@@ -279,12 +279,12 @@ function add_title() {
 
 function load_page() {
     add_page_loader();
-    load_scripts_and_csses();
     add_title();
     add_skippy();
     add_header();
     add_docs_header_after_header();
     add_main();
+    setTimeout('load_scripts_and_csses()',50);
     add_footer();
 }
 
