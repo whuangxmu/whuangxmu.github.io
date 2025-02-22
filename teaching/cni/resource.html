@@ -34,19 +34,14 @@
                 href="https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA&pwd=2icf" target="_blank">百度网盘</a>上提供下载。标注为Encrypted的文件，口令另行通知。
     </p></div>
     <div class="bs-docs-section">
-        <h1 id="sites" class="page-header">资源列表</h1>
+        <h1 id="lists" class="page-header">资源列表</h1>
+        <h2 id="sites">站点列表</h2>
         <div id="table-resource-list"></div>
-    </div>
-    <div class="bs-docs-section">
-        <h1 id="course-textbook" class="page-header">课本</h1>
+        <h2 id="course-textbook" class="page-header">课本</h2>
         <div id="table-textbook"></div>
-    </div>
-    <div class="bs-docs-section">
-        <h1 id="course-slides" class="page-header">课件</h1>
+        <h2 id="course-slides" class="page-header">课件</h2>
         <div id="table-slides"></div>
-    </div>
-    <div class="bs-docs-section">
-        <h1 id="reference" class="page-header">参考书目</h1>
+        <h2 id="reference" class="page-header">参考书目</h2>
         <div id="table-refs"></div>
     </div>
     <div class="bs-docs-section">
@@ -103,17 +98,22 @@
 
         generateTable() {
             const table = document.createElement('table');
+            const colgroup = document.createElement('colgroup');
             table.className = 'table table-bordered table-hover table-striped';
 
             // Create table header
             const thead = document.createElement('thead');
             const headerRow = document.createElement('tr');
-            this.headers.forEach(header => {
+            this.headers.forEach((header, index) => {
                 const th = document.createElement('th');
-                th.textContent = header;
+                th.textContent = header.name;
+                const col = document.createElement('col');
+                col.style.width = header.width;
                 headerRow.appendChild(th);
+                colgroup.appendChild(col);
             });
             thead.appendChild(headerRow);
+            table.appendChild(colgroup);
             table.appendChild(thead);
 
             // Create table body
@@ -141,7 +141,18 @@
                         const a = document.createElement('a');
                         a.href = value;
                         a.textContent = value;
+                        a.className = "code";
+                        a.target = '_blank';
                         td.appendChild(a);
+                        td.style.wordBreak = 'break-word';
+                        td.style.whiteSpace = 'normal';
+                    } else if (key === 'path') {
+                        const span = document.createElement('span');
+                        span.textContent = value;
+                        span.className = "code";
+                        td.appendChild(span);
+                        td.style.wordBreak = 'break-word';
+                        td.style.whiteSpace = 'normal';
                     } else if (key === 'site' && this.linkData) {
                         const site = this.linkData.find(item => item.id === value);
                         const a = document.createElement('a');
@@ -209,19 +220,19 @@
     const containerData = {
         "textbook": [
             {
-                "name": "课本: Comer, 中译版, 第2版",
-                "site": 4,
-                "path": "/教学课件/林坤辉/计算机网络与因特网/books/theory/计算机网络与因特网 (Comer)/计算机网络与因特网(第二版中译本).pdf"
+                "name": "课本: Comer, 中译版, 第6版",
+                "site": 6,
+                "path": "textbook > CNI-Comer-book-6ed-ZHS_Encrypted.7z"
             },
             {
                 "name": "课本: Comer, 英文版, 第6版",
                 "site": 6,
-                "path": "textbook/CNI-Cormer-book-6ed ENU Encrypted.7z"
+                "path": "textbook > CNI-Comer-book-6ed-ENU_Encrypted.7z"
             },
             {
                 "name": "课本: 谢希仁, 第7版",
                 "site": 6,
-                "path": "CNI-Xie-book-7ed Encrypted.7z"
+                "path": "textbook > CN-Xie-book-7ed_Encrypted.7z"
             },
             {
                 "name": "实验手册",
@@ -234,18 +245,18 @@
                 "path": "课程介绍 > 课程资料 > 计算机网络习题集"
             },
             {
-                "name": "项目手册",
+                "name": "项目手册（卓越班用）",
                 "site": 1,
                 "path": "实验课 > 探索项目"
             }
         ], "slides": [
             {
-                "name": "卓越班课件",
+                "name": "课件（卓越班用）",
                 "site": 2,
                 "path": "slides"
             },
             {
-                "name": "普通班课件",
+                "name": "课件（普通班用）",
                 "site": 4,
                 "path": "课件"
             },
@@ -255,17 +266,17 @@
                 "path": "tools"
             },
             {
-                "name": "Comer 自带配套课件, 第6版",
-                "site": 4,
-                "path": "books/theory/计算机网络与因特网 (Comer)/CNAI_Slides.7z"
+                "name": "Comer 课本配套课件, 第5版",
+                "site": 6,
+                "path": "textbook > CNAI-Comer-5e-Slides.7z"
             },
             {
-                "name": "谢希仁自带配套课件, 第7版",
-                "site": 2,
-                "path": "textbooks/CNI-Xie-slides-7ed.zip"
+                "name": "谢希仁课本配套课件, 第7版",
+                "site": 6,
+                "path": "textbooks > CN-Xie-slides-7ed.zip"
             },
             {
-                "name": "授课视频：卓越班",
+                "name": "授课视频（卓越班用）",
                 "site": 7,
                 "path": "https://space.bilibili.com/8081870/lists/35240"
             }
@@ -308,27 +319,27 @@
             {
                 "name": "考试考级：程序员面试宝典 (计算机网络部分)",
                 "site": 6,
-                "path": "references > 考试考级 > 程序员面试宝典(计算机网络部分)_Encrypted.7z"
+                "path": "references > books > 考试考级 > 程序员面试宝典(计算机网络部分)_Encrypted.7z"
             },
             {
                 "name": "考试考级：网络工程师教程",
                 "site": 6,
-                "path": "references > 考试考级 > 网络工程师教程-第五版_Encrypted.7z"
+                "path": "references > books > 考试考级 > 网络工程师教程-第五版_Encrypted.7z"
             },
             {
                 "name": "考试考级：网络工程师考试同步辅导",
                 "site": 6,
-                "path": "references > 考试考级 > 网络工程师考试同步辅导(计算机与网络知识篇)_Encrypted.7z"
+                "path": "references > books > 考试考级 > 网络工程师考试同步辅导(计算机与网络知识篇)_Encrypted.7z"
             },
             {
                 "name": "考试考级：王道考研计算机网络(2024年)",
                 "site": 6,
-                "path": "references > 考试考级 > 王道考研计算机网络2024_Encrypted.7z"
+                "path": "references > books > 考试考级 > 王道考研计算机网络2024_Encrypted.7z"
             },
             {
                 "name": "考试考级：软考网络工程师(2004-2017年)",
                 "site": 6,
-                "path": "references > 考试考级 > 软考网络工程师2004-2017.zip"
+                "path": "references > books > 考试考级 > 软考网络工程师2004-2017.zip"
             },
             {
                 "name": "考试考级：网络规划设计师教程",
@@ -369,31 +380,50 @@
             "name": "MyOJ2 在线判题系统",
             "site": 1,
             "path": "https://myoj2.icu:20102/"
-        },{
+        }, {
             "name": "洛谷 (有题单, 可看题解)",
             "site": 1,
             "path": "https://www.luogu.com.cn/"
-        },{
+        }, {
             "name": "LibreOJ (可看选手答案)",
             "site": 1,
             "path": "https://loj.ac/"
-        },{
+        }, {
             "name": "授课视频：C语言程序设计",
             "site": 7,
             "path": "https://space.bilibili.com/8081870/lists/315601"
+        }, {
+            "name": "授课视频：代码阅读",
+            "site": 7,
+            "path": "https://www.bilibili.com/video/BV1S84y1U7AM/"
+        }, {
+            "name": "授课视频：程序测试",
+            "site": 7,
+            "path": "https://www.bilibili.com/video/BV1Lv411G7aH/"
+        }, {
+            "name": "授课视频：程序调试",
+            "site": 7,
+            "path": "https://www.bilibili.com/video/BV1SL41137UQ/"
         },{
             "name": "课件和资料：C语言程序设计",
             "site": 2,
             "path": "https://gitee.com/whuangxmu/courses/tree/master/C-Programming-Design"
         }]
     };
-
+    const columnsSites = [{"name": '#', "width": "10%"}, {"name": '名称', "width": "15%"}, {
+        "name": '地址',
+        "width": "75%"
+    }];
+    const columnsResources = [{"name": '#', "width": "5%"}, {"name": '名称', "width": "15%"}, {
+        "name": '站点',
+        "width": "15%"
+    }, {"name": '路径', "width": "65%"}];
     // Create TableGenerator instances and render tables
     document.addEventListener('DOMContentLoaded', () => {
-        (new TableGenerator(resourceListData, ['#', '名称', '地址'], 'table-resource-list', null, 'res')).render();
-        (new TableGenerator(containerData.textbook, ['#', '名称', '站点', '路径'], 'table-textbook', resourceListData, 'textbook')).render();
-        (new TableGenerator(containerData.slides, ['#', '名称', '站点', '路径'], 'table-slides', resourceListData, 'slides')).render();
-        (new TableGenerator(containerData.refs, ['#', '名称', '站点', '路径'], 'table-refs', resourceListData, 'refs')).render();
-        (new TableGenerator(containerData.forbegin, ['#', '名称', '站点', '路径'], 'table-forbegin', resourceListData, 'forbegin')).render();
+        (new TableGenerator(resourceListData, columnsSites, 'table-resource-list', null, 'res')).render();
+        (new TableGenerator(containerData.textbook, columnsResources, 'table-textbook', resourceListData, 'textbook')).render();
+        (new TableGenerator(containerData.slides, columnsResources, 'table-slides', resourceListData, 'slides')).render();
+        (new TableGenerator(containerData.refs, columnsResources, 'table-refs', resourceListData, 'refs')).render();
+        (new TableGenerator(containerData.forbegin, columnsResources, 'table-forbegin', resourceListData, 'forbegin')).render();
     });
 </script>

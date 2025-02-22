@@ -75,6 +75,15 @@ function load_scripts_and_csses() {
         loadScript("/assets/js/ie10-viewport-bug-workaround.min.js");
         loadScript("/assets/js/ie-emulation-modes-warning.min.js");
     }
+    setTimeout(function(){
+        $("body,html").animate({scrollTop: $(window.location.hash).offset().top});
+        $('a[href^="#"]').on('click', function (event) {
+            event.preventDefault();
+            var target = this.hash;
+            $('body,html').animate({scrollTop: $(target).offset().top});
+            window.location.hash = target;
+        });
+    }, 400);
 }
 
 // <script type="text/javascript" async="async" src="//cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-chtml-full.min.js"></script>
