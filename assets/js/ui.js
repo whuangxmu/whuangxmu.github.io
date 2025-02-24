@@ -76,7 +76,7 @@ function load_scripts_and_csses() {
         loadScript("/assets/js/ie-emulation-modes-warning.min.js");
     }
     setTimeout(function(){
-        $("body,html").animate({scrollTop: $(window.location.hash).offset().top});
+        if (window.location.hash) $("body,html").animate({scrollTop: $(window.location.hash).offset().top});
         $('a[href^="#"]').on('click', function (event) {
             event.preventDefault();
             var target = this.hash;

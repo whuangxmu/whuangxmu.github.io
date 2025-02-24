@@ -29,24 +29,39 @@
 </html>
 
 <script type="text/html" id="main">
-    <div class="bs-docs-section"><p>所有教材、课件、作业和课外资料等，在
-        <a href="https://gitee.com/whuangxmu/courses/" target="_blank">Gitee</a>公布。其中，较大的文件在<a
-                href="https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA&pwd=2icf" target="_blank">百度网盘</a>上提供下载。标注为Encrypted的文件，口令另行通知。
-    </p></div>
+    <style>
+        .reference-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reference-list li {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .reference-list li span.index {
+            min-width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .reference-list li span.content {
+            flex: 1;
+        }
+
+        .reference-list li span {
+            word-break: break-all;
+        }
+    </style>
     <div class="bs-docs-section">
-        <h1 id="lists" class="page-header">资源列表</h1>
-        <h2 id="sites">站点列表</h2>
+        <h1 id="course-textbook" class="page-header">参考文献</h1>
         <div id="table-resource-list"></div>
-        <h2 id="course-textbook" class="page-header">课本</h2>
-        <div id="table-textbook"></div>
-        <h2 id="course-slides" class="page-header">课件</h2>
-        <div id="table-slides"></div>
-        <h2 id="reference" class="page-header">参考书目</h2>
-        <div id="table-refs"></div>
     </div>
     <div class="bs-docs-section">
-        <h1 id="for-beginners" class="page-header">编程水平不足者</h1>
-        <div id="table-forbegin"></div>
+        <h1 id="sites" class="page-header">站点列表</h1>
+        <div id="table-site-list"></div>
+        <p>如有加密文件，口令另行通知。</p>
     </div>
 </script>
 
@@ -63,20 +78,17 @@
                 {link: '/teaching/cpd/', text: 'C语言程序设计'},
                 {link: '/teaching/aem/', text: '工程数学'}
             ]
-        },
-        {
+        }, {
             id: 'nav-status-research',
             link: '/research/',
             text: '研究',
             icon: 'fa fa-tasks'
-        },
-        {
+        }, {
             id: 'nav-release',
             link: '/release/',
             text: '公告',
             icon: 'fa fa-bullhorn'
-        },
-        {
+        }, {
             id: 'nav-about',
             link: '/about.html',
             text: '简介',
@@ -85,331 +97,222 @@
     ];
 </script>
 <script type="text/javascript" src="/assets/js/ui.js"></script>
+<script type="text/javascript" src="/assets/js/resourcelist.js"></script>
 
 <script type="text/javascript">
-    class TableGenerator {
-        constructor(data, headers, containerId, linkData = null, prefix = '') {
-            this.data = data;
-            this.headers = headers;
-            this.containerId = containerId;
-            this.linkData = linkData;
-            this.prefix = prefix;
-        }
-
-        generateTable() {
-            const table = document.createElement('table');
-            const colgroup = document.createElement('colgroup');
-            table.className = 'table table-bordered table-hover table-striped';
-
-            // Create table header
-            const thead = document.createElement('thead');
-            const headerRow = document.createElement('tr');
-            this.headers.forEach((header, index) => {
-                const th = document.createElement('th');
-                th.textContent = header.name;
-                const col = document.createElement('col');
-                col.style.width = header.width;
-                headerRow.appendChild(th);
-                colgroup.appendChild(col);
-            });
-            thead.appendChild(headerRow);
-            table.appendChild(colgroup);
-            table.appendChild(thead);
-
-            // Create table body
-            const tbody = document.createElement('tbody');
-            this.data.forEach((row, rowIndex) => {
-                const tr = document.createElement('tr');
-                // Add index column
-                const indexTd = document.createElement('td');
-                const span = document.createElement('span');
-                indexTd.className = 'text-center';
-                if (row.id) {
-                    span.id = `${this.prefix}-${row.id}`;
-                }
-                span.textContent = rowIndex + 1;
-                indexTd.appendChild(span);
-                tr.appendChild(indexTd);
-
-                Object.entries(row).forEach(([key, value], index) => {
-                    const td = document.createElement('td');
-                    if (key === 'id') {
-                        return;
-                    } else if (value === null) {
-                        td.textContent = '(无)';
-                    } else if (key === 'address') {
-                        const a = document.createElement('a');
-                        a.href = value;
-                        a.textContent = value;
-                        a.className = "code";
-                        a.target = '_blank';
-                        td.appendChild(a);
-                        td.style.wordBreak = 'break-word';
-                        td.style.whiteSpace = 'normal';
-                    } else if (key === 'path') {
-                        const span = document.createElement('span');
-                        span.textContent = value;
-                        span.className = "code";
-                        td.appendChild(span);
-                        td.style.wordBreak = 'break-word';
-                        td.style.whiteSpace = 'normal';
-                    } else if (key === 'site' && this.linkData) {
-                        const site = this.linkData.find(item => item.id === value);
-                        const a = document.createElement('a');
-                        a.href = site ? `#res-${site.id}` : '#';
-                        a.textContent = site ? site.name : '(无)';
-                        td.appendChild(a);
-                    } else {
-                        td.textContent = value;
-                    }
-                    tr.appendChild(td);
-                });
-                tbody.appendChild(tr);
-            });
-            table.appendChild(tbody);
-
-            return table;
-        }
-
-        render() {
-            const container = document.getElementById(this.containerId);
-            container.appendChild(this.generateTable());
-        }
-    }
-
     // JSON data for table-resource-list
     const resourceListData = [
         {
             "id": 1,
             "name": "个人网站",
-            "address": "https://whuangxmu.github.io/teaching/cni/"
-        },
-        {
+            "path": "https://whuangxmu.github.io/teaching/cni/"
+        }, {
             "id": 2,
             "name": "Gitee",
-            "address": "https://gitee.com/whuangxmu/courses/tree/master/Computer-Network-and-Internet"
-        },
-        {
+            "path": "https://gitee.com/whuangxmu/courses/tree/master/Computer-Network-and-Internet/"
+        }, {
             "id": 3,
             "name": "Github",
-            "address": "https://github.com/whuangxmu/courses/tree/master/Computer-Network-and-Internet"
-        },
-        {
+            "path": "https://github.com/whuangxmu/courses/tree/master/Computer-Network-and-Internet/"
+        }, {
             "id": 4,
             "name": "FTP",
-            "address": "ftp://121.192.180.236/教学课件/林坤辉/算机网络与因特网/"
-        },
-        {
+            "path": "ftp://121.192.180.236/教学课件/林坤辉/算机网络与因特网/"
+        }, {
             "id": 5,
             "name": "课程中心",
-            "address": "https://lnt.xmu.edu.cn/"
-        },
-        {
+            "path": "https://lnt.xmu.edu.cn/"
+        }, {
             "id": 6,
             "name": "百度网盘",
-            "address": "https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA?pwd=2icf#list/path=%2Fcourse%2FComputer%20Network%20and%20Internet"
-        },
-        {
+            "path": "https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA?pwd=2icf#list/path=%2Fcourse%2FComputer%20Network%20and%20Internet"
+        }, {
             "id": 7,
             "name": "Bilibili",
-            "address": "https://space.bilibili.com/8081870/lists/35240"
+            "path": "https://space.bilibili.com/8081870/"
         }
     ];
 
     // JSON data for table-container
-    const containerData = {
-        "textbook": [
-            {
-                "name": "课本: Comer, 中译版, 第6版",
-                "site": 6,
-                "path": "textbook > CNI-Comer-book-6ed-ZHS_Encrypted.7z"
-            },
-            {
-                "name": "课本: Comer, 英文版, 第6版",
-                "site": 6,
-                "path": "textbook > CNI-Comer-book-6ed-ENU_Encrypted.7z"
-            },
-            {
-                "name": "课本: 谢希仁, 第7版",
-                "site": 6,
-                "path": "textbook > CN-Xie-book-7ed_Encrypted.7z"
-            },
-            {
-                "name": "实验手册",
-                "site": 5,
-                "path": "课程介绍 > 课程资料 > 计算机网络实验手册"
-            },
-            {
-                "name": "习题集",
-                "site": 5,
-                "path": "课程介绍 > 课程资料 > 计算机网络习题集"
-            },
-            {
-                "name": "项目手册（卓越班用）",
-                "site": 1,
-                "path": "实验课 > 探索项目"
-            }
-        ], "slides": [
-            {
-                "name": "课件（卓越班用）",
-                "site": 2,
-                "path": "slides"
-            },
-            {
-                "name": "课件（普通班用）",
-                "site": 4,
-                "path": "课件"
-            },
-            {
-                "name": "实验课工具软件",
-                "site": 6,
-                "path": "tools"
-            },
-            {
-                "name": "Comer 课本配套课件, 第5版",
-                "site": 6,
-                "path": "textbook > CNAI-Comer-5e-Slides.7z"
-            },
-            {
-                "name": "谢希仁课本配套课件, 第7版",
-                "site": 6,
-                "path": "textbooks > CN-Xie-slides-7ed.zip"
-            },
-            {
-                "name": "授课视频（卓越班用）",
-                "site": 7,
-                "path": "https://space.bilibili.com/8081870/lists/35240"
-            }
-        ], "refs": [
-            {
-                "name": "图解系列：网络是怎样连接的",
-                "site": 6,
-                "path": "references > books > 图解系列 > 网络是怎样连接的_Encrypted.7z"
-            },
-            {
-                "name": "图解系列：图解网络硬件",
-                "site": 6,
-                "path": "references > books > 图解系列 > 图解网络硬件_Encrypted.7z"
-            },
-            {
-                "name": "图解系列：图解服务器端网络架构",
-                "site": 6,
-                "path": "references > books > 图解系列 > 图解服务器端网络架构_Encrypted.7z"
-            },
-            {
-                "name": "图解系列：图解 TCP/IP",
-                "site": 6,
-                "path": "references > books > 图解系列 > 图解TCPIP_Encrypted.7z"
-            },
-            {
-                "name": "图解系列：图解 HTTP",
-                "site": 6,
-                "path": "references > books > 图解系列 > 图解HTTP_Encrypted.7z"
-            },
-            {
-                "name": "理论教材：计算机网络, Tanenbaum著",
-                "site": 6,
-                "path": "references > books > 理论教材 > 计算机网络-Tanenbaum Encrypted.7z"
-            },
-            {
-                "name": "理论教材：计算机网络自顶向下方法",
-                "site": 6,
-                "path": "references > books > 理论教材 > 计算机网络自顶向下方法 Encrypted.7z"
-            },
-            {
-                "name": "考试考级：程序员面试宝典 (计算机网络部分)",
-                "site": 6,
-                "path": "references > books > 考试考级 > 程序员面试宝典(计算机网络部分)_Encrypted.7z"
-            },
-            {
-                "name": "考试考级：网络工程师教程",
-                "site": 6,
-                "path": "references > books > 考试考级 > 网络工程师教程-第五版_Encrypted.7z"
-            },
-            {
-                "name": "考试考级：网络工程师考试同步辅导",
-                "site": 6,
-                "path": "references > books > 考试考级 > 网络工程师考试同步辅导(计算机与网络知识篇)_Encrypted.7z"
-            },
-            {
-                "name": "考试考级：王道考研计算机网络(2024年)",
-                "site": 6,
-                "path": "references > books > 考试考级 > 王道考研计算机网络2024_Encrypted.7z"
-            },
-            {
-                "name": "考试考级：软考网络工程师(2004-2017年)",
-                "site": 6,
-                "path": "references > books > 考试考级 > 软考网络工程师2004-2017.zip"
-            },
-            {
-                "name": "考试考级：网络规划设计师教程",
-                "site": 6,
-                "path": "references > books > 考试考级 > 网络规划设计师教程_Encrypted.7z"
-            },
-            {
-                "name": "编程实践：网络分析技术揭秘：原理、实践与WinPcap深入解析",
-                "site": 6,
-                "path": "references > books > 编程实践 > 网络分析技术揭秘：原理、实践与WinPcap深入解析_Encrypted.7z"
-            },
-            {
-                "name": "编程实践：Linux网络编程",
-                "site": 6,
-                "path": "references > books > 编程实践 > Linux网络编程_Encrypted.7z"
-            },
-            {
-                "name": "编程实践：Linux网络编程,课件",
-                "site": 6,
-                "path": "references > books > 编程实践 > Linux网络编程（第二版）PPT.rar"
-            },
-            {
-                "name": "编程实践：Linux网络编程,源代码",
-                "site": 6,
-                "path": "references > books > 编程实践 > Linux网络编程(第二版)源代码.rar"
-            },
-            {
-                "name": "网络协议地图",
-                "site": 6,
-                "path": "references > others > 网络协议地图-2016.pdf"
-            },
-            {
-                "name": "好的架构是进化来的，不是设计来的",
-                "site": 6,
-                "path": "references > others > 好的架构是进化来的，不是设计来的_知识库_博客园.pdf"
-            }
-        ], "forbegin": [{
-            "name": "MyOJ2 在线判题系统",
+    const containerData = [
+        {
+            "name": "(美) Douglas E. Comer [著]. Computer Network and Internets (6ed). 电子工业出版社，2017. (ISBN: 9787121323133)",
+            "site": 6,
+            "path": "textbooks",
+            "file": "CNI-Comer-book-6ed-ZHS_Encrypted.7z"
+        }, {
+            "name": "(美) Douglas E. Comer [著], 徐明伟 [译]. 计算机网络与因特网 (第六版). 人民邮电出版社，2019. (ISBN: 9787115473318)",
+            "site": 6,
+            "path": "textbooks",
+            "file": "CNI-Comer-book-6ed-ENU_Encrypted.7z"
+        }, {
+            "name": "谢希仁. 计算机网络 (第八版). 电子工业出版社，2021. (ISBN: 9787121411748)",
+            "site": 6,
+            "path": "textbooks",
+            "file": "CN-Xie-book-8ed_Encrypted.7z"
+        }, {
+            "name": "谢希仁. 计算机网络释疑与习题解答 (第八版). 电子工业出版社，2021. (ISBN: 9787121359057)",
+            "site": 6,
+            "path": "textbooks",
+            "file": "CN-Xie-key-8ed_Encrypted.7z"
+        }, {
+            "name": "计算机网络实验手册（内部使用）",
+            "site": 5,
+            "path": "",
+            "file": "进入班级后，查阅课程介绍一章的课程资料单元"
+        }, {
+            "name": "计算机网络习题集（内部使用）",
+            "site": 5,
+            "file": "进入班级后，查阅课程介绍一章的课程资料单元"
+        }, {
+            "name": "计算机网络项目手册（卓越班用）",
             "site": 1,
+            "path": "project.html",
+            "file": "探索项目栏目"
+        }, {
+            "name": "计算机网络课件（卓越班用）",
+            "site": 2,
+            "path": "slides"
+        }, {
+            "name": "计算机网络课件（普通班用）",
+            "site": 4,
+            "path": "课件"
+        }, {
+            "name": "实验课工具软件",
+            "site": 6,
+            "path": "tools"
+        }, {
+            "name": "(美) Douglas E. Comer. Computer Network and Internets (5ed) 课本配套课件",
+            "site": 6,
+            "path": "textbooks",
+            "file": "CNAI-Comer-5e-Slides.7z"
+        }, {
+            "name": "谢希仁. 计算机网络课本配套课件, 第7版",
+            "site": 6,
+            "path": "textbooks",
+            "file": "CN-Xie-slides-7ed.zip"
+        }, {
+            "name": "黄炜. 计算机网络授课视频（卓越班用）. Bilibili站. 2021",
+            "site": 7,
+            "path": "lists/35240"
+        }, {
+            "name": "(日) 户根勤 [著], 周自恒 [译]. 网络是怎样连接的. 人民邮电出版社，2017. (ISBN: 9787115441249)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "网络是怎样连接的_Encrypted.7z"
+        }, {
+            "name": "(日) 三轮贤一 [著], 盛荣 [译]. 图解网络硬件. 人民邮电出版社，2014. (ISBN: 9787115360366)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "图解网络硬件_Encrypted.7z"
+        }, {
+            "name": "(日) 宫田宽士 [著], 曾薇薇 [译]. 图解服务器端网络架构. 人民邮电出版社，2015. (ISBN: 9787115388179)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "图解服务器端网络架构_Encrypted.7z"
+        }, {
+            "name": "(日) 竹下隆史, 村山公保, 荒井透, 苅田幸雄 [著], 乌尼日其其格 [译]. 图解TCP/IP (第5版). 人民邮电出版社，2013. (ISBN: 9787115318978)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "图解TCPIP_Encrypted.7z"
+        }, {
+            "name": "(日) 上野宣 [著], 于均良 [译]. 图解 HTTP. 人民邮电出版社，2014. (ISBN: 9787115351531)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "图解HTTP_Encrypted.7z"
+        }, {
+            "name": "(美) Andrew S. Tanenbaum [著], 潘爱民 [译], 徐明伟 [审]. 计算机网络（第4版）. 清华大学出版社，2004. (ISBN: 9787302089773)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "计算机网络-Tanenbaum Encrypted.7z"
+        }, {
+            "name": "(美) James F. Kurose, Keith W. Ross [著], 陈鸣 [译]. 计算机网络自顶向下方法. 机械工业出版社，2018. (ISBN: 9787111165057)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "计算机网络自顶向下方法 Encrypted.7z"
+        }, {
+            "name": "欧立奇, 刘洋, 段韬. 程序员面试宝典 (计算机网络部分). 电子工业出版社. 2008. (ISBN: 9787121073793)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "程序员面试宝典(计算机网络部分)_Encrypted.7z"
+        }, {
+            "name": "雷震甲, 严体华, 景为. 网络工程师教程（第5版）. 清华大学出版社. 2018. (ISBN: 9787302492238)",
+            "site": 6,
+            "path": "references/books/图解系列",
+            "file": "网络工程师教程-第五版_Encrypted.7z"
+        }, {
+            "name": "解凯, 曹璟, 周晓云. 网络工程师考试同步辅导 (计算机与网络知识篇). 2005. (ISBN: 9787302109686)",
+            "site": 6,
+            "path": "references/books/考试考级",
+            "file": "网络工程师考试同步辅导(计算机与网络知识篇)_Encrypted.7z"
+        }, {
+            "name": "王道论坛. 2024年计算机网络考研复习指导. 电子工业出版社. 2024. (ISBN: 9787121444739)",
+            "site": 6,
+            "path": "references/books/考试考级",
+            "file": "王道考研计算机网络2024_Encrypted.7z"
+        }, {
+            "name": "全国计算机技术与软件专业技术资格（水平）考试网络工程师试卷 (2004-2017年)",
+            "site": 6,
+            "path": "references/books/考试考级",
+            "file": "软考网络工程师2004-2017.zip"
+        }, {
+            "name": "黄传河. 网络规划设计师教程. 清华大学出版社. 2009. (ISBN: 9787302199328)",
+            "site": 6,
+            "path": "references/books/考试考级",
+            "file": "网络规划设计师教程_Encrypted.7z"
+        }, {
+            "name": "吕雪峰, 彭文波, 宋泽宇. 网络分析技术揭秘：原理、实践与WinPcap深入解析. 机械工业出版社. 2012. (ISBN: 9787111380382)",
+            "site": 6,
+            "path": "references/books/编程实践",
+            "file": "网络分析技术揭秘：原理、实践与WinPcap深入解析_Encrypted.7z"
+        }, {
+            "name": "宋敬彬, 孙海滨 等. Linux网络编程. 清华大学出版社. 2010. (ISBN: 9787302207177)",
+            "site": 6,
+            "path": "references/books/编程实践",
+            "file": "Linux网络编程_Encrypted.7z"
+        }, {
+            "name": "网络协议地图",
+            "site": 6,
+            "path": "references/others",
+            "file": "网络协议地图-2016.pdf"
+        }, {
+            "name": "网络文章：好的架构是进化来的，不是设计来的",
+            "site": 6,
+            "path": "references/others",
+            "file": "好的架构是进化来的，不是设计来的_知识库_博客园.pdf"
+        }, {
+            "name": "黄炜 等. MyOJ2 在线判题系统. https://myoj2.icu:20102/",
+            "site": 0,
             "path": "https://myoj2.icu:20102/"
         }, {
-            "name": "洛谷 (有题单, 可看题解)",
-            "site": 1,
+            "name": "上海洛谷网络科技有限公司. 洛谷OJ系统. https://www.luogu.com.cn/",
+            "site": 0,
             "path": "https://www.luogu.com.cn/"
         }, {
             "name": "LibreOJ (可看选手答案)",
-            "site": 1,
+            "site": 0,
             "path": "https://loj.ac/"
         }, {
-            "name": "授课视频：C语言程序设计",
+            "name": "黄炜. C语言程序设计授课视频. Bilibili站. 2021.",
             "site": 7,
-            "path": "https://space.bilibili.com/8081870/lists/315601"
+            "path": "lists/315601"
         }, {
-            "name": "授课视频：代码阅读",
+            "name": "黄炜. C语言程序设计授课视频：代码阅读. Bilibili站. 2021.",
             "site": 7,
-            "path": "https://www.bilibili.com/video/BV1S84y1U7AM/"
+            "path": "../../BV1S84y1U7AM/"
         }, {
-            "name": "授课视频：程序测试",
+            "name": "黄炜. C语言程序设计授课视频：程序测试. Bilibili站. 2021.",
             "site": 7,
-            "path": "https://www.bilibili.com/video/BV1Lv411G7aH/"
+            "path": "../../BV1Lv411G7aH/"
         }, {
-            "name": "授课视频：程序调试",
+            "name": "黄炜. C语言程序设计授课视频：程序调试. Bilibili站. 2021.",
             "site": 7,
-            "path": "https://www.bilibili.com/video/BV1SL41137UQ/"
-        },{
+            "path": "../../video/BV1SL41137UQ/"
+        }, {
             "name": "课件和资料：C语言程序设计",
             "site": 2,
-            "path": "https://gitee.com/whuangxmu/courses/tree/master/C-Programming-Design"
-        }]
-    };
+            "path": "../C-Programming-Design"
+        }];
     const columnsSites = [{"name": '#', "width": "10%"}, {"name": '名称', "width": "15%"}, {
         "name": '地址',
         "width": "75%"
@@ -420,10 +323,7 @@
     }, {"name": '路径', "width": "65%"}];
     // Create TableGenerator instances and render tables
     document.addEventListener('DOMContentLoaded', () => {
-        (new TableGenerator(resourceListData, columnsSites, 'table-resource-list', null, 'res')).render();
-        (new TableGenerator(containerData.textbook, columnsResources, 'table-textbook', resourceListData, 'textbook')).render();
-        (new TableGenerator(containerData.slides, columnsResources, 'table-slides', resourceListData, 'slides')).render();
-        (new TableGenerator(containerData.refs, columnsResources, 'table-refs', resourceListData, 'refs')).render();
-        (new TableGenerator(containerData.forbegin, columnsResources, 'table-forbegin', resourceListData, 'forbegin')).render();
+        (new Resourcelist(resourceListData, 'table-site-list', 'res')).render();
+        (new Resourcelist(containerData, 'table-resource-list', 'textbook')).render();
     });
 </script>

@@ -1,0 +1,235 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "资源列表";
+        var page_docs_header_desc = "列出所有教学相关资源。";
+    </script>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <style>
+        .reference-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reference-list li {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .reference-list li span.index {
+            min-width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .reference-list li span.content {
+            flex: 1;
+        }
+
+        .reference-list li span {
+            word-break: break-all;
+        }
+    </style>
+    <div class="bs-docs-section">
+        <h1 id="course-textbook" class="page-header">参考文献</h1>
+        <div id="table-resource-list"></div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="sites" class="page-header">站点列表</h1>
+        <div id="table-site-list"></div>
+        <p>如有加密文件，口令另行通知。</p>
+    </div>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        }, {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        }, {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        }, {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
+<script type="text/javascript" src="/assets/js/resourcelist.js"></script>
+<script type="text/javascript">
+    // JSON data for table-resource-list
+    const resourceListData = [
+        {
+            "id": 1,
+            "name": "个人网站",
+            "path": "https://whuangxmu.github.io/teaching/cpd/"
+        }, {
+            "id": 2,
+            "name": "Gitee",
+            "path": "https://gitee.com/whuangxmu/courses/tree/master/C-Programming-Design"
+        }, {
+            "id": 3,
+            "name": "Github",
+            "path": "https://github.com/whuangxmu/courses/tree/master/C-Programming-Design"
+        }, {
+            "id": 7,
+            "name": "Bilibili",
+            "path": "https://space.bilibili.com/8081870/"
+        }, {
+            "id": 5,
+            "name": "课程中心",
+            "path": "https://lnt.xmu.edu.cn/"
+        }, {
+            "id": 6,
+            "name": "百度网盘",
+            "path": "https://pan.baidu.com/s/1RfRKCNHIPypqOmMv7JQ_FA?pwd=2icf#list/path=%2Fcourse%2FC%20Programming%20Design"
+        }
+    ];
+
+    // JSON data for table-container
+    const containerData = [
+        {
+            "name": " (美) Stephen Prata [著]. C Primer Plus (第6版, 英文版, 上下册). 人民邮电出版社，2016. (ISBN: 9787115413512)",
+            "site": 6,
+            "path": "textbooks",
+            "file": "C Primer Plus 6ed ENU Encrypted.7z"
+        }, {
+            "name": " (美) Stephen Prata [著], 姜佑 [译]. C Primer Plus (第六版, 中文版). 人民邮电出版社，2019. (ISBN: 9787115521637)",
+            "site": 6,
+            "path": "textbooks",
+            "file": "C Primer Plus 6ed CHN Encrypted.7z"
+        }, {
+            "name": "谭浩强. C程序设计 (第五版). 清华大学出版社，2016. (ISBN: 9787302481447)",
+            "site": 6,
+            "path": "textbooks",
+            "file": "C Programming Design 5ed Tan Encrypted.7z"
+        }, {
+            "name": "C语言程序设计实验手册（内部使用）",
+            "site": 5,
+            "path": "",
+            "file": "进入班级后，查阅课程介绍一章的课程资料单元"
+        }, {
+            "name": "C语言程序设计习题集（内部使用）",
+            "site": 5,
+            "file": "进入班级后，查阅课程介绍一章的课程资料单元"
+        }, {
+            "name": "C语言程序设计课件（本班用）",
+            "site": 2,
+            "path": "slides"
+        }, {
+            "name": "实验课工具软件",
+            "site": 6,
+            "path": "tools"
+        }, {
+            "name": "Comer. CNAI 课本配套代码, 第6版",
+            "site": 6,
+            "path": "textbooks",
+            "file": "C Primer Plus 6ed Code.zip"
+        }, {
+            "name": "谭浩强. C程序设计配套课件, 第5版",
+            "site": 6,
+            "path": "textbooks",
+            "file": "C Programming Slides Tan.zip"
+        }, {
+            "name": "黄炜. C语言程序设计授课视频. Bilibili站. 2021.",
+            "site": 4,
+            "path": "lists/315601"
+        }, {
+            "name": "董永建. 信息学奥赛一本通 (C++) 第五版. 科学技术文献出版社. 2019. (ISBN: 9787502379889)",
+            "site": 6,
+            "path": "references/noip",
+            "file": "信息学奥赛一本通 Encrypted.7z"
+        }, {
+            "name": "刘汝佳. 算法竞赛入门经典：训练指南. 网络资料. 2005.",
+            "site": 6,
+            "path": "references/noip",
+            "file": "算法竞赛入门经典训练指南 Encrypted.7z"
+        }, {
+            "name": "刘汝佳. 算法竞赛入门经典. 清华大学出版社. 2009. (ISBN: 9787302206082)",
+            "site": 6,
+            "path": "references/noip",
+            "file": "算法竞赛入门经典 Encrypted.7z"
+        }, {
+            "name": "刘汝佳. 算法竞赛入门经典 (第2版). 清华大学出版社. 2014. (ISBN: 9787302356288)",
+            "site": 6,
+            "path": "references/noip",
+            "file": "算法竞赛入门经典 2ed Encrypted.7z"
+        }, {
+            "name": "汪楚奇. 深入浅出程序设计竞赛 (基础篇). 高等教育出版社. 2020. (ISBN: 9787040542769)",
+            "site": 6,
+            "path": "references/noip",
+            "file": "深入浅出程序设计竞赛基础篇-洛谷 Encrypted.7z"
+        }, {
+            "name": "汪楚奇. 深入浅出程序设计竞赛 (进阶篇). 高等教育出版社. 2024. (ISBN: 9787040624007)",
+            "site": 6,
+            "path": "references/noip",
+            "file": "深入浅出程序设计竞赛进阶篇-洛谷 Encrypted.7z"
+        }, {
+            "name": "黄炜 等. MyOJ2 在线判题系统. https://myoj2.icu:20102/",
+            "site": 0,
+            "path": "https://myoj2.icu:20102/"
+        }, {
+            "name": "上海洛谷网络科技有限公司. 洛谷OJ系统. https://www.luogu.com.cn/",
+            "site": 0,
+            "path": "https://www.luogu.com.cn/"
+        }, {
+            "name": "LibreOJ (可看选手答案)",
+            "site": 0,
+            "path": "https://loj.ac/"
+        }];
+    const columnsSites = [{"name": '#', "width": "10%"}, {"name": '名称', "width": "15%"}, {
+        "name": '地址',
+        "width": "75%"
+    }];
+    const columnsResources = [{"name": '#', "width": "5%"}, {"name": '名称', "width": "15%"}, {
+        "name": '站点',
+        "width": "15%"
+    }, {"name": '路径', "width": "65%"}];
+    // Create TableGenerator instances and render tables
+    document.addEventListener('DOMContentLoaded', () => {
+        (new Resourcelist(resourceListData, 'table-site-list', 'res')).render();
+        (new Resourcelist(containerData, 'table-resource-list', 'textbook')).render();
+    });
+</script>
