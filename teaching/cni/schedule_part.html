@@ -33,7 +33,7 @@
         <div class="col-sm-12 text-justify">
             <div class="bs-callout bs-callout-warning" id="callout-popover-data">
                 <h4>课程分班说明</h4>
-                <p>本页面展示的是普通班级1班和2班第1-5周的授课安排，后续安排请按照林老师通知。</p>
+                <p>本页面展示普通班1班和2班的授课安排，第1-5周由黄老师主讲，第6周以后的安排以林老师通知为准。</p>
                 <p><a href="schedule.html">单击此处查看“卓越工程师计划”班的授课安排。</a>
                 </p>
             </div>
@@ -102,8 +102,8 @@
 <script type="text/javascript" src="/assets/js/syllabus.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        var t = new TimeStep();
-        var nodes = [
+        const t = new TimeStep();
+        t.nodes = [
             {"title": "选课", "tip": "2025年2月1日 选课上课", "time": new Date(2025, 2 - 1, 1, 8, 0)},
             {"title": "开始上课", "tip": "2025年2月17日 开始上课", "time": new Date(2025, 2 - 1, 17, 8, 0)},
             {"title": "林老师授课", "tip": "2025年3月26日 开始上课", "time": new Date(2025, 3 - 1, 26, 8, 0)},
@@ -111,7 +111,6 @@
             {"title": "下半学期", "tip": "第10周后 下半学期", "time": new Date(2025, 4 - 1, 14, 18, 0)},
             {"title": "期末笔试", "tip": "考试周 期末笔试", "time": new Date(2025, 6 - 1, 20, 10, 0)},
             {"title": "课程结束", "tip": "2025年6月27日 课程结束", "time": new Date(2025, 6 - 1, 27, 20, 0)}];
-        t.nodes = nodes;
         t.prepare();
         t.run();
     });
@@ -125,14 +124,39 @@
         {"type": 1, "lecture": 5, "title": "硬件编址与帧类型标识（part_III_ch13(2)）", "chapter": 13, "classlast": 2},
         {"type": 1, "lecture": 6, "title": "IP：互联网协议地址（part_IV_ch20）", "chapter": 20, "classlast": 2},
         {"type": 1, "lecture": 7, "title": "IP 数据报和数据报转发（part_IV_ch22(1)）", "chapter": 22, "classlast": 2},
+        {"type": 1, "lecture": 8, "title": "IP封装、分段与重组（part_IV_ch22(2)）", "chapter": 22, "classlast": 2},
+        {"type": 1, "lecture": 8, "title": "习题课与答疑课", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": 9, "title": "地址解析协议（part_IV_ch23(1)）", "chapter": 23, "classlast": 1},
+        {"type": 1, "lecture": 9, "title": "差错报告机制 (ICMP)（part_IV_ch23(2)）", "chapter": 23, "classlast": 1},
+        {"type": 1, "lecture": 10, "title": "TCP：可靠传输服务（part_IV_ch25）", "chapter": 25, "classlast": 2},
+        {"type": 1, "lecture": 11, "title": "文件传输与远程文件访问（part_I_ch4(2)）", "chapter": 4, "classlast": 2},
+        {"type": 1, "lecture": 12, "title": "远程数字连接技术（part_II_ch12）", "chapter": 12, "classlast": 1},
+        {"type": 1, "lecture": 12, "title": "广域网技术与路由（part_III_ch18）", "chapter": 18, "classlast": 1},
+        {"type": 1, "lecture": 13, "title": "Internet路由（part_IV_ch26）", "chapter": 26, "classlast": 2},
+        {"type": 1, "lecture": 14, "title": "客户-服务器交互（part_I_ch3(1) ）", "chapter": 3, "classlast": 2},
+        {"type": 1, "lecture": 15, "title": "Socket 接口（part_I_ch3(2) ）", "chapter": 3, "classlast": 2},
+        {"type": 1, "lecture": 16, "title": "Email（part_I_ch4(2)）", "chapter": 4, "classlast": 2},
+        {"type": 1, "lecture": 17, "title": "WWW（part_I_ch4(1)）", "chapter": 4, "classlast": 1},
+        {"type": 1, "lecture": 17, "title": "DNS（part_I_ch4(4)）", "chapter": 4, "classlast": 1},
+        {"type": 1, "lecture": "A1", "title": "补充：局域网扩展 之一", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": "A2", "title": "补充：局域网扩展 之二", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": "A3", "title": "补充：广域网扩展 之一", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": "A4", "title": "补充：广域网扩展 之二", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": "", "title": "习题课与答疑课", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": "", "title": "总复习", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": "", "title": "答疑课", "chapter": "", "classlast": 2},
         {"type": 2, "lecture": 1, "title": "RJ45 网线", "chapter": "", "classlast": 2},
         {"type": 2, "lecture": 2, "title": "RS232通信", "chapter": "", "classlast": 2},
         {"type": 2, "lecture": 3, "title": "解析IP包", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": 4, "title": "FTP监听 ", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": 5, "title": "路由配置", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": 6, "title": "Socket API编程", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": 7, "title": "网络服务搭设", "chapter": "", "classlast": 2},
     ];
 
     const firstDay = new Date(2025, 1, 16); // 本学期第一周周日
     const firstStartDay = new Date(2025, 1, 16); // 本学期第一周周日
-    const lastSaturday = new Date(2025, 2, 22); // 本学期最后一周周六
+    const lastSaturday = new Date(2025, 5, 7); // 本学期最后一周周六
 
     const theoryDays = [3, 5]; // 假设理论课在周三和周五上（注意JavaScript中周一是1，周二是2，以此类推）
     const labDays = -5; // 实验课在单周
