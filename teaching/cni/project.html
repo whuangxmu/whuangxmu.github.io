@@ -36,7 +36,7 @@
         <p>（1） 利用可见光传输信息的软件；</p>
         <p>（2） 简单文件传输软件。</p>
         <p>
-            其中，上述各项实验具体内容详见《计算机网络课程实验手册》。希望每位同学提早准备，熟悉实验步骤，切实参与动手实践，鼓励热烈讨论。</p>
+            其中，上述各项实验具体内容详见《<a href="https://gitee.com/whuangxmu/courses/blob/master/Computer-Network-and-Internet/textbooks/experiment-handbook.pdf">计算机网络课程实验手册</a>》。希望每位同学提早准备，熟悉实验步骤，切实参与动手实践，鼓励热烈讨论。</p>
     </div>
     <div class="bs-docs-section">
         <h1 id="team" class="page-header">组队要求</h1>
@@ -158,11 +158,11 @@
         <p>学生应导出一套用于测评的程序，这里说明其输入输出接口。</p>
         <h3>编码器命令行接口：</h3>
         <ol>
-            <li>用户提供一个文件名（argv[1]），内容为用户随机生成的一个二进制文件。</li>
-            <li>用户提供一个文件名（argv[2]），用于将编码后的视频输出到该文件。</li>
-            <li>用户提供一个整数（argv[3]），用于约束编码后的视频长度。单位：毫秒。</li>
+            <li>用户提供一个文件名（<code>argv[1]</code>），内容为用户随机生成的一个二进制文件。</li>
+            <li>用户提供一个文件名（<code>argv[2]</code>），用于将编码后的视频输出到该文件。</li>
+            <li>用户提供一个整数（<code>argv[3]</code>），用于约束编码后的视频长度。单位：毫秒。</li>
         </ol>
-        <p>编码器命令行接口样例：用户通过“encode in.bin in.mp4 1000”调用程序。</p>
+        <p>编码器命令行接口样例：用户通过“<code>encode in.bin in.mp4 1000</code>”调用程序。</p>
         <h3>编码器输入接口：</h3>
         <ol>
             <li>用户随机生成的一个二进制文件，长度不超过10MB（先不考虑过大的文件）。</li>
@@ -173,11 +173,11 @@
 
         <h3>解码器命令行接口：</h3>
         <ol>
-            <li>用户提供一个文件名（argv[1]），内容为用户手机拍摄的视频；</li>
-            <li>用户提供一个文件名（argv[2]），用于将解码后的二进制数组输出到该文件。</li>
-            <li>用户提供一个文件名（argv[3]），用于将解码信息是否有效的二进制数组输出到该文件。</li>
+            <li>用户提供一个文件名（<code>argv[1]</code>），内容为用户手机拍摄的视频；</li>
+            <li>用户提供一个文件名（<code>argv[2]</code>），用于将解码后的二进制数组输出到该文件。</li>
+            <li>用户提供一个文件名（<code>argv[3]</code>），用于将解码信息是否有效的二进制数组输出到该文件。</li>
         </ol>
-        <p>解码器命令行接口样例：用户通过“decode out.mp4 out.bin vout.bin”调用程序。</p>
+        <p>解码器命令行接口样例：用户通过“<code>decode out.mp4 out.bin vout.bin</code>”调用程序。</p>
         <h3>解码器输入接口：</h3>
         <p>用户复制到计算机的视频。</p>
         <h3>解码器输出接口：</h3>
@@ -226,10 +226,10 @@
         <p><a href="https://gitee.com/whuangxm/project-1-eg-srh">https://gitee.com/whuangxm/project-1-eg-srh</a></p>
 
         <h2 id="project-1-appendix-2" class="page-header">附录二：OpenCV的使用</h2>
-        <p>访问“<a href="https://github.com/opencv/opencv/releases">https://github.com/opencv/opencv/releases</a>”，下载最新版本（opencv-4.5.5-vc14_vc15.exe或类似的文件），并解压到指定位置（如：C:\，可更改）。
+        <p>访问“<a href="https://github.com/opencv/opencv/releases">https://github.com/opencv/opencv/releases</a>”，下载最新版本，并解压到指定位置（如：<code>C:\</code>，可更改）。
         </p>
         <p>新建Visual
-            C++控制台程序工程，包含头文件目录（C:\opencv\build\include）、库文件目录和文件名（C:\opencv\build\x64\vc15\lib，opencv_world455d.lib）。</p>
+            C++控制台程序工程，包含头文件目录（<code>C:\opencv\build\include</code>）、库文件目录和文件名（<code>C:\opencv\build\x64\vc15\lib</code>，<code>opencv_world455d.lib</code>）。</p>
         <p>导入“project-1-eg-lzz”相关头文件和源文件，编译即可。</p>
     </div>
 
@@ -239,7 +239,7 @@
         <p>通过完成项目，掌握应用层文件传输的原理；了解传输过程中的传输层协议选用、应用层协议设计、协议开发、误码等概念。</p>
 
         <h2 id="project-2-timeline" class="page-header">时间要求</h2>
-        <p>预计完成时间4周，整理成果1周。在第9周周日之前提交项目成果。</p>
+        <p>预计完成时间6周，整理成果1周，互测1周。在第9周周日之前提交项目成果。</p>
 
         <h2 id="project-2-requirements" class="page-header">需求说明</h2>
         <p>
