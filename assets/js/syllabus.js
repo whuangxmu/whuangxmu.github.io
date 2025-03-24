@@ -255,5 +255,25 @@ function Syllabus() {
         return Math.ceil((startDayOfWeek + daysRemaining) / 7);
     }
 
+    obj.highlightToday = function () {
+        let i;
+        var today = new Date();
+        var todayId = today.getFullYear() + (today.getMonth() + 1).toString().padStart(2, '0') + today.getDate().toString().padStart(2, '0');
+        $("#" + todayId).addClass("bg-success text-success");
+        var nextClass = null;
+        for (i = 0; i < classDates.length; i++) {
+            var classDate = classDates[i];
+            if (classDate.date > today && classDate.content && classDate.content.length > 0) {
+                nextClass = classDate.date.getFullYear() + (classDate.date.getMonth() + 1).toString().padStart(2, '0') + classDate.date.getDate().toString().padStart(2, '0');
+                break;
+            }
+        }
+        if (nextClass) {
+            for (i = 0; i < 5; i++) {
+                $("#" + nextClass+ "_" + i + " td").addClass("bg-info text-info");
+            }
+        }
+    }
+
     return obj;
 }

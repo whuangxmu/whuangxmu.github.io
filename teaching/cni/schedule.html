@@ -166,4 +166,5 @@
     classDates = s.scheduleCourses(classDates, courses);
     $("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday));
     $("#syllabus-table").html(s.buildTable(classDates));
+    s.highlightToday();
 </script>
