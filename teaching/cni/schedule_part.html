@@ -160,12 +160,13 @@
 
     const theoryDays = [3, 5]; // 假设理论课在周三和周五上（注意JavaScript中周一是1，周二是2，以此类推）
     const labDays = -5; // 实验课在单周
-    const holidays = [[new Date(2025, 4, 1), new Date(2025, 4, 2), new Date(2025, 4, 3), new Date(2025, 4, 4), new Date(2025, 4, 5), new Date(2025, 5, 2)],
-        [null, null, null, null, new Date(2025, 3, 27), null]];
+    const holidays = [[new Date(2025, 3, 4), new Date(2025, 4, 1), new Date(2025, 4, 2), new Date(2025, 4, 3), new Date(2025, 4, 4), new Date(2025, 4, 5), new Date(2025, 5, 2)],
+        [null, null, null, null, null, new Date(2025, 3, 27), null]];
 
     var s = new Syllabus();
     classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 2);
     classDates = s.scheduleCourses(classDates, courses);
     $("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday));
     $("#syllabus-table").html(s.buildTable(classDates));
+    s.highlightToday();
 </script>

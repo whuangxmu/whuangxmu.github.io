@@ -258,12 +258,13 @@ function Syllabus() {
     obj.highlightToday = function () {
         let i;
         var today = new Date();
+        today.setHours(0, 0, 0, 0);
         var todayId = today.getFullYear() + (today.getMonth() + 1).toString().padStart(2, '0') + today.getDate().toString().padStart(2, '0');
         $("#" + todayId).addClass("bg-success text-success");
         var nextClass = null;
         for (i = 0; i < classDates.length; i++) {
             var classDate = classDates[i];
-            if (classDate.date > today && classDate.content && classDate.content.length > 0) {
+            if (classDate.date >= today && classDate.content && classDate.content.length > 0) {
                 nextClass = classDate.date.getFullYear() + (classDate.date.getMonth() + 1).toString().padStart(2, '0') + classDate.date.getDate().toString().padStart(2, '0');
                 break;
             }
