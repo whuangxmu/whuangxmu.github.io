@@ -176,9 +176,9 @@ function add_footer() {
                             <i class="fa fa-language"></i> 语言
                         </h4>
                         <ul class="list-unstyled">
-                            <li><a href="/index.html">简体中文</a></li>
+                            <li><a href="/">简体中文</a></li>
                             <li><a href="#">正體中文</a></li>
-                            <li><a href="#">English</a></li>
+                            <li><a href="/en/">English</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-4">
