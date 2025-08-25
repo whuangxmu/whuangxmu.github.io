@@ -98,18 +98,18 @@
     $(document).ready(function () {
         var t = new TimeStep();
         var nodes = [
-            {"title": "选课", "tip": "2024年9月1日 选课上课", "time": new Date(2024, 9 - 1, 1, 8, 0)},
-            {"title": "上半学期", "tip": "2024年9月18日 开始上课", "time": new Date(2024, 9 - 1, 18, 8, 0)},
-            {"title": "期中考核", "tip": "第10周 期中考核", "time": new Date(2024, 11 - 1, 8, 14, 20)},
-            {"title": "下半学期", "tip": "下半学期", "time": new Date(2024, 11 - 1, 8, 16, 20)},
+            {"title": "选课", "tip": "2025年9月1日 选课", "time": new Date(2025, 9 - 1, 1, 8, 0)},
+            {"title": "上课", "tip": "2025年9月24日 开始上课", "time": new Date(2025, 9 - 1, 24, 14, 30)},
+            {"title": "期中考核", "tip": "第10周 期中考核", "time": new Date(2025, 11 - 1, 8, 14, 20)},
+            {"title": "下半学期", "tip": "下半学期", "time": new Date(2025, 11 - 1, 8, 16, 20)},
             {
                 "title": "上机考试",
                 "tip": "2024年最后一次实验课 期末上机考试",
-                "time": new Date(2024, 12 - 1, 25, 18, 0)
+                "time": new Date(2025, 12 - 1, 25, 18, 0)
             },
-            {"title": "期末笔试", "tip": "2025年1月10日 期末笔试", "time": new Date(2025, 1 - 1, 10, 10, 30)},
+            {"title": "期末笔试", "tip": "2025年1月10日 期末笔试", "time": new Date(2026, 1 - 1, 10, 10, 30)},
 //	{"title": "成绩录入", "tip": "2025年1月18日后 改卷公告成绩", "time": new Date(2025, 1 - 1, 18, 8, 0)},
-            {"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2025, 1 - 1, 28, 20, 0)}];
+            {"title": "课程结束", "tip": "2025年1月28日 课程结束", "time": new Date(2026, 1 - 1, 28, 20, 0)}];
         t.nodes = nodes;
         t.prepare();
         t.run();
@@ -120,7 +120,6 @@
         {"type": 1, "chapter": "", "title": "软件工程简介", "classlast": 1},
         {"type": 1, "chapter": 2, "title": "C语言简介（1）", "classlast": 2},
         {"type": 1, "chapter": 2, "title": "C语言简介（2）", "classlast": 2},
-        {"type": 1, "chapter": 2, "title": "C语言简介（3）", "classlast": 2},
         {"type": 1, "chapter": 3, "title": "数据类型", "classlast": 2},
         {"type": 1, "chapter": 4, "title": "字符串和格式化输入输出", "classlast": 2},
         {"type": 1, "chapter": 5, "title": "操作符、表达式和语句", "classlast": 2},
@@ -136,12 +135,11 @@
         {"type": 1, "chapter": 9, "title": "函数（2）", "classlast": 2},
         {"type": 1, "chapter": 10, "title": "数组和指针（2）", "classlast": 2},
         {"type": 1, "chapter": 10, "title": "数组和指针（3）", "classlast": 2},
-        {"type": 1, "chapter": "A2", "title": "代码阅读", "classlast": 2},
         {"type": 1, "chapter": 12, "title": "存储类、链接和内存管理", "classlast": 2},
         {"type": 1, "chapter": 13, "title": "文件输入输出", "classlast": 2},
         {"type": 1, "chapter": 14, "title": "结构体和其它数据格式（1）", "classlast": 2},
-        {"type": 1, "chapter": 14, "title": "结构体和其它数据格式（2）", "classlast": 2},
-        {"type": 1, "chapter": 15, "title": "位操作", "classlast": 2},
+        {"type": 1, "chapter": 14, "title": "结构体和其它数据格式（2）", "classlast": 1},
+        {"type": 1, "chapter": 15, "title": "位操作", "classlast": 1},
         {"type": 1, "chapter": 16, "title": "C预处理器和C库", "classlast": 2},
         {"type": 1, "chapter": 17, "title": "高级数据表示（1）", "classlast": 2},
         {"type": 1, "chapter": 17, "title": "高级数据表示（2）", "classlast": 2},
@@ -154,24 +152,25 @@
         {"type": 2, "chapter": 3, "title": "调试", "classlast": 2},
         {"type": 2, "chapter": 4, "title": "测试", "classlast": 2},
         {"type": 2, "chapter": 5, "title": "错误查找", "classlast": 2},
+        {"type": 2, "chapter": "A2", "title": "代码阅读", "classlast": 2},
         {"type": 2, "chapter": "", "title": "2048游戏（1. 需求分析）", "classlast": 2},
         {"type": 2, "chapter": 6, "title": "静态检查", "classlast": 2},
         {"type": 2, "chapter": "", "title": "2048游戏（2. 设计实现）", "classlast": 2},
         {"type": 2, "chapter": "", "title": "2048游戏（3. 整体评论）", "classlast": 2},
-        {"type": 2, "chapter": "", "title": "（机动）", "classlast": 2},
-        {"type": 2, "chapter": "", "title": "（机动）", "classlast": 2},
+        {"type": 1, "chapter": "", "title": "（机动）", "classlast": 2},
+        {"type": 1, "chapter": "", "title": "（机动）", "classlast": 2},
         {"type": 2, "chapter": "", "title": "（机动）", "classlast": 2},
         {"type": 2, "chapter": "EE", "title": "期末上机考试", "classlast": 2}
     ];
 
-    const firstDay = new Date(2024, 8, 1); // 本学期第一周周日
-    const firstStartDay = new Date(2024, 8, 15); // 本学期第一周周日
-    const lastSaturday = new Date(2024, 11, 28); // 本学期最后一周周六
+    const firstDay = new Date(2025, 7, 31); // 本学期第一周周日
+    const firstStartDay = new Date(2025, 8, 21); // 本学期第一周周日
+    const lastSaturday = new Date(2025, 11, 27); // 本学期最后一周周六
 
     const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）
     const labDays = [3]; // 实验课在周三上
-    const holidays = [[new Date(2024, 8, 15), new Date(2024, 8, 16), new Date(2024, 8, 17), new Date(2024, 9, 1), new Date(2024, 9, 2), new Date(2024, 9, 3), new Date(2024, 9, 4), new Date(2024, 9, 5), new Date(2024, 9, 6), new Date(2024, 9, 7)],
-        [null, new Date(2024, 8, 14), null, null, null, null, new Date(2024, 8, 29), null, null, new Date(2024, 9, 12)]];
+    const holidays = [[new Date(2025, 9, 1), new Date(2025, 9, 2), new Date(2025, 9, 3), new Date(2025, 9, 4), new Date(2025, 9, 5), new Date(2025, 9, 6), new Date(2025, 9, 7), new Date(2025, 9, 8), new Date(2026, 0, 1)],
+        [null, null, null, null, null, null, new Date(2025, 8, 28), new Date(2025, 9, 11), null]];
 
     var s = new Syllabus();
     classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 1);

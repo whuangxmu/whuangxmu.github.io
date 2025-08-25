@@ -89,28 +89,41 @@
                             <tbody id="course-list">
                             <tr>
                                 <td class="text-justify">
+                                    <a href="/teaching/cpd/">
+                                        C 语言程序设计
+                                    </a>
+                                </td>
+                                <td class="text-justify">2025-2026学年第1学期</td>
+                                <td class="text-justify">计算机大类一年级</td>
+                                <td class="text-justify" id="status-cpd-251"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-justify">
                                     <a href="/teaching/cni/index.html">计算机网络</a>
                                 </td>
+                                <td class="text-justify">2025-2026学年第1学期</td>
+                                <td class="text-justify">数字媒体技术专业三年级</td>
+                                <td class="text-justify" id="status-cni-251"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-justify">计算机网络</td>
                                 <td class="text-justify">2024-2025学年第2学期</td>
                                 <td class="text-justify">软件工程专业二年级</td>
-                                <td class="text-justify" id="status-cni-242"></td>
+                                <td class="text-justify text-info">已经结课</td>
                             </tr>
                             <tr>
                                 <td class="text-justify">计算机网络</td>
                                 <td class="text-justify">2024-2025学年第1学期</td>
                                 <td class="text-justify">数字媒体技术专业三年级</td>
-                                <td class="text-justify" id="status-cni-241"></td>
+                                <td class="text-justify text-info">已经结课</td>
                             </tr>
                             <tr>
                                 <td class="text-justify">
-                                    <a href="/teaching/cpd/">
-                                        C
-                                        语言程序设计
-                                    </a>
+                                    C 语言程序设计
                                 </td>
                                 <td class="text-justify">2024-2025学年第1学期</td>
                                 <td class="text-justify">计算机大类一年级</td>
-                                <td class="text-justify" id="status-cpd-241"></td>
+                                <td class="text-justify text-info">已经结课</td>
                             </tr>
                             <tr>
                                 <td class="text-justify"><a href="/teaching/aem/">工程数学</a></td>
@@ -290,13 +303,13 @@
 
     function updateDisplay() {
         const now = new Date();
-        var startDate = new Date(2024, 8, 1); // 月份从0开始计数，所以8代表9月
-        var endDate = new Date(2025, 0, 10); // 0代表1月
-        setCourseStatus(startDate, endDate, '#status-cni-241');
-        setCourseStatus(startDate, endDate, '#status-cpd-241');
-        var startDate = new Date(2025, 1, 10);
-        var endDate = new Date(2025, 5, 20);
-        setCourseStatus(startDate, endDate, '#status-cni-242');
+        var startDate = new Date(2025, 8, 1); // 月份从0开始计数，所以8代表9月
+        var endDate = new Date(2026, 0, 10); // 0代表1月
+        setCourseStatus(startDate, endDate, '#status-cni-251');
+        setCourseStatus(startDate, endDate, '#status-cpd-251');
+        var startDate = new Date(2026, 2, 1);
+        var endDate = new Date(2026, 5, 27);
+        setCourseStatus(startDate, endDate, '#status-cni-252');
     }
 
     // 调用函数更新显示

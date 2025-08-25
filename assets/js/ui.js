@@ -55,7 +55,7 @@ function load_scripts_and_csses() {
     loadCss("/assets/css/docs.min.css");
     loadCss("/assets/css/docs.navy.min.css");
     loadCss("/assets/css/patch.css");
-    loadCss("//cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css");
+    loadCss("https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css");
     if (is_lower_than_ie9()) {
         loadScript("/static/jquery/jquery-1.12.4.min.js");
         loadScript("/static/ie8/html5shiv.min.js");
