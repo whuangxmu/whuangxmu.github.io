@@ -86,8 +86,6 @@ function load_scripts_and_csses() {
     }, 400);
 }
 
-// <script type="text/javascript" async="async" src="//cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-chtml-full.min.js"></script>
-
 function add_skippy() {
     var skippy = document.createElement("div");
     skippy.innerHTML = '<a href="#content" class="sr-only sr-only-focusable" id="skippy">Skip to main content</a>';

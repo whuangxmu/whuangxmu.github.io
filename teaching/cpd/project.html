@@ -580,12 +580,15 @@
 </script>
 <script type="text/javascript" src="/assets/js/ui.js"></script>
 
+<script type="text/javascript" id="MathJax-script" async
+        src="/static/MathJax/3.1.2/es5/tex-chtml-full.js"></script>
+
 <script>
+    setTimeout(() => {
     MathJax = {
         tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
         svg: {fontCache: 'global'},
         loader: {load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']}
     };
+    }, 1000);
 </script>
-<script type="text/javascript" id="MathJax-script" async
-        src="/static/Mathjax/3.1.2/es5/tex-chtml-full.js"></script>
