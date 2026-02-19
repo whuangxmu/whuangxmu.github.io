@@ -94,12 +94,12 @@
     $(document).ready(function () {
         const t = new TimeStep();
         t.nodes = [
-            {"title": "选课", "tip": "2025年8月1日 选课上课", "time": new Date(2025, 8 - 1, 1, 8, 0)},
-            {"title": "开始上课", "tip": "2025年9月3日 开始上课", "time": new Date(2025, 9 - 1, 3, 10, 10)},
-            {"title": "期中考", "tip": "第8周 期中考", "time": new Date(2025, 10 - 1, 22, 10, 10)},
-            {"title": "下半学期", "tip": "第10周后 下半学期", "time": new Date(2025, 10 - 1, 24, 8, 0)},
-            {"title": "期末笔试", "tip": "2025年12月29日 期末笔试", "time": new Date(2025, 12 - 1, 29, 10, 0)},
-            {"title": "课程结束", "tip": "2026年1月9日 课程结束", "time": new Date(2026, 1 - 1, 9, 18, 0)}];
+            {"title": "选课", "tip": "2026年3月1日 选课上课", "time": new Date(2026, 3 - 1, 1, 8, 0)},
+            {"title": "开始上课", "tip": "2026年3月4日 开始上课", "time": new Date(2026, 3 - 1, 4, 8, 0)},
+            {"title": "期中考", "tip": "第8周 期中考", "time": new Date(2026, 4 - 1, 12, 10, 10)},
+            {"title": "下半学期", "tip": "第10周后 下半学期", "time": new Date(2026, 4 - 1, 12, 16, 0)},
+            {"title": "期末笔试", "tip": "2026年期末考试周 期末笔试", "time": new Date(2026, 6 - 1, 15, 10, 0)},
+            {"title": "课程结束", "tip": "2026年期末结束 课程结束", "time": new Date(2026, 6 - 1, 29, 18, 0)}];
         t.prepare();
         t.run();
     });
@@ -138,21 +138,21 @@
         {"type": 1, "lecture": 16, "title": "电子邮件协议", "chapter": 3, "classlast": 2},
         {"type": 1, "lecture": 17, "title": "FTP协议", "chapter": 4, "classlast": 2},
         {"type": 1, "lecture": 18, "title": "Web服务", "chapter": 33, "classlast": 2},
-        {"type":1,"lecture":"","title":"（机动）","chapter":"","classlast":2},
-        {"type":1,"lecture":"","title":"（机动）","chapter":"","classlast":2},
+        {"type": 1, "lecture": "", "title": "（机动）", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": "", "title": "（机动）", "chapter": "", "classlast": 2},
         //{"type": 2, "lecture": "", "title": "（机动）", "chapter": "", "classlast": 2},
         {"type": 1, "lecture": "R1", "title": "期末复习", "chapter": "", "classlast": 2},
         {"type": 1, "lecture": 4, "title": "答疑", "chapter": "", "classlast": 2},
     ];
 
-    const firstDay = new Date(2025, 7, 31); // 本学期第一周周日
-    const firstStartDay = new Date(2025, 7, 31); // 本学期第一周周日
-    const lastSaturday = new Date(2025, 11, 27); // 本学期最后一周周六
+    const firstDay = new Date(2026, 3 - 1, 1); // 本学期第一周周日
+    const firstStartDay = new Date(2026, 3 - 1, 4); // 本学期第一周周日
+    const lastSaturday = new Date(2026, 6 - 1, 10); // 本学期最后一周周六
 
-    const theoryDays = [3, 5]; // 假设理论课在周二和周四上（注意JavaScript中周一是1，周二是2，以此类推）
-    const labDays = 5; // 实验课在周三上
-    const holidays = [[new Date(2025, 9, 1), new Date(2025, 9, 2), new Date(2025, 9, 3), new Date(2025, 9, 4), new Date(2025, 9, 5), new Date(2025, 9, 6), new Date(2025, 9, 7), new Date(2025, 9, 8), new Date(2026, 0, 1)],
-        [null, null, null, null, null, null, new Date(2025, 8, 28), new Date(2025, 9, 11), null]];
+    const theoryDays = [3, 5]; // 假设理论课在周三和周五上（注意JavaScript中周一是1，周二是2，以此类推）
+    const labDays = -5; // 实验课在周五上，负数代表单周，正数代表双周
+    const holidays = [[new Date(2026, 3, 4), new Date(2026, 3, 5), new Date(2026, 3, 6), new Date(2026, 4, 1), new Date(2026, 4, 2), new Date(2026, 4, 3), new Date(2026, 4, 4), new Date(2026, 4, 5)],
+        [null, null, null, null, null, null, null, new Date(2026, 4, 9)]];
 
     var s = new Syllabus();
     classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 2);

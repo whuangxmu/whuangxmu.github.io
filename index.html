@@ -21,29 +21,34 @@
 <body>
 <noscript>
     <style type="text/css">
-    .text-danger {
-        color: #a94442;
-    }
-    body, h1, h2, h3, h4, h5, div, p {
-        font-family: "Microsoft Yahei", "Microsoft Yahei UI", "Helvetica Neue", Helvetica, Arial;
-    }
-    h1, .h1 {
-        font-size: 36px;
-    }
-    h1, .h1, h2, .h2, h3, .h3 {
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-        font-family: inherit;
-        font-weight: 500;
-        line-height: 1.1;
-        color: inherit;
-    }
-    h1 {
-        font-size: 2em;
-        margin: 0.67em 0;
-    }
+        .text-danger {
+            color: #a94442;
+        }
+
+        body, h1, h2, h3, h4, h5, div, p {
+            font-family: "Microsoft Yahei", "Microsoft Yahei UI", "Helvetica Neue", Helvetica, Arial;
+        }
+
+        h1, .h1 {
+            font-size: 36px;
+        }
+
+        h1, .h1, h2, .h2, h3, .h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
     </style>
     <title>错误 (Error): JavaScript disabled.</title>
     <h1 class="text-danger">错误 (Error)</h1>
@@ -88,28 +93,24 @@
                             </thead>
                             <tbody id="course-list">
                             <tr>
-                                <td class="text-justify">计算机网络</td>
+                                <td class="text-justify"><a href="/teaching/cni/">计算机网络</a></td>
                                 <td class="text-justify">2025-2026学年第2学期</td>
                                 <td class="text-justify">软件工程专业二年级</td>
                                 <td class="text-justify" id="status-cni-252"></td>
                             </tr>
                             <tr>
                                 <td class="text-justify">
-                                    <a href="/teaching/cpd/">
-                                        C 语言程序设计
-                                    </a>
+                                    <a href="/teaching/cpd/">C 语言程序设计</a>
                                 </td>
                                 <td class="text-justify">2025-2026学年第1学期</td>
                                 <td class="text-justify">计算机大类一年级</td>
-                                <td class="text-justify" id="status-cpd-251"></td>
+                                <td class="text-justify text-danger">暂停开设</td>
                             </tr>
                             <tr>
-                                <td class="text-justify">
-                                    <a href="/teaching/cni/index.html">计算机网络</a>
-                                </td>
+                                <td class="text-justify">计算机网络</td>
                                 <td class="text-justify">2025-2026学年第1学期</td>
                                 <td class="text-justify">数字媒体技术专业三年级</td>
-                                <td class="text-justify" id="status-cni-251"></td>
+                                <td class="text-justify text-danger">暂停开设</td>
                             </tr>
                             <tr>
                                 <td class="text-justify">计算机网络</td>
@@ -295,10 +296,6 @@
 
     function updateDisplay() {
         const now = new Date();
-        var startDate = new Date(2025, 8, 1); // 月份从0开始计数，所以8代表9月
-        var endDate = new Date(2026, 0, 10); // 0代表1月
-        setCourseStatus(startDate, endDate, '#status-cni-251');
-        setCourseStatus(startDate, endDate, '#status-cpd-251');
         var startDate = new Date(2026, 2, 1);
         var endDate = new Date(2026, 5, 27);
         setCourseStatus(startDate, endDate, '#status-cni-252');

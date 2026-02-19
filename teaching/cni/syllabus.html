@@ -57,7 +57,9 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">适用专业</label>
                 <div class="col-sm-4">
-                    <div class="form-control-static">软件工程, 数字媒体技术</div>
+                    <div class="form-control-static">软件工程<span
+                            class="text-muted">, 数字媒体技术 <sub>(停开)</sub></span>
+                    </div>
                 </div>
                 <label class="col-sm-2 control-label">课程类型</label>
                 <div class="col-sm-4">
@@ -77,8 +79,8 @@
                                 <th>实验教学学时</th>
                                 <th>实践教学学时</th>
                             </tr>
-                            <tr>
-                                <td class="text-justify">第1学期</td>
+                            <tr class="text-muted">
+                                <td class="text-justify">第1学期 <sub>(停开)</sub></td>
                                 <td class="text-right">72</td>
                                 <td class="text-right">54</td>
                                 <td class="text-right">18</td>
@@ -92,6 +94,11 @@
                                 <td class="text-right">0</td>
                             </tr>
                             </tbody>
+                            <tfoot>
+                            <tr>
+                                <td class="small" colspan="5">* 实际学时以开课学期的教学周数计算为准。</td>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -313,20 +320,6 @@
     </div>
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var today = new Date();
-        var firstSemesterStart = new Date(today.getFullYear(), 8, 1); // September 1
-        var firstSemesterEnd = new Date(today.getFullYear() + 1, 0, 15); // January 15 next year
-        var secondSemesterStart = new Date(today.getFullYear(), 1, 15); // February 15
-        var secondSemesterEnd = new Date(today.getFullYear(), 5, 15); // June 15
-        if (today >= firstSemesterStart && today <= firstSemesterEnd) {
-            document.querySelector("#semester tr:nth-child(2)").classList.add("bg-success", "text-success");
-        } else if (today >= secondSemesterStart && today <= secondSemesterEnd) {
-            document.querySelector("#semester tr:nth-child(3)").classList.add("bg-success", "text-success");
-        }
-    });
-</script>
 <script type="text/javascript">
     // 菜单配置数据
     var menuConfig = [
