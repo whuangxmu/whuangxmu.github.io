@@ -1,9 +1,3 @@
-var MathJax = {
-    tex: {inlineMath: [["$", "$"]]},
-    svg: {fontCache: "global"},
-    loader: {load: ["input/tex-base", "output/svg", "ui/menu", "[tex]/require"]}
-};
-
 var title_selectors = [
     ".bs-docs-header h1#title",
     ".bs-docs-header h1",
@@ -56,26 +50,6 @@ function render_docs_sidebar() {
     setTimeout(function () {
         $(".bs-docs-sidebar").scroll();
     }, 100);
-}
-
-function waitUntil(predicate, onReady, intervalMs, timeoutMs) {
-    var startedAt = Date.now();
-    var interval = setInterval(function () {
-        if (predicate()) {
-            console.log("waitUntil: condition met after " + (Date.now() - startedAt) + "ms");
-            clearInterval(interval);
-            onReady();
-            return;
-        }
-        if (typeof timeoutMs === "number" && Date.now() - startedAt >= timeoutMs) {
-            clearInterval(interval);
-        }
-    }, intervalMs || 50);
-
-    if (predicate()) {
-        clearInterval(interval);
-        onReady();
-    }
 }
 
 waitUntil(

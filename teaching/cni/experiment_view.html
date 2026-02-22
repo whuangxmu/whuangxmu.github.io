@@ -18,9 +18,10 @@
         var mode_async_json = true;
         var myoj2_app_name = "黄老师";
         var page_style = "doc-menu";
-        var page_docs_header_title = "课后习题";
-        var page_docs_header_desc = "简要介绍课后习题的相关信息。";
+        var page_docs_header_title = "实验";
+        var page_docs_header_desc = "实验详情页面。";
     </script>
+    <title>实验 - 黄老师</title>
 </head>
 <body>
 <noscript>
@@ -31,7 +32,7 @@
 </html>
 
 <script type="text/html" id="main">
-    <div id="assignment-content"></div>
+    <div id="experiment-content"></div>
     <div class="modal fade" id="not-found-modal" tabindex="-1" role="dialog" aria-labelledby="not-found-title">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -49,20 +50,20 @@
     </div>
 </script>
 <style>
-    #assignment-content {
+    #experiment-content {
         padding: 20px;
         line-height: 1.5;
     }
 
-    #assignment-content p, #assignment-content div, #assignment-content li {
+    #experiment-content p, #experiment-content div, #experiment-content li {
         margin: 1em 0;
     }
 
-    #assignment-content p {
+    #experiment-content p {
         text-indent: 2em;
     }
 
-    #assignment-content li p {
+    #experiment-content li p {
         text-indent: 0;
     }
 </style>
@@ -118,15 +119,16 @@
         }
     }
 
-    function renderAssignment() {
+    function renderExperiment() {
         var id = getQueryParam('id');
-        var container = $('#assignment-content');
-        if (!id || !/^[0-9]{2}$/.test(id)) {
-            showNotFound('未提供有效的章节号。');
+        var container = $('#experiment-content');
+        // id supports letters and digits (alphanumeric), at least one character
+        if (!id || !/^[0-9A-Za-z]+$/.test(id)) {
+            showNotFound('未提供有效的实验 ID（仅支持字母和数字）。');
             mode_async_json = false;
             return;
         }
-        var path = './assignment/' + id + '.md';
+        var path = './experiment/' + id + '.md';
         $.get(path, function (content) {
             if (window.marked) {
                 // use marked to parse markdown
@@ -160,37 +162,38 @@
                     // skip to the last wrapped child index
                     ci = cj - 1;
                 }
+
+                // after rendering, add page-specific link to sidebar (only on this page)
+                // ensure sidebar exists then append
+                waitUntil(function () {
+                    var $sb = $('.bs-docs-sidebar');
+                    return $sb.length > 0 && $sb.children().length === 3;
+                }, function () {
+                    var $sidebar = $('.bs-docs-sidebar');
+                    if ($sidebar.length) {
+                        // only append if not already present
+                        if ($sidebar.find('a.back-to-top[href="./experiment.html"]').length === 0) {
+                            var $link = $('<a class="back-to-top" href="./experiment.html"> 返回实验列表 </a>');
+                            $sidebar.append($link);
+                        }
+                    }
+                });
             } else {
                 container.text(content);
             }
             mode_async_json = false;
         }).fail(function () {
-            var message = '未找到对应习题文件：' + path + "。请联系教师核实章节号是否正确，或是否已上传习题文件。";
+            var message = '未找到对应实验文件：' + path + "。请联系教师核实实验号是否正确，或是否已上传实验文件。";
             container.text(message);
             mode_async_json = false;
             showNotFound(message);
         });
-
-        // after rendering, add page-specific link to sidebar (only on this page)
-        // ensure sidebar exists then append
-        waitUntil(function () {
-            var $sb = $('.bs-docs-sidebar');
-            return $sb.length > 0 && $sb.children().length === 3;
-        }, function () {
-            var $sidebar = $('.bs-docs-sidebar');
-            if ($sidebar.length) {
-                // only append if not already present
-                if ($sidebar.find('a.back-to-top[href="./assignment.html"]').length === 0) {
-                    var $link = $('<a class="back-to-top" href="./assignment.html"> 返回作业列表 </a>');
-                    $sidebar.append($link);
-                }
-            }
-        });
     }
 
     $(function () {
-        renderAssignment();
+        renderExperiment();
     });
 
     load_mathjax();
 </script>
+

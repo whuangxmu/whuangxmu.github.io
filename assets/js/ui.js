@@ -1,5 +1,25 @@
+function waitUntil(predicate, onReady, intervalMs, timeoutMs) {
+    var startedAt = Date.now();
+    var interval = setInterval(function () {
+        if (predicate()) {
+            console.log("waitUntil: condition met after " + (Date.now() - startedAt) + "ms");
+            clearInterval(interval);
+            onReady();
+            return;
+        }
+        if (typeof timeoutMs === "number" && Date.now() - startedAt >= timeoutMs) {
+            clearInterval(interval);
+        }
+    }, intervalMs || 50);
+
+    if (predicate()) {
+        clearInterval(interval);
+        onReady();
+    }
+}
+
 function loadScript(url, callback = null, id = null) {
-    var script = document.createElement("script");
+    const script = document.createElement("script");
     script.type = "text/javascript";
     if (id)
         script.id = id;
@@ -75,7 +95,7 @@ function load_scripts_and_csses() {
         loadScript("/assets/js/ie10-viewport-bug-workaround.min.js");
         loadScript("/assets/js/ie-emulation-modes-warning.min.js");
     }
-    setTimeout(function(){
+    setTimeout(function () {
         if (window.location.hash) $("body,html").animate({scrollTop: $(window.location.hash).offset().top});
         $('a[href^="#"]').on('click', function (event) {
             event.preventDefault();
@@ -284,6 +304,22 @@ function add_title() {
     document.head.appendChild(title);
 }
 
+function load_mathjax() {
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        startup: {
+            pageReady: function () {
+                return MathJax.startup.defaultPageReady().then(function () {
+                    // 初始化完成后的操作（可选）
+                });
+            }
+        }
+    };
+    loadScript('/static/MathJax/3.1.2/es5/tex-chtml-full.js');
+}
+
 function load_page() {
     add_page_loader();
     add_title();
@@ -291,7 +327,7 @@ function load_page() {
     add_header();
     add_docs_header_after_header();
     add_main();
-    setTimeout('load_scripts_and_csses()',50);
+    setTimeout('load_scripts_and_csses()', 50);
     add_footer();
 }
 
