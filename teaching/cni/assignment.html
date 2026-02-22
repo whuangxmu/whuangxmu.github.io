@@ -31,15 +31,23 @@
 <script type="text/html" id="main">
     <div class="bs-docs-section">
         <h1 id="assign" class="page-header">布置</h1>
-        <p>在本学期第一节课公布的习题集，由学生课后同步完成。</p>
+        <p>在本学期第一节课公布习题集，由学生课后同步完成。</p>
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>章节号</th>
+                <th>标题</th>
+                <th>查看</th>
+                <th>更新时间</th>
+            </tr>
+            </thead>
+        </table>
     </div>
     <div class="bs-docs-section">
         <h1 id="submit" class="page-header">提交</h1>
-        <p>课后作业，应在 <a href="https://lnt.xmu.edu.cn/course/59623/content#/">厦门大学课程中心</a> 在线完成。 </p>
-        <p>作业的完成时间，以授课当日为第一日，在第七日结束前为限。应注意作业提交时网络信号可能不佳造成缺交，请尽量留出时间，提前交作业。</p>
-        <p>PDF版本的作业（适用于2021级及以前），请见 <a
-                href="https://gitee.com/whuangxmu/courses/blob/master/Computer-Network-and-Internet/textbooks/assignment-handbook.pdf">Gitee</a>
-            。</p>
+        <p>课后作业，应在 <a href="https://lnt.xmu.edu.cn/" target="_blank">厦门大学课程中心</a> 在线完成。 </p>
+        <p>
+            作业的完成时间，一般以授课当日为第一日，在第七日结束前为限。学生应注意作业提交时网络信号可能不佳造成缺交，请尽量留出时间，提前交作业。</p>
     </div>
     <div class="bs-docs-section">
         <h1 id="grade" class="page-header">评分</h1>
@@ -83,3 +91,30 @@
     ];
 </script>
 <script type="text/javascript" src="/assets/js/ui.js"></script>
+
+<script type="text/javascript">
+    function fill_table() {
+        var table = $('.table');
+        var tbody = table.find('tbody');
+        if (tbody.length === 0) {
+            tbody = $('<tbody></tbody>');
+            table.append(tbody);
+        }
+        $.getJSON('./assignment/data.json', function (data) {
+            $.each(data, function (index, item) {
+                var row = $('<tr></tr>');
+                row.append($('<td></td>').attr('class', 'text-center').text(item.lesson));
+                row.append($('<td></td>').attr('class', 'text-justify').text(item.title));
+                row.append($('<td></td>').attr('class', 'text-center').append(
+                    $('<a></a>').attr('href', 'assignment_view.html?id=' + item.lesson).attr('target', '_blank').text('查看')
+                ));
+                row.append($('<td></td>').attr('class', 'text-center').text(item.updated));
+                tbody.append(row);
+            });
+        });
+
+    }
+    $(function () {
+        fill_table();
+    });
+</script>

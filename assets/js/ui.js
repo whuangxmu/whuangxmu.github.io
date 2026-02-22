@@ -252,7 +252,7 @@ function add_main() {
         mainTag.innerHTML = scriptContent;
     }
     document.body.appendChild(mainTag);
-    loadScript("/assets/js/footer.min.js");
+    loadScript("/assets/js/footer.js");
 }
 
 function add_page_loader() {

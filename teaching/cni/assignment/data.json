@@ -1,0 +1,23 @@
+[
+  {"lesson":"00","title":"课程介绍","updated":"2026-02-21"},
+  {"lesson":"01","title":"传输介质","updated":"2026-02-21"},
+  {"lesson":"02","title":"局域异步通信","updated":"2026-02-21"},
+  {"lesson":"03","title":"远距离通信","updated":"2026-02-21"},
+  {"lesson":"04","title":"差错控制编码","updated":"2026-02-21"},
+  {"lesson":"05","title":"以太网：分组地址","updated":"2026-02-21"},
+  {"lesson":"06","title":"以太网：机制、拓扑和无线网络","updated":"2026-02-21"},
+  {"lesson":"07","title":"局域网扩展设备","updated":"2026-02-21"},
+  {"lesson":"08","title":"远距离通信技术","updated":"2026-02-21"},
+  {"lesson":"09","title":"互联网协议：格式和编址","updated":"2026-02-21"},
+  {"lesson":"10","title":"互联网协议：数据报转发","updated":"2026-02-21"},
+  {"lesson":"11","title":"ICMP、ARP和支撑协议","updated":"2026-02-21"},
+  {"lesson":"12","title":"传输层：UDP和TCP协议","updated":"2026-02-21"},
+  {"lesson":"13","title":"传输层：TCP机制","updated":"2026-02-21"},
+  {"lesson":"14","title":"协议分层","updated":"2026-02-21"},
+  {"lesson":"15","title":"互联网路由","updated":"2026-02-21"},
+  {"lesson":"16","title":"客户和服务模式","updated":"2026-02-21"},
+  {"lesson":"17","title":"域名系统","updated":"2026-02-21"},
+  {"lesson":"18","title":"电子邮件","updated":"2026-02-21"},
+  {"lesson":"19","title":"文件传输协议","updated":"2026-02-21"},
+  {"lesson":"20","title":"万维网","updated":"2026-02-21"}
+]
