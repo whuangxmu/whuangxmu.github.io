@@ -21,7 +21,6 @@
         var page_docs_header_title = "实验";
         var page_docs_header_desc = "实验详情页面。";
     </script>
-    <title>实验 - 黄老师</title>
 </head>
 <body>
 <noscript>
@@ -133,7 +132,7 @@
             if (window.marked) {
                 // use marked to parse markdown
                 container.html(window.marked.parse(content));
-
+                $(container).find('table').addClass('table table-striped table-bordered table-hover');
                 // add class and ids to h1 headers
                 var $headings = container.find('h1').addClass('page-header');
                 $headings.each(function (index) {
@@ -142,7 +141,9 @@
                 });
 
                 // unwrap any pre-existing .bs-docs-section to avoid double-wrapping
-                container.find('.bs-docs-section').each(function () { $(this).replaceWith($(this).contents()); });
+                container.find('.bs-docs-section').each(function () {
+                    $(this).replaceWith($(this).contents());
+                });
                 var $children = container.children();
                 for (var ci = 0; ci < $children.length; ci++) {
                     var $child = $($children[ci]);

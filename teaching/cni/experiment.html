@@ -110,9 +110,11 @@
         }
         // try to load ./experiment/data.json similar to assignment
         $.getJSON('./experiment/data.json', function (data) {
+            let i = 0;
             $.each(data, function (index, item) {
+                i++;
                 var row = $('<tr></tr>');
-                row.append($('<td></td>').attr('class', 'text-center').text(item.lesson || item.id || ''));
+                row.append($('<td></td>').attr('class', 'text-center').text(i));
                 row.append($('<td></td>').attr('class', 'text-justify').text(item.title || ''));
                 row.append($('<td></td>').attr('class', 'text-center').append(
                     $('<a></a>').attr('href', 'experiment_view.html?id=' + (item.lesson || item.id)).attr('target', '_blank').text('查看')

@@ -1,10 +1,10 @@
 [
-  {"lesson":"01","title":"利用可见光传输信息","updated":"2026-02-21"},
-  {"lesson":"02","title":"利用可见光传输帧","updated":"2026-02-21"},
-  {"lesson":"03","title":"PCAP侦听并分析以太网帧、IP协议报文和FTP数据","updated":"2026-02-21"},
-  {"lesson":"04","title":"CISCO IOS路由器基本配置，IPv6路由配置","updated":"2026-02-21"},
-  {"lesson":"05","title":"Socket API许可认证软件","updated":"2026-02-21"},
-  {"lesson":"06","title":"应用层协议服务配置","updated":"2026-02-21"},
-  {"lesson":"07","title":"代理服务器软件","updated":"2026-02-21"},
-  {"lesson":"08","title":"IPv6实验：基本操作、IPv6+配置","updated":"2026-02-21"}
+  {"lesson":"opttrans","title":"利用可见光传输信息","updated":"2026-02-21"},
+  {"lesson":"optframe","title":"利用可见光传输帧","updated":"2026-02-21"},
+  {"lesson":"pcap","title":"PCAP侦听并分析以太网帧、IP协议报文和FTP数据","updated":"2026-02-21"},
+  {"lesson":"router","title":"CISCO IOS路由器基本配置，IPv6路由配置","updated":"2026-02-21"},
+  {"lesson":"socket","title":"Socket API许可认证软件","updated":"2026-02-21"},
+  {"lesson":"server","title":"应用层协议服务配置","updated":"2026-02-21"},
+  {"lesson":"proxy","title":"代理服务器软件","updated":"2026-02-21"},
+  {"lesson":"ipv6","title":"IPv6实验：基本操作、IPv6+配置","updated":"2026-02-21"}
 ]
