@@ -328,6 +328,27 @@ function load_page() {
     add_docs_header_after_header();
     add_main();
     setTimeout('load_scripts_and_csses()', 50);
+
+    // 异步加载通用文档查看器并在需要时自动初始化（避免页面时序问题）
+    setTimeout(function () {
+        loadScript('/assets/js/doc-viewer.js', function () {
+            try {
+                if (document.querySelector('#assignment-content') && typeof initDocViewer === 'function') {
+                    initDocViewer({
+                        idParam: 'id',
+                        idRegex: /^[0-9A-Za-z]{2}$/, // 两位数字/字母
+                        dataPath: '/teaching/cni/assignment/data.json',
+                        mdPathTemplate: '/teaching/cni/assignment/{id}.md',
+                        container: '#assignment-content',
+                        headerPSelector: '.bs-docs-header .container p',
+                        show404: true
+                    });
+                }
+                // 如果后续需要自动初始化 experiment/project，可以在此添加相应检测
+            } catch (e) { /* ignore */ }
+        }, 'doc-viewer-js');
+    }, 200);
+
     add_footer();
 }
 

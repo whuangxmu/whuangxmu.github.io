@@ -102,95 +102,28 @@
     ];
 </script>
 <script type="text/javascript" src="/assets/js/ui.js"></script>
-
+<script type="text/javascript" src="/assets/js/doc-viewer.js"></script>
 <script type="text/javascript">
-    function getQueryParam(name) {
-        var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-        return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : '';
-    }
-
-    function showNotFound(message) {
-        $('#not-found-message').text(message);
-        if ($.fn.modal) {
-            $('#not-found-modal').modal('show');
-        } else {
-            alert(message);
-        }
-    }
-
-    function renderAssignment() {
-        var id = getQueryParam('id');
-        var container = $('#assignment-content');
-        if (!id || !/^[0-9]{2}$/.test(id)) {
-            showNotFound('未提供有效的章节号。');
-            mode_async_json = false;
-            return;
-        }
-        var path = './assignment/' + id + '.md';
-        $.get(path, function (content) {
-            if (window.marked) {
-                // use marked to parse markdown
-                container.html(window.marked.parse(content));
-
-                // add class and ids to h1 headers
-                var $headings = container.find('h1').addClass('page-header');
-                $headings.each(function (index) {
-                    var num = String(index + 1).padStart(2, '0');
-                    $(this).attr('id', 'id' + num);
+    // 等待全局 doc-viewer 的 dv_waitUntil 可用后再初始化
+    (function tryInit() {
+        if (typeof dv_waitUntil === 'function') {
+            // 等待 .bs-docs-header 出现（不等待 mode_async_json），然后初始化
+            dv_waitUntil(function () { return document.querySelector('.bs-docs-header') || document.querySelector('header'); }, function () {
+                initDocViewer({
+                    idParam: 'id',
+                    idRegex: /^[0-9A-Za-z]{2}$/,
+                    dataPath: '/teaching/cni/assignment/data.json',
+                    mdPathTemplate: '/teaching/cni/assignment/{id}.md',
+                    container: '#assignment-content',
+                    headerPSelector: '.bs-docs-header .container p',
+                    show404: true
                 });
-
-                // unwrap any pre-existing .bs-docs-section to avoid double-wrapping
-                container.find('.bs-docs-section').each(function () { $(this).replaceWith($(this).contents()); });
-                var $children = container.children();
-                for (var ci = 0; ci < $children.length; ci++) {
-                    var $child = $($children[ci]);
-                    if (!$child.is('h1')) continue;
-
-                    // collect this h1 and following siblings until next h1 (at the same level)
-                    var $group = $child;
-                    var cj = ci + 1;
-                    while (cj < $children.length && !$($children[cj]).is('h1')) {
-                        $group = $group.add($children[cj]);
-                        cj++;
-                    }
-
-                    // wrap the collected nodes in one section
-                    $group.wrapAll('<div class="bs-docs-section"></div>');
-
-                    // skip to the last wrapped child index
-                    ci = cj - 1;
-                }
-            } else {
-                container.text(content);
-            }
-            mode_async_json = false;
-        }).fail(function () {
-            var message = '未找到对应习题文件：' + path + "。请联系教师核实章节号是否正确，或是否已上传习题文件。";
-            container.text(message);
-            mode_async_json = false;
-            showNotFound(message);
-        });
-
-        // after rendering, add page-specific link to sidebar (only on this page)
-        // ensure sidebar exists then append
-        waitUntil(function () {
-            var $sb = $('.bs-docs-sidebar');
-            return $sb.length > 0 && $sb.children().length === 3;
-        }, function () {
-            var $sidebar = $('.bs-docs-sidebar');
-            if ($sidebar.length) {
-                // only append if not already present
-                if ($sidebar.find('a.back-to-top[href="./assignment.html"]').length === 0) {
-                    var $link = $('<a class="back-to-top" href="./assignment.html"> 返回作业列表 </a>');
-                    $sidebar.append($link);
-                }
-            }
-        });
-    }
-
-    $(function () {
-        renderAssignment();
-    });
-
-    load_mathjax();
+            }, 100, 5000, false);
+        } else if (window.document.readyState === 'complete' || window.document.readyState === 'interactive') {
+            // doc-viewer not loaded yet, try again shortly
+            setTimeout(tryInit, 50);
+        } else {
+            document.addEventListener('DOMContentLoaded', tryInit);
+        }
+    })();
 </script>
