@@ -150,6 +150,12 @@
                     container.children().not('h1.big-title').remove();
                     container.append(window.marked.parse(content));
                     assignHeadingIds(container);
+                    // add Bootstrap table classes to any rendered tables for bordered/hover/striped styling
+                    try {
+                        container.find('table').addClass('table table-bordered table-hover table-striped');
+                    } catch (e) {
+                        console.error('[doc-viewer] add table classes failed', e);
+                    }
                     wrapSections(container);
                     load_mathjax();
                 } else {
@@ -211,16 +217,55 @@
         }
     }
 
+    // Helper: append a "back to list" link to sidebar if present, otherwise to the content container
+    function appendListLinkTo($content, pageKind, listHref, listText) {
+        try {
+            var finalHref = listHref || './';
+            var finalText = listText || '返回列表';
+            var dedup = pageKind ? ('a.back-to-top[data-kind="' + pageKind + '"]') : ('a.back-to-top[href="' + finalHref + '"]');
+            var $sb = $('nav.bs-docs-sidebar');
+            waitUntil(function () {
+                return $sb && $sb.length > 0 && $sb.children().length >= 2;
+            }, function () {
+                var $link = $('<a class="back-to-top"' + (pageKind ? (' data-kind="' + pageKind + '"') : '') + ' href="' + finalHref + '">' + finalText + '</a>');
+                $sb.append($link);
+            });
+        } catch
+            (e) {
+            console.error('[doc-viewer] appendListLinkTo error', e);
+        }
+    }
+
     function initDocViewer(options) {
         var opts = options || {};
         var idParam = opts.idParam || 'id';
-        var idRegex = opts.idRegex || /^[0-9A-Za-z]{2}$/;
+        // relax default to accept one or more alphanumeric characters
+        var idRegex = opts.idRegex || /^[0-9A-Za-z]+$/;
         var dataPath = opts.dataPath || null;
         var mdPathTemplate = opts.mdPathTemplate || './assignment/{id}.md';
         var containerSelector = opts.container || '#assignment-content';
         var headerPSelector = opts.headerPSelector || '.bs-docs-header .container p';
-        var headerH1Selector = opts.headerH1Selector || '.bs-docs-header .container h1';
         var show404 = typeof opts.show404 === 'boolean' ? opts.show404 : true;
+        // page kind handling: caller should provide explicit list link params
+        // opts.pageKind: optional string used only as a data-kind attribute (for dedup)
+        // opts.listHref: explicit href for the "back to list" link
+        // opts.listText: explicit displayed text for the link
+        // optional fallbacks:
+        // opts.listCn / opts.listEn can be used to construct a default listText if listText not provided
+        var pageKind = opts.pageKind || opts.kind || null;
+        var listHref = typeof opts.listHref !== 'undefined' ? opts.listHref : null;
+        var listText = typeof opts.listText !== 'undefined' ? opts.listText : null;
+        var listCn = typeof opts.listCn !== 'undefined' ? opts.listCn : null;
+        var listEn = typeof opts.listEn !== 'undefined' ? opts.listEn : null;
+        // if no explicit href/text provided, try to infer reasonable defaults from mdPathTemplate and pageKind
+        if (!listHref) {
+            var inferredEn = listEn || (pageKind ? String(pageKind) : null);
+            listHref = inferredEn ? ('./' + inferredEn + '.html') : null;
+        }
+        if (!listText) {
+            var inferredCn = listCn || (pageKind ? String(pageKind) : null);
+            listText = inferredCn ? ('返回' + inferredCn + '列表') : ('返回列表');
+        }
 
         var id = getQueryParam(idParam);
         try {
@@ -234,15 +279,14 @@
         }
 
         if (!id || !idRegex.test(id)) {
+            // still show a helpful message/modal if requested
             if (show404) defaultShowNotFound('未提供有效的ID号。');
+            // ensure user can navigate back to the list even when id is missing/invalid
+            appendListLinkTo($container, pageKind, listHref, listText);
             return;
         }
 
         var mdPath = mdPathTemplate.replace('{id}', id);
-        try {
-            console.debug('[doc-viewer] mdPath', mdPath);
-        } catch (e) {
-        }
         var fetchedTitle = null;
 
         // fetch title from data.json then set header p/h1, document.title, then load md
@@ -264,28 +308,54 @@
 
                 // if header still doesn't exist after short delay, create a simple one so the title is visible
                 dv_waitUntil(function () {
-                    return document.querySelector('.bs-docs-header') !== null;
+                    return document.querySelector('nav.bs-docs-sidenav') !== null;
                 }, function () {
+                    console.debug('[doc-viewer] no header found, creating one');
+                    if (!document.querySelector('nav.bs-docs-sidenav')) ensureDocsHeaderExists(title);
                 }, 100, 1000, false);
-                setTimeout(function () {
-                    if (!document.querySelector('.bs-docs-header')) ensureDocsHeaderExists(title);
-                }, 1200);
             }
 
             // load md
-            loadMarkdown(mdPath, $container).catch(function (err) {
+            // ensure we run post-render actions after the markdown is loaded
+            loadMarkdown(mdPath, $container).then(function () {
+                // after rendering, add page-specific link to sidebar (only on this page)
+                // ensure sidebar exists then append. Use pageKinds/pageKind mapping to generate
+                // simple flow: try sidebar within timeout, prepend to content container if sidebar not present
+                var dedupSelector = pageKind ? ('a.back-to-top[data-kind="' + pageKind + '"]') : null;
+                if (!dedupSelector && listHref) dedupSelector = 'a.back-to-top[href="' + listHref + '"]';
+                var finalHref = listHref || './';
+                var finalText = listText || '返回列表';
+
+                // simplified insertion: append to sidebar if exists, otherwise prepend to content container
+                (function () {
+                    var $sb = $('.bs-docs-sidebar').first();
+                    var dedup = dedupSelector;
+                    var $link = $('<a class="back-to-top"' + (pageKind ? (' data-kind="' + pageKind + '"') : '') + ' href="' + finalHref + '">' + finalText + '</a>');
+                    if ($sb.length) {
+                        if (!dedup || $sb.find(dedup).length === 0) $sb.append($link);
+                        return;
+                    }
+                    // fallback: prepend to content container
+                    if ($container && $container.length) {
+                        if (!dedup || $container.find(dedup).length === 0) $container.prepend($link);
+                    }
+                })();
+                appendListLinkTo($container, pageKind, listHref, listText);
+            }).catch(function (err) {
                 console.error('loadMarkdown error', err);
+                // on md load error, still display not-found and append list link so user can navigate
                 if (show404) defaultShowNotFound('未找到对应文件：' + mdPath);
+                appendListLinkTo($container, pageKind, listHref, listText);
             });
         });
     }
 
-    // export
+// export
     window.initDocViewer = initDocViewer;
     try {
         window.docViewerFetchTitle = fetchTitleFromData;
     } catch (e) { /* ignore */
     }
 
-})(window, jQuery);
-
+})
+(window, jQuery);

@@ -31,6 +31,9 @@
 </html>
 
 <script type="text/html" id="main">
+    <div class="alert alert-warning" role="alert">
+        <strong>提示：</strong> 该页面为人工智能工具转码，可能与原件存在偏差，请以PDF文件为准，如有问题，请联系主讲老师。
+    </div>
     <div id="assignment-content"></div>
     <div class="modal fade" id="not-found-modal" tabindex="-1" role="dialog" aria-labelledby="not-found-title">
         <div class="modal-dialog" role="document">
@@ -116,8 +119,12 @@
                     mdPathTemplate: '/teaching/cni/assignment/{id}.md',
                     container: '#assignment-content',
                     headerPSelector: '.bs-docs-header .container p',
-                    show404: true
-                });
+                    show404: true,
+                    // indicate this page is an assignment page and provide kind mappings
+                    pageKind: 'assignment',
+                    listHref: './assignment.html',
+                    listText: '返回作业列表'
+                 });
             }, 100, 5000, false);
         } else if (window.document.readyState === 'complete' || window.document.readyState === 'interactive') {
             // doc-viewer not loaded yet, try again shortly

@@ -102,99 +102,30 @@
     ];
 </script>
 <script type="text/javascript" src="/assets/js/ui.js"></script>
+<script type="text/javascript" src="/assets/js/doc-viewer.js"></script>
 
 <script type="text/javascript">
-    function getQueryParam(name) {
-        var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-        return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : '';
-    }
-
-    function showNotFound(message) {
-        $('#not-found-message').text(message);
-        if ($.fn.modal) {
-            $('#not-found-modal').modal('show');
+    // Use shared doc-viewer for experiment pages. Initialize with page-specific options.
+    (function tryInit() {
+        if (typeof dv_waitUntil === 'function') {
+            dv_waitUntil(function () { return document.querySelector('.bs-docs-header') || document.querySelector('header'); }, function () {
+                initDocViewer({
+                    idParam: 'id',
+                    idRegex: /^[0-9A-Za-z]+$/,
+                    dataPath: '/teaching/cni/experiment/data.json',
+                    mdPathTemplate: './experiment/{id}.md',
+                    container: '#experiment-content',
+                    headerPSelector: '.bs-docs-header .container p',
+                    show404: true,
+                    pageKind: 'experiment',
+                    listHref: './experiment.html',
+                    listText: '返回实验列表'
+                });
+            }, 100, 5000, false);
+        } else if (window.document.readyState === 'complete' || window.document.readyState === 'interactive') {
+            setTimeout(tryInit, 50);
         } else {
-            alert(message);
+            document.addEventListener('DOMContentLoaded', tryInit);
         }
-    }
-
-    function renderExperiment() {
-        var id = getQueryParam('id');
-        var container = $('#experiment-content');
-        // id supports letters and digits (alphanumeric), at least one character
-        if (!id || !/^[0-9A-Za-z]+$/.test(id)) {
-            showNotFound('未提供有效的实验 ID（仅支持字母和数字）。');
-            mode_async_json = false;
-            return;
-        }
-        var path = './experiment/' + id + '.md';
-        $.get(path, function (content) {
-            if (window.marked) {
-                // use marked to parse markdown
-                container.html(window.marked.parse(content));
-                $(container).find('table').addClass('table table-striped table-bordered table-hover');
-                // add class and ids to h1 headers
-                var $headings = container.find('h1').addClass('page-header');
-                $headings.each(function (index) {
-                    var num = String(index + 1).padStart(2, '0');
-                    $(this).attr('id', 'id' + num);
-                });
-
-                // unwrap any pre-existing .bs-docs-section to avoid double-wrapping
-                container.find('.bs-docs-section').each(function () {
-                    $(this).replaceWith($(this).contents());
-                });
-                var $children = container.children();
-                for (var ci = 0; ci < $children.length; ci++) {
-                    var $child = $($children[ci]);
-                    if (!$child.is('h1')) continue;
-
-                    // collect this h1 and following siblings until next h1 (at the same level)
-                    var $group = $child;
-                    var cj = ci + 1;
-                    while (cj < $children.length && !$($children[cj]).is('h1')) {
-                        $group = $group.add($children[cj]);
-                        cj++;
-                    }
-
-                    // wrap the collected nodes in one section
-                    $group.wrapAll('<div class="bs-docs-section"></div>');
-
-                    // skip to the last wrapped child index
-                    ci = cj - 1;
-                }
-
-                // after rendering, add page-specific link to sidebar (only on this page)
-                // ensure sidebar exists then append
-                waitUntil(function () {
-                    var $sb = $('.bs-docs-sidebar');
-                    return $sb.length > 0 && $sb.children().length === 3;
-                }, function () {
-                    var $sidebar = $('.bs-docs-sidebar');
-                    if ($sidebar.length) {
-                        // only append if not already present
-                        if ($sidebar.find('a.back-to-top[href="./experiment.html"]').length === 0) {
-                            var $link = $('<a class="back-to-top" href="./experiment.html"> 返回实验列表 </a>');
-                            $sidebar.append($link);
-                        }
-                    }
-                });
-            } else {
-                container.text(content);
-            }
-            mode_async_json = false;
-        }).fail(function () {
-            var message = '未找到对应实验文件：' + path + "。请联系教师核实实验号是否正确，或是否已上传实验文件。";
-            container.text(message);
-            mode_async_json = false;
-            showNotFound(message);
-        });
-    }
-
-    $(function () {
-        renderExperiment();
-    });
-
-    load_mathjax();
+    })();
 </script>
-
