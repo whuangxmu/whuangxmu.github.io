@@ -16,7 +16,7 @@
         var mode_async_json = false;
         var myoj2_app_name = "黄老师";
         var page_style = "doc-menu";
-        var page_docs_header_title = "课程信息";
+        var page_docs_header_title = "课程简介";
         var page_docs_header_desc = "简要介绍教学相关信息。教学大纲、作业和实验安排，等等。";
     </script>
 </head>
@@ -29,23 +29,34 @@
 </html>
 
 <script type="text/html" id="main">
+    <style type="text/css">
+        div.title {
+            padding-left: 0; /* 移除默认的内边距，如果需要的话 */
+            margin-left: -1em; /* 移除默认的外边距，如果需要的话 */
+            font-weight: bold;
+        }
+
+        div.small {
+            font-size: 85% !important;
+        }
+    </style>
     <div class="bs-docs-section">
         <h1 id="basic" class="page-header">基本信息</h1>
         <div class="form-horizontal">
             <div class="form-group">
                 <label class="col-sm-2 control-label">课程名称</label>
                 <div class="col-sm-4">
-                    <div class="form-control-static">C 语言程序设计</div>
+                    <div class="form-control-static">数据结构与算法</div>
                 </div>
                 <label class="col-sm-2 control-label">课程代码</label>
                 <div class="col-sm-4">
-                    <div class="form-control-static">130130010008</div>
+                    <div class="form-control-static">U10304800034</div>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">英文名称</label>
                 <div class="col-sm-4">
-                    <div class="form-control-static">C Programming Design</div>
+                    <div class="form-control-static" style="letter-spacing: -0.6px;">Data Structures and Algorithms</div>
                 </div>
                 <label class="col-sm-2 control-label">授课教师</label>
                 <div class="col-sm-4">
@@ -57,7 +68,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">适用专业</label>
                 <div class="col-sm-4">
-                    <div class="form-control-static">计算机专业大类</div>
+                    <div class="form-control-static">软件工程</div>
                 </div>
                 <label class="col-sm-2 control-label">课程类型</label>
                 <div class="col-sm-4">
@@ -68,7 +79,7 @@
                 <label class="col-sm-2 control-label">学时安排</label>
                 <div class="col-sm-10">
                     <div class="form-control-static">
-                        <table class="table table-bordered">
+                        <table id="semester" class="table table-bordered table-hover table-striped">
                             <tbody>
                             <tr>
                                 <th>学期</th>
@@ -79,12 +90,17 @@
                             </tr>
                             <tr class="bg-success text-success">
                                 <td class="text-justify">第1学期</td>
-                                <td class="text-right">84</td>
-                                <td class="text-right">56</td>
-                                <td class="text-right">28</td>
+                                <td class="text-right">64</td>
+                                <td class="text-right">48</td>
+                                <td class="text-right">16</td>
                                 <td class="text-right">0</td>
                             </tr>
                             </tbody>
+                            <tfoot>
+                            <tr>
+                                <td class="small" colspan="5">* 实际学时以开课学期的教学周数计算为准。</td>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -93,17 +109,90 @@
                 <label class="col-sm-2 control-label">先修课程</label>
                 <div class="col-sm-10">
                     <div class="form-control-static">
-                        无
+                        <a href="../cpd/" target="_blank">C语言程序设计</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">教学改革</label>
+                <div class="col-sm-10">
+                    <div class="form-control-static text-muted">
+                            （无)
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="bs-docs-section">
-        <h1 id="method" class="page-header">授课方式</h1>
-        <p>
-            本课程为厦门大学一流本科课程建设计划立项的专业核心课程，为线上线下混合课程。本课程同时是福建省教学改革立项项目。</p>
-        <p>课程包括理论课程和实验课程。</p>
+        <h1 id="current" class="page-header">当前班级</h1>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">授课安排</label>
+                <div class="col-sm-10">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>班级</th>
+                            <th>星期</th>
+                            <th>节次</th>
+                            <th>周次</th>
+                            <th>教室</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="3">1班</td>
+                            <td>星期二</td>
+                            <td>1-2</td>
+                            <td>1-15 (全)</td>
+                            <td>学武楼（1号楼）B206</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">星期四</td>
+                            <td rowspan="2">3-4</td>
+                            <td>1-15 (单)</td>
+                            <td>学武楼（1号楼）B206</td>
+                        </tr>
+                        <tr>
+                            <td>2-16 (双)</td>
+                            <td>文宣楼（4号楼）B311</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">2班</td>
+                            <td>星期二</td>
+                            <td>3-4</td>
+                            <td>1-15</td>
+                            <td>学武楼（1号楼）B206</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">星期四</td>
+                            <td rowspan="2">1-2</td>
+                            <td>1-14 (单)</td>
+                            <td>学武楼（1号楼）B206</td>
+                        </tr>
+                        <tr>
+                            <td>2-14 (双)</td>
+                            <td>文宣楼（4号楼）B311</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="small" colspan="5">* 另有软件工程专业3班。</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <label class="col-sm-2 control-label">考试安排</label>
+                <div class="col-sm-10">
+                    <div class="form-control-static">
+                        <ol style="padding-left: 1em">
+                            <li class="small">期中考核: 拟安排于第7--8周。</li>
+                            <li class="small">期末考试: 由信息学院统一安排。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="bs-docs-section">
         <h1 id="class" class="page-header">授课班级</h1>
@@ -113,126 +202,19 @@
                 <th>专业</th>
                 <th>年级</th>
                 <th>班级</th>
-                <th>学期</th>
+                <th>学年学期</th>
                 <th>学分</th>
                 <th>学时</th>
             </tr>
             </thead>
             <tbody>
             <tr class="success">
-                <td><i class="far fa-circle-check"></i>计算机大类</td>
-                <td>2025级</td>
-                <td><a href="schedule.html">1班</a></td>
+                <td><a href="#current"><i class="far fa-circle-check"></i> 软件工程</a></td>
+                <td>2024级, 大二</td>
+                <td><a href="schedule.html">1班, 2班</a></td>
                 <td>25-26/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td colspan="6">
-                    <label class="col-sm-3">上课时间、地点：</label>
-                    <div class="col-sm-9">
-                        <ol style="padding-left: 1em">
-                            <li class="small">4-17周(全) 星期三 第5节-第6节 学武楼（1号楼）B204</li>
-                            <li class="small">4-17周(全) 星期三 第7节-第8节 文宣楼（4号楼）B311</li>
-                            <li class="small">4-17周(全) 星期五 第5节-第6节 学武楼（1号楼）B204</li>
-                        </ol>
-                    </div>
-                    <label class="col-sm-3">考试时间、地点</label>
-                    <div class="col-sm-9">
-                        <ol style="padding-left: 1em">
-                            <li class="small">期中考试: 已结束</li>
-                            <li class="small">期末考试: 2026-01-08 10:30-12:30(星期四) 学武楼（1号楼）C302</li>
-                        </ol>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>计算机大类</td>
-                <td>2024级</td>
-                <td>1班</td>
-                <td>24-25/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>计算机大类</td>
-                <td>2023级</td>
-                <td>1班</td>
-                <td>23-24/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>计算机大类</td>
-                <td>2022级</td>
-                <td>1班</td>
-                <td>22-23/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2021级</td>
-                <td>1班</td>
-                <td>21-22/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2020级</td>
-                <td>1班</td>
-                <td>20-21/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2019级</td>
-                <td>1班</td>
-                <td>19-20/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2018级</td>
-                <td>1班</td>
-                <td>18-19/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2017级</td>
-                <td>1班</td>
-                <td>17-18/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2016级</td>
-                <td>1班</td>
-                <td>16-17/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2015级</td>
-                <td>1班</td>
-                <td>15-16/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
-            </tr>
-            <tr>
-                <td>软件工程</td>
-                <td>2014级</td>
-                <td>1班</td>
-                <td>14-15/1</td>
-                <td class="text-right">4</td>
-                <td class="text-right">84</td>
+                <td class="text-right">3</td>
+                <td class="text-right">64</td>
             </tr>
             </tbody>
         </table>

@@ -93,10 +93,22 @@
                             </thead>
                             <tbody id="course-list">
                             <tr>
-                                <td class="text-justify"><a href="/teaching/cni/">计算机网络</a></td>
-                                <td class="text-justify">2025-2026学年第2学期</td>
+                                <td class="text-justify"><a href="/teaching/dsa/">数据结构与算法</a></td>
+                                <td class="text-justify">2026-2027学年第1学期</td>
                                 <td class="text-justify">软件工程专业二年级</td>
-                                <td class="text-justify" id="status-cni-252"></td>
+                                <td class="text-justify" id="status-dsa-261"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-justify">软件体系结构</td>
+                                <td class="text-justify">2026-2027学年第2学期</td>
+                                <td class="text-justify">软件工程专业三年级</td>
+                                <td class="text-justify" id="status-swa-262"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-justify"><a href="/teaching/cni/">计算机网络</a></td>
+                                <td class="text-justify">2026-2027学年第2学期</td>
+                                <td class="text-justify">软件工程专业二年级</td>
+                                <td class="text-justify" id="status-cni-262"></td>
                             </tr>
                             <tr>
                                 <td class="text-justify">
@@ -111,12 +123,6 @@
                                 <td class="text-justify">2025-2026学年第1学期</td>
                                 <td class="text-justify">数字媒体技术专业三年级</td>
                                 <td class="text-justify text-danger">暂停开设</td>
-                            </tr>
-                            <tr>
-                                <td class="text-justify">计算机网络</td>
-                                <td class="text-justify">2024-2025学年第2学期</td>
-                                <td class="text-justify">软件工程专业二年级</td>
-                                <td class="text-justify text-info">已经结课</td>
                             </tr>
                             <tr>
                                 <td class="text-justify"><a href="/teaching/aem/">工程数学</a></td>
@@ -296,9 +302,13 @@
 
     function updateDisplay() {
         const now = new Date();
-        var startDate = new Date(2026, 2, 1);
-        var endDate = new Date(2026, 5, 27);
-        setCourseStatus(startDate, endDate, '#status-cni-252');
+        var startDate = new Date(2026, 8, 6);
+        var endDate = new Date(2027, 0, 9);
+        setCourseStatus(startDate, endDate, '#status-dsa-261');
+        var startDate2 = new Date(2027, 1, 14);
+        var endDate2 = new Date(2027, 5, 12);
+        setCourseStatus(startDate2, endDate2, '#status-cni-262');
+        setCourseStatus(startDate2, endDate2, '#status-swa-262');
     }
 
     // 调用函数更新显示
