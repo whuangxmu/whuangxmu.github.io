@@ -1,0 +1,162 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "教学进度";
+        var page_docs_header_desc = "简要介绍教学日程安排。";
+    </script>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <link rel="stylesheet" href="/assets/css/time-step.css">
+    <div class="bs-docs-section">
+        <h1 id="timeline" class="page-header">时间线</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="time-step-wrap"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="calendar" class="page-header">校历</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="calendar-table"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="arrangement" class="page-header">课程安排表</h1>
+        <div class="form-horizontal" id="syllabus-table"></div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/dsa/', text: '数据结构与算法'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
+
+<script type="text/javascript" src="/assets/js/timestep.js"></script>
+<script type="text/javascript" src="/assets/js/syllabus.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        const t = new TimeStep();
+        t.nodes = [
+            {"title": "选课", "tip": "2026年9月1日 选课上课", "time": new Date(2026, 9 - 1, 1, 8, 0)},
+            {"title": "开始上课", "tip": "2026年9月8日 开始上课", "time": new Date(2026, 9 - 1, 8, 8, 0)},
+            {"title": "期中考", "tip": "第8周 期中考", "time": new Date(2026, 11 - 1, 12, 10, 10)},
+            {"title": "下半学期", "tip": "第10周后 下半学期", "time": new Date(2026, 11 - 1, 12, 16, 0)},
+            {"title": "期末笔试", "tip": "2026年期末考试周 期末笔试", "time": new Date(2026, 12 - 1, 16, 10, 0)},
+            {"title": "课程结束", "tip": "2027年期末结束 课程结束", "time": new Date(2027, 1 - 1, 10, 18, 0)}];
+        t.prepare();
+        t.run();
+    });
+
+    const courses = [
+        {"type": 1, "lecture": 0, "title": "课程介绍", "chapter": "", "classlast": 2},
+        {"type": 1, "lecture": 1, "title": "第2章 线性表：顺序表", "chapter": 2, "classlast": 2},
+        {"type": 1, "lecture": 2, "title": "第2章 线性表：链表", "chapter": 2, "classlast": 4},
+        {"type": 1, "lecture": 3, "title": "第3章 栈和队列：栈", "chapter": 3, "classlast": 2},
+        {"type": 1, "lecture": 1, "title": "第3章 栈和队列：队列", "chapter": 3, "classlast": 2},
+        {"type": 1, "lecture": 4, "title": "第4章 串：顺序串", "chapter": 4, "classlast": 2},
+        {"type": 1, "lecture": 5, "title": "第4章 串：堆串、块串", "chapter": 4, "classlast": 2},
+        {"type": 1, "lecture": 6, "title": "第5章 数组和广义表：数组、矩阵", "chapter": 5, "classlast": 2},
+        {"type": 1, "lecture": 6, "title": "第5章 数组和广义表：广义表", "chapter": 15, "classlast": 2},
+        {"type": 1, "lecture": 6, "title": "第6章 树和二叉树：二叉树", "chapter": 16, "classlast": 2},
+        {"type": 1, "lecture": 2, "title": "第6章 树和二叉树：遍历二叉树和线索二叉树", "chapter": 6, "classlast": 2},
+        {"type": 1, "lecture": 7, "title": "第6章 树和二叉树：树和森林、哈夫曼树", "chapter": 6, "classlast": 2},
+        {"type": 1, "lecture": "", "title": "期中考试", "chapter": "", "classlast": 1},
+        {"type": 1, "lecture": 7, "title": "第7章 图：图的存储结构", "chapter": 7, "classlast": 2},
+        {"type": 1, "lecture": 8, "title": "第7章 图：图的遍历", "chapter": 7, "classlast": 1},
+        {"type": 1, "lecture": 8, "title": "第7章 图：最小生成树", "chapter": 7, "classlast": 1},
+        {"type": 1, "lecture": 9, "title": "第7章 图：有向无环", "chapter": 7, "classlast": 1},
+        {"type": 1, "lecture": 3, "title": "第7章 图：最短路径", "chapter": 7, "classlast": 1},
+        {"type": 1, "lecture": 4, "title": "第9章 查找：静态查找", "chapter": 9, "classlast": 2},
+        {"type": 1, "lecture": 5, "title": "第9章 查找：动态查找", "chapter": 9, "classlast": 3},
+        {"type": 1, "lecture": 12, "title": "第9章 查找：哈希表", "chapter": 9, "classlast": 1},
+        {"type": 1, "lecture": 12, "title": "第10章 内部排序：基本排序", "chapter": 10, "classlast": 2},
+        {"type": 1, "lecture": 6, "title": "第10章 内部排序：分治排序", "chapter": 10, "classlast": 2},
+        {"type": 1, "lecture": 13, "title": "第10章 内部排序：树形选择排序", "chapter": 27, "classlast": 1},
+        {"type": 1, "lecture": 14, "title": "第10章 内部排序：非比较排序", "chapter": "", "classlast": 1},
+        {"type": 1, "lecture": "R1", "title": "期末复习", "chapter": "", "classlast": 1},
+        {"type": 1, "lecture": "", "title": "答疑", "chapter": "", "classlast": 1},
+        {"type": 2, "lecture": "", "title": "线性表实验", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": "", "title": "栈和队列实验", "chapter": "", "classlast": 1},
+        {"type": 2, "lecture": "", "title": "串实验", "chapter": "", "classlast": 1},
+        {"type": 2, "lecture": "", "title": "数组和广义表实验", "chapter": "", "classlast": 1},
+        {"type": 2, "lecture": "", "title": "树和二叉树实验", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": "", "title": "图实验", "chapter": "", "classlast": 1},
+        {"type": 2, "lecture": "", "title": "查找实验", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": "", "title": "内部排序实验", "chapter": "", "classlast": 2},
+        {"type": 2, "lecture": "", "title": "上机考试", "chapter": "", "classlast": 2},
+    ];
+
+    const firstDay = new Date(2026, 9 - 1, 6); // 本学期第一周周日
+    const firstStartDay = new Date(2026, 9 - 1, 6); // 本学期第一周周日
+    const lastSaturday = new Date(2026, 12 - 1, 26); // 本学期最后一周周六
+
+    const theoryDays = [2, 4]; // 假设理论课在周三和周五上（注意JavaScript中周一是1，周二是2，以此类推）
+    const labDays = 4; // 实验课在周五上，负数代表单周，正数代表双周
+    const holidays = [[new Date(2026, 8, 25), new Date(2026, 9, 1), new Date(2026, 9, 2), new Date(2026, 9, 5), new Date(2026, 9, 6), new Date(2026, 9, 7)],
+        [null, null, null, null, new Date(2026, 8, 20), null, null, null]];
+
+    var s = new Syllabus();
+    classDates = s.generateClassDates(firstStartDay, lastSaturday, theoryDays, labDays, holidays, 2);
+    classDates = s.scheduleCourses(classDates, courses);
+    $("#calendar-table").html(s.generateCalendar(firstDay, lastSaturday));
+    $("#syllabus-table").html(s.buildTable(classDates));
+    s.highlightToday();
+</script>
