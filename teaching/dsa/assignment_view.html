@@ -1,0 +1,137 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/marked/marked.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = true;
+        var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "课后习题";
+        var page_docs_header_desc = "简要介绍课后习题的相关信息。";
+    </script>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <div class="alert alert-warning" role="alert">
+        <strong>提示：</strong> 该页面为人工智能工具转码，可能与原件存在偏差，请以PDF文件为准，如有问题，请联系主讲老师。
+    </div>
+    <div id="assignment-content"></div>
+    <div class="modal fade" id="not-found-modal" tabindex="-1" role="dialog" aria-labelledby="not-found-title">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="not-found-title">资源不存在</h4>
+                </div>
+                <div class="modal-body" id="not-found-message"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<style>
+    #assignment-content {
+        padding: 20px;
+        line-height: 1.5;
+    }
+
+    #assignment-content p, #assignment-content div, #assignment-content li {
+        margin: 1em 0;
+    }
+
+    #assignment-content p {
+        text-indent: 2em;
+    }
+
+    #assignment-content li p {
+        text-indent: 0;
+    }
+</style>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/dsa/', text: '数据结构与算法'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
+<script type="text/javascript" src="/assets/js/doc-viewer.js"></script>
+<script type="text/javascript">
+    // 等待全局 doc-viewer 的 dv_waitUntil 可用后再初始化
+    (function tryInit() {
+        if (typeof dv_waitUntil === 'function') {
+            // 等待 .bs-docs-header 出现（不等待 mode_async_json），然后初始化
+            dv_waitUntil(function () { return document.querySelector('.bs-docs-header') || document.querySelector('header'); }, function () {
+                initDocViewer({
+                    idParam: 'id',
+                    idRegex: /^[0-9A-Za-z]{2}$/,
+                    dataPath: '/teaching/dsa/assignment/data.json',
+                    mdPathTemplate: '/teaching/dsa/assignment/{id}.md',
+                    container: '#assignment-content',
+                    headerPSelector: '.bs-docs-header .container p',
+                    show404: true,
+                    // indicate this page is an assignment page and provide kind mappings
+                    pageKind: 'assignment',
+                    listHref: './assignment.html',
+                    listText: '返回作业列表'
+                 });
+            }, 100, 5000, false);
+        } else if (window.document.readyState === 'complete' || window.document.readyState === 'interactive') {
+            // doc-viewer not loaded yet, try again shortly
+            setTimeout(tryInit, 50);
+        } else {
+            document.addEventListener('DOMContentLoaded', tryInit);
+        }
+    })();
+</script>

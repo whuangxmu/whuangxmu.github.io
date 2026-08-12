@@ -1,0 +1,122 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_style = "doc-menu";
+        var page_docs_header_title = "课后习题";
+        var page_docs_header_desc = "简要介绍课后习题的相关信息。";
+    </script>
+    <title>课后习题 - 黄老师</title>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <div class="bs-docs-section">
+        <h1 id="assign" class="page-header">布置</h1>
+        <p>在本学期第一节课公布习题集，由学生课后同步完成。</p>
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>章节号</th>
+                <th>标题</th>
+                <th>查看</th>
+                <th>更新时间</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="submit" class="page-header">提交</h1>
+        <p>课后作业，应在 <a href="https://lnt.xmu.edu.cn/" target="_blank">厦门大学课程中心</a> 在线完成。 </p>
+        <p>
+            作业的完成时间，一般以授课当日为第一日，在第七日结束前为限。学生应注意作业提交时网络信号可能不佳造成缺交，请尽量留出时间，提前交作业。</p>
+    </div>
+    <div class="bs-docs-section">
+        <h1 id="grade" class="page-header">评分</h1>
+        <p>
+            理论课作业采取登记制，默认记为合格（100分）。作业质量差和补交，记为基本合格（60分）；作业质量很差和缺交，记为不合格（0分）。</p>
+    </div>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher',
+            dropdown: [
+                {link: '/teaching/cni/', text: '计算机网络'},
+                {link: '/teaching/dsa/', text: '数据结构与算法'},
+                {link: '/teaching/cpd/', text: 'C语言程序设计'},
+                {link: '/teaching/aem/', text: '工程数学'}
+            ]
+        },
+        {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
+
+<script type="text/javascript">
+    function fill_table() {
+        var table = $('.table');
+        var tbody = table.find('tbody');
+        if (tbody.length === 0) {
+            tbody = $('<tbody></tbody>');
+            table.append(tbody);
+        }
+        $.getJSON('./assignment/data.json', function (data) {
+            $.each(data, function (index, item) {
+                var row = $('<tr></tr>');
+                row.append($('<td></td>').attr('class', 'text-center').text(item.lesson));
+                row.append($('<td></td>').attr('class', 'text-justify').text(item.title));
+                row.append($('<td></td>').attr('class', 'text-center').append(
+                    $('<a></a>').attr('href', 'assignment_view.html?id=' + item.lesson).attr('target', '_blank').text('查看')
+                ));
+                row.append($('<td></td>').attr('class', 'text-center').text(item.updated));
+                tbody.append(row);
+            });
+        });
+
+    }
+    $(function () {
+        fill_table();
+    });
+</script>
