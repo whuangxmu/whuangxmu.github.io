@@ -1,0 +1,134 @@
+<!-- Wei HUANG's Gitee Page -->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei HUANG's Gitee Page">
+    <meta name="keywords" content="Wei HUANG">
+    <meta name="author" content="Wei HUANG, whuang@xmu.edu.cn">
+    <meta name="theme-color" content="#1359a6">
+
+    <script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var mode_async_json = false;
+        var myoj2_app_name = "黄老师";
+        var page_docs_header_title = "公告";
+        var page_docs_header_desc = "发布教学和科研相关信息。";
+    </script>
+</head>
+<body>
+<noscript>
+    <h1 class="text-danger">Error: Your browser does not support
+        JavaScript, or you have not enabled it in your browser settings.</h1>
+</noscript>
+</body>
+</html>
+
+<script type="text/html" id="main">
+    <!-- 仅新增和修改了以下 CSS 样式 -->
+    <style type="text/css">
+        /* 保持原有的标题样式，微调了 max-width 以适应新闻长标题 */
+        .title {
+            display: block;
+            color: rgb(37, 37, 37);
+            font-size: 32px;
+            max-width: 800px;
+            font-weight: 700; /* 新闻标题加粗 */
+            text-align: center;
+            margin: 20px auto 10px;
+            word-break: break-word;
+            line-height: 1.4;
+            font-family: "Pingfang SC", SimSun;
+        }
+        /* 新增：新闻元信息（时间、作者）样式 */
+        .news-meta {
+            text-align: center;
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            font-family: "Pingfang SC", SimSun;
+        }
+        .news-meta span {
+            margin: 0 10px;
+        }
+        /* 新增：正文排版样式（主流媒体规范） */
+        .news-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 16pt;
+            line-height: 2; /* 新闻正文推荐大行高 */
+            color: #333;
+            text-align: justify; /* 两端对齐 */
+        }
+        .news-content p {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            text-indent: 2em; /* 首行缩进两字符 */
+            font-family: "Pingfang SC", SimSun;
+        }
+        .news-content ul {
+            margin-left: 2em;
+            font-family: "Pingfang SC", SimSun;
+        }
+        .news-content ul li {
+        }
+    </style>
+
+    <section class="dvl-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- 新闻标题 -->
+                    <div class="title">课程 AIGC 使用指引</div>
+
+                    <!-- 新增：作者与发布时间 -->
+                    <div class="news-meta">
+                        <span>发布时间：2023-10-24 10:00</span>
+                        <span>作者：Wei HUANG</span>
+                    </div>
+
+                    <!-- 修改：正文内容区 -->
+                    <div class="news-content text-justify">
+                        <p>同学们，大家应该都感受到了，AI 现在确实很强——写代码、做PPT、生成视频，似乎无所不能。但你们大概也见过它翻车的样子：写出蹩脚的诗句、算错简单的算术、一本正经地编造不存在的论文引用。</p><p>这种"既能干又常出错"的矛盾，其实跟它的工作原理有关。AI 生成回答时，本质上是在做一件事：根据当前上下文，<strong>逐个预测下一个词元（token）出现的概率</strong>，然后挑概率高的词元拼成回答。它并不真正"理解"你在问什么。</p><p>这就导致了两类问题：一是<strong>概率高不等于正确</strong>，训练样本本身良莠不齐，AI 学到的材料里就有模糊甚至错误的内容，它分不清权威解答和网上随便写的帖子，自然也会把这些东西当成"答案"输出给你；二是<strong>你提问时对问题理解不深刻，表达出现偏差</strong>，AI 就会顺着你的偏差一路跑偏，给你的答案看似在回应你的问题，实际上早已偏离了正确方向。</p><p>所以，<strong>专业基础课真的得认真学</strong>。一方面，你基础越扎实，就越有能力判断 AI 说的对不对，哪些地方被带偏了；另一方面，你基础越扎实，就越能精准地向 AI 描述问题、指出关键关注点，引导它给出有用的回答，而不是被它牵着鼻子走。反过来，如果你自己什么都不懂，AI 说什么你就信什么，那它对你来说就不是工具，而是陷阱。<strong>AI 放大高手的效率，也放大庸者的无知。</strong></p><p>像数据结构这样的课程，是整个计算机专业最基础的核心课，教学有它自身的规律。基础练习的目的是帮助你建立扎实的基本功，不可能因为 AI 时代来了，就把基础练习全部取消，换成很难、很开放性的题目。所以我们仍然会布置基础题，这些题本身不难，但需要你真正动手去做、真正理解。如果你只是把题目扔给 AI，再把结果原封不动地交上来，那你交的就不是作业，而是一份你并不理解的"翻译稿"。</p><p>说到这里，不妨想一想：AI 能回答任何问题，但它问不出好问题。面对一个真实的工程场景，从海量信息中识别出"真正的问题是什么"，这种能力 AI 至今没有。而传统考试恰恰相反——题目已经给你了，你只需要给答案。除了"问题定义力"，还有跨领域整合知识的能力、在信息不全时做出判断的决策力、说服他人协作的影响力、以及没有外部监督时依然持续深入的自驱力——这些能力没有一种是 AI 能替代的，也没有一种是传统期末考试能考出来的。它们只能靠你在一次次动手实践、一次次踩坑纠错中慢慢长出来。</p><p>至于怎么用，记住三条就够了：</p><ul><li>让 AI 帮你理思路，但<strong>最终提交的代码，必须自己闭卷重写</strong>。</li><li>让 AI 帮你解释报错，但 Bug 自己定位。</li><li>对 AI 给出的结论，自己动手验证。</li></ul><p>最后想说一句：所有人都在担心 AI 抢饭碗，但真正的问题是你太"听话"了——习惯了等指令、等标准答案、等别人告诉你下一步该做什么。AI 时代最值钱的能力，是在没有人给你标准答案的情况下，你依然能行动、试错、调整、再行动，直到把事情做成。别再问"AI 会不会取代我"，去问"我能用 AI 做什么别人做不到的事"。把 AI 当学习助手，不当作业替身。</p><hr><p><strong>延伸阅读：</strong></p><p>[1] <a href="https://www.ryjiaoyu.com/article/74122" target="_blank">清华做了个实验：AI教的学生不输教授教的——但真正让人焦虑的不是成绩</a></p><p>[2]&nbsp;<a href="https://www.zhihu.com/question/1951817967785456234/answer/1987133388327499102" target="_blank">知乎回答：AI 已经/即将摧毁哪些行业?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</script>
+
+<script type="text/javascript">
+    // 菜单配置数据
+    var menuConfig = [
+        {
+            id: 'nav-teaching',
+            text: '教学',
+            link: '/teaching/',
+            icon: 'fa fa-chalkboard-teacher'
+        },
+        {
+            id: 'nav-status-research',
+            link: '/research/',
+            text: '研究',
+            icon: 'fa fa-tasks'
+        },
+        {
+            id: 'nav-release',
+            link: '/release/',
+            text: '公告',
+            icon: 'fa fa-bullhorn'
+        },
+        {
+            id: 'nav-about',
+            link: '/about.html',
+            text: '简介',
+            icon: 'fa fa-trophy'
+        }
+    ];
+</script>
+<script type="text/javascript" src="/assets/js/ui.js"></script>
