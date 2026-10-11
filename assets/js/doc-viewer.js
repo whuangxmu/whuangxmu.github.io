@@ -133,10 +133,26 @@
     }
 
     function assignHeadingIds(container) {
-        var $headings = container.find('h1').not('.big-title').addClass('page-header');
-        $headings.each(function (index) {
-            var num = String(index + 1).padStart(2, '0');
-            $(this).attr('id', 'id' + num);
+        var $headings = container.find('h1, h2').not('.big-title').addClass('page-header');
+
+        var h1Count = 0;   // h1 的主序号
+        var h2Count = 0;   // 当前 h1 下的 h2 子序号
+
+        $headings.each(function () {
+            var tagName = $(this).prop('tagName');
+            var id;
+
+            if (tagName === 'H1') {
+                h1Count++;
+                h2Count = 0; // 遇到新的 h1，重置 h2 计数器
+                id = String(h1Count).padStart(2, '0');
+            } else if (tagName === 'H2') {
+                h2Count++;
+                // 格式：主序号(2位) + 子序号(2位)，例如 0101, 0203
+                id = String(h1Count).padStart(2, '0') + String(h2Count).padStart(2, '0');
+            }
+
+            $(this).attr('id', 'id' + id);
         });
     }
 
